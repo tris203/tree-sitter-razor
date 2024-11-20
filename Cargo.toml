@@ -2,7 +2,7 @@
 name = "tree-sitter-razor"
 description = "Razor grammar for tree-sitter"
 version = "0.1.0"
-authors = ["Yes <No@lol.com>"]
+authors = ["Tristan Knight <admin@snappeh.com>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "razor"]
