@@ -1,0 +1,28 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "razor",
+      "path": ".",
+      "scope": "source.razor",
+      "file-types": [
+        ".razor"
+      ],
+      "injection-regex": "^razor$",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "links": {
+      "repository": "https://github.com/tris203/tree-sitter-razor"
+    },
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "tris203",
+        "email": "admin@snappeh.com"
+      }
+    ]
+  }
+}

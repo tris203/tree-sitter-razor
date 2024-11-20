@@ -1,0 +1,84 @@
+=======
+Counter Page
+=======
+
+@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+
+----
+
+(compilation_unit
+  (page_directive
+    (string_literal
+      (string_literal_content)))
+  (rendermode_directive
+    (render_mode))
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (end_tag
+      (tag_name)))
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (end_tag
+      (tag_name)))
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (html_text)
+    (razor_implicit_expression
+      (identifier))
+    (end_tag
+      (tag_name)))
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value))
+      (razor_html_attribute
+        (razor_attribute_value
+          (identifier))))
+    (html_text)
+    (end_tag
+      (tag_name)))
+  (razor_block
+    (local_declaration_statement
+      (modifier)
+      (variable_declaration
+        (predefined_type)
+        (variable_declarator
+          (identifier)
+          (integer_literal))))
+    (local_function_statement
+      (modifier)
+      (predefined_type)
+      (identifier)
+      (parameter_list)
+      (block
+        (expression_statement
+          (postfix_unary_expression
+            (identifier)))))))
