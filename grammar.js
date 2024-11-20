@@ -42,9 +42,10 @@ module.exports = grammar(CSHARP, {
       prec.right(
         choice(
           $.razor_comment,
-          $.page_directive,
-          $.rendermode_directive,
-          $.inject_directive,
+          $.razor_page_directive,
+          $.razor_using_directive,
+          $.razor_rendermode_directive,
+          $.razor_inject_directive,
           $.razor_escape,
           $.razor_if,
           $.razor_switch,
@@ -67,12 +68,21 @@ module.exports = grammar(CSHARP, {
     _razor_code_keyword: (_) => choice("code", "functions"),
     _razor_await_keyword: (_) => "await",
 
-    page_directive: ($) => seq($._razor_marker, "page", $.string_literal),
-    inject_directive: ($) =>
+    razor_page_directive: ($) => seq($._razor_marker, "page", $.string_literal),
+    razor_using_directive: ($) =>
+      seq(
+        $._razor_marker,
+        "using",
+        choice(
+          seq(optional("unsafe"), field("name", $.identifier), "=", $.type),
+          seq(optional("static"), optional("unsafe"), $._name),
+        ),
+      ),
+    razor_inject_directive: ($) =>
       seq($._razor_marker, "inject", $.qualified_name, $.identifier),
-    rendermode_directive: ($) =>
-      seq($._razor_marker, "rendermode", $.render_mode),
-    render_mode: (_) =>
+    razor_rendermode_directive: ($) =>
+      seq($._razor_marker, "rendermode", $.razor_rendermode),
+    razor_rendermode: (_) =>
       choice("InteractiveServer", "InteractiveWebAssembly", "InteractiveAuto"),
 
     _supported_c_sharp_rules: ($) =>

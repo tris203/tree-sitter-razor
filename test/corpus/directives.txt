@@ -7,15 +7,100 @@ Directives
 ---
 
 (compilation_unit
-  (page_directive
+  (razor_page_directive
     (string_literal
       (string_literal_content)))
-  (rendermode_directive
-    (render_mode))
-  (inject_directive
+  (razor_rendermode_directive
+    (razor_rendermode))
+  (razor_inject_directive
     (qualified_name
       (qualified_name
         (identifier)
         (identifier))
       (identifier))
     (identifier)))
+
+======
+Using directives
+======
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+@using BlazorApp
+@using BlazorApp.Components
+-----
+
+(compilation_unit
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (identifier)
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (qualified_name
+            (identifier)
+            (identifier))
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (qualified_name
+        (qualified_name
+          (qualified_name
+            (identifier)
+            (identifier))
+          (identifier))
+        (identifier))
+      (identifier)))
+  (razor_using_directive
+    (qualified_name
+      (identifier)
+      (identifier)))
+  (razor_using_directive
+    (identifier))
+  (razor_using_directive
+    (qualified_name
+      (identifier)
+      (identifier))))

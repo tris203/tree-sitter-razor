@@ -11378,15 +11378,19 @@
           },
           {
             "type": "SYMBOL",
-            "name": "page_directive"
+            "name": "razor_page_directive"
           },
           {
             "type": "SYMBOL",
-            "name": "rendermode_directive"
+            "name": "razor_using_directive"
           },
           {
             "type": "SYMBOL",
-            "name": "inject_directive"
+            "name": "razor_rendermode_directive"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "razor_inject_directive"
           },
           {
             "type": "SYMBOL",
@@ -11476,7 +11480,7 @@
       "type": "STRING",
       "value": "await"
     },
-    "page_directive": {
+    "razor_page_directive": {
       "type": "SEQ",
       "members": [
         {
@@ -11493,7 +11497,91 @@
         }
       ]
     },
-    "inject_directive": {
+    "razor_using_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "unsafe"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "FIELD",
+                  "name": "name",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "static"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "unsafe"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_name"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "razor_inject_directive": {
       "type": "SEQ",
       "members": [
         {
@@ -11514,7 +11602,7 @@
         }
       ]
     },
-    "rendermode_directive": {
+    "razor_rendermode_directive": {
       "type": "SEQ",
       "members": [
         {
@@ -11527,11 +11615,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "render_mode"
+          "name": "razor_rendermode"
         }
       ]
     },
-    "render_mode": {
+    "razor_rendermode": {
       "type": "CHOICE",
       "members": [
         {

@@ -1699,15 +1699,7 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
           "type": "namespace_declaration",
-          "named": true
-        },
-        {
-          "type": "page_directive",
           "named": true
         },
         {
@@ -1755,15 +1747,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -2313,14 +2317,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -2361,15 +2357,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -2660,14 +2668,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -2708,15 +2708,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         }
       ]
@@ -3392,25 +3404,6 @@
       "types": [
         {
           "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "inject_directive",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "qualified_name",
           "named": true
         }
       ]
@@ -4425,21 +4418,6 @@
     }
   },
   {
-    "type": "page_directive",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string_literal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "parameter",
     "named": true,
     "fields": {
@@ -5222,14 +5200,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -5270,15 +5240,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -5329,14 +5311,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -5381,15 +5355,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -5420,14 +5406,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -5468,15 +5446,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -5504,14 +5494,6 @@
         },
         {
           "type": "explicit_line_transition",
-          "named": true
-        },
-        {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
           "named": true
         },
         {
@@ -5559,15 +5541,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -5628,14 +5622,6 @@
             "named": true
           },
           {
-            "type": "inject_directive",
-            "named": true
-          },
-          {
-            "type": "page_directive",
-            "named": true
-          },
-          {
             "type": "razor_await_expression",
             "named": true
           },
@@ -5676,15 +5662,27 @@
             "named": true
           },
           {
+            "type": "razor_inject_directive",
+            "named": true
+          },
+          {
+            "type": "razor_page_directive",
+            "named": true
+          },
+          {
+            "type": "razor_rendermode_directive",
+            "named": true
+          },
+          {
             "type": "razor_switch",
             "named": true
           },
           {
-            "type": "razor_while",
+            "type": "razor_using_directive",
             "named": true
           },
           {
-            "type": "rendermode_directive",
+            "type": "razor_while",
             "named": true
           },
           {
@@ -5758,14 +5756,6 @@
             "named": true
           },
           {
-            "type": "inject_directive",
-            "named": true
-          },
-          {
-            "type": "page_directive",
-            "named": true
-          },
-          {
             "type": "razor_await_expression",
             "named": true
           },
@@ -5806,15 +5796,27 @@
             "named": true
           },
           {
+            "type": "razor_inject_directive",
+            "named": true
+          },
+          {
+            "type": "razor_page_directive",
+            "named": true
+          },
+          {
+            "type": "razor_rendermode_directive",
+            "named": true
+          },
+          {
             "type": "razor_switch",
             "named": true
           },
           {
-            "type": "razor_while",
+            "type": "razor_using_directive",
             "named": true
           },
           {
-            "type": "rendermode_directive",
+            "type": "razor_while",
             "named": true
           },
           {
@@ -5899,14 +5901,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -5959,15 +5953,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -5987,6 +5993,60 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_inject_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "qualified_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_page_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_rendermode",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "razor_rendermode_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "razor_rendermode",
           "named": true
         }
       ]
@@ -6036,14 +6096,6 @@
           "named": true
         },
         {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
-          "named": true
-        },
-        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -6088,15 +6140,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -6124,14 +6188,6 @@
         },
         {
           "type": "explicit_line_transition",
-          "named": true
-        },
-        {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
           "named": true
         },
         {
@@ -6175,7 +6231,23 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_using_directive",
           "named": true
         },
         {
@@ -6183,11 +6255,33 @@
           "named": true
         },
         {
-          "type": "rendermode_directive",
-          "named": true
-        },
-        {
           "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_using_directive",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -6211,14 +6305,6 @@
         },
         {
           "type": "explicit_line_transition",
-          "named": true
-        },
-        {
-          "type": "inject_directive",
-          "named": true
-        },
-        {
-          "type": "page_directive",
           "named": true
         },
         {
@@ -6266,15 +6352,27 @@
           "named": true
         },
         {
+          "type": "razor_inject_directive",
+          "named": true
+        },
+        {
+          "type": "razor_page_directive",
+          "named": true
+        },
+        {
+          "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
         {
-          "type": "razor_while",
+          "type": "razor_using_directive",
           "named": true
         },
         {
-          "type": "rendermode_directive",
+          "type": "razor_while",
           "named": true
         },
         {
@@ -6470,26 +6568,6 @@
       "types": [
         {
           "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "render_mode",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "rendermode_directive",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "render_mode",
           "named": true
         }
       ]

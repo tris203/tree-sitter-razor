@@ -25,11 +25,11 @@ Counter Page
 ----
 
 (compilation_unit
-  (page_directive
+  (razor_page_directive
     (string_literal
       (string_literal_content)))
-  (rendermode_directive
-    (render_mode))
+  (razor_rendermode_directive
+    (razor_rendermode))
   (element
     (start_tag
       (tag_name))
