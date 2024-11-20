@@ -2,11 +2,11 @@
 
 ((razor_comment) @comment @spell)
 
-((page_directive) @constant.macro)
-((rendermode_directive) @constant.macro)
-((render_mode) @property)
+((razor_page_directive) @constant.macro)
+((razor_rendermode_directive) @constant.macro)
+((razor_rendermode) @property)
 
-((inject_directive) @constant.macro)
+((razor_inject_directive) @constant.macro)
 
 ((razor_implicit_expression) @variable)
 ((razor_html_attribute) @function)
