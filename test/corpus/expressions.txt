@@ -8,11 +8,12 @@ Explicit Razor Expression
 
 (compilation_unit
   (razor_explicit_expression
-    (invocation_expression
-      (member_access_expression
-        (identifier)
-        (identifier))
-      (argument_list))))
+    (parenthesized_expression
+      (invocation_expression
+        (member_access_expression
+          (identifier)
+          (identifier))
+        (argument_list)))))
 
 =========
 Explicit Razor Expression with code
@@ -26,7 +27,7 @@ Explicit Razor Expression with code
 
 (compilation_unit
   (razor_block
-    (local_declaration_statement
+    (field_declaration
       (variable_declaration
         (implicit_type)
         (variable_declarator
@@ -43,10 +44,11 @@ Explicit Razor Expression with code
     (start_tag
       (tag_name))
     (html_text)
-    (razor_explicit_expression
-      (member_access_expression
-        (identifier)
-        (identifier)))
+    (razor_implicit_expression
+      (parenthesized_expression
+        (member_access_expression
+          (identifier)
+          (identifier))))
     (end_tag
       (tag_name))))
 
@@ -91,7 +93,7 @@ Implict Razor Expression Mid Line
 
 (compilation_unit
   (razor_block
-    (local_declaration_statement
+    (field_declaration
       (variable_declaration
         (implicit_type)
         (variable_declarator
@@ -193,12 +195,13 @@ Explicit Razor Expressions With Generics
     (start_tag
       (tag_name))
     (razor_explicit_expression
-      (invocation_expression
-        (generic_name
-          (identifier)
-          (type_argument_list
-            (predefined_type)))
-        (argument_list)))
+      (parenthesized_expression
+        (invocation_expression
+          (generic_name
+            (identifier)
+            (type_argument_list
+              (predefined_type)))
+          (argument_list))))
     (end_tag
       (tag_name))))
 
@@ -212,16 +215,17 @@ Await Implicit Razor Expression
   (element
     (start_tag
       (tag_name))
-    (razor_await_expression
-      (invocation_expression
-        (identifier)
-        (argument_list
-          (argument
-            (string_literal
-              (string_literal_content)))
-          (argument
-            (string_literal
-              (string_literal_content))))))
+    (razor_implicit_expression
+      (await_expression
+        (invocation_expression
+          (identifier)
+          (argument_list
+            (argument
+              (string_literal
+                (string_literal_content)))
+            (argument
+              (string_literal
+                (string_literal_content)))))))
     (end_tag
       (tag_name))))
 
@@ -240,7 +244,7 @@ Implicit Expression in attribute value
         (html_attribute_name)
         (html_attribute_value
           (razor_implicit_expression
-            (identifier)))))
+            (boolean_literal)))))
     (html_text)
     (end_tag
       (tag_name))))
@@ -259,8 +263,24 @@ Explicit Expression in attribute value
         (html_attribute_name)
         (html_attribute_value
           (razor_explicit_expression
-            (string_literal
-              (string_literal_content))))))
+            (parenthesized_expression
+              (string_literal
+                (string_literal_content)))))))
     (html_text)
+    (end_tag
+      (tag_name))))
+
+======
+Implicit Expression With A Name that starts with a keyword
+======
+<p>@forecast</p>
+-----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_implicit_expression
+      (identifier))
     (end_tag
       (tag_name))))

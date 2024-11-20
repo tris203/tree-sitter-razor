@@ -167,3 +167,68 @@ Foreach in an if
           (identifier))
         (end_tag
           (tag_name))))))
+
+======
+Foreach in an if with a wrapped element
+======
+
+@if (value % 2 == 0)
+{
+  <ul>
+  @foreach (var item in items)
+  {
+    <li>@item</li>
+  }
+  </ul>
+} else {
+  <ul>
+  @foreach (var item in items)
+  {
+    <li>@item</li>
+  }
+  </ul>
+}
+
+---
+
+(compilation_unit
+  (razor_if
+    (razor_condition
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (integer_literal))
+        (integer_literal)))
+    (element
+      (start_tag
+        (tag_name))
+      (razor_foreach
+        (implicit_type)
+        (identifier)
+        (identifier)
+        (element
+          (start_tag
+            (tag_name))
+          (razor_implicit_expression
+            (identifier))
+          (end_tag
+            (tag_name))))
+      (end_tag
+        (tag_name)))
+    (razor_else
+      (element
+        (start_tag
+          (tag_name))
+        (razor_foreach
+          (implicit_type)
+          (identifier)
+          (identifier)
+          (element
+            (start_tag
+              (tag_name))
+            (razor_implicit_expression
+              (identifier))
+            (end_tag
+              (tag_name))))
+        (end_tag
+          (tag_name))))))

@@ -12,7 +12,19 @@ const CSHARP = require("tree-sitter-c-sharp/grammar");
 module.exports = grammar(CSHARP, {
   name: "razor",
 
-  extras: ($) => [$.razor_comment, /\s+/],
+  extras: ($) => [$.razor_comment, $.comment, /\s+/],
+
+  conflicts: ($, o) => [
+    [$.razor_explicit_expression, $._expression_statement_expression],
+
+    [$.destructor_declaration, $._simple_name],
+    // [$.declaration_list, $.block],
+    // [$.declaration_list, $.block, $.initializer_expression],
+
+    [$.initializer_expression, $.razor_block],
+    [$.field_declaration, $.local_declaration_statement],
+    ...o,
+  ],
 
   rules: {
     // document: ($) => repeat($._node),
@@ -20,11 +32,16 @@ module.exports = grammar(CSHARP, {
       repeat1(
         choice(
           $._node,
-          seq(
-            "donotmatchthiseveriwanttoburnthisrulebut",
-            $._top_level_item,
-            "ifyouremovethisforsomereasontreesitterdoesntcompile",
-          ),
+          $.razor_page_directive,
+          $.razor_using_directive,
+          $.razor_rendermode_directive,
+          $.razor_inject_directive,
+          $.razor_block,
+          // seq(
+          //   "donotmatchthiseveriwanttoburnthisrulebut",
+          //   $._top_level_item,
+          //   "ifyouremovethisforsomereasontreesitterdoesntcompile",
+          // ),
         ),
       ),
 
@@ -42,14 +59,9 @@ module.exports = grammar(CSHARP, {
       prec.right(
         choice(
           $.razor_comment,
-          $.razor_page_directive,
-          $.razor_using_directive,
-          $.razor_rendermode_directive,
-          $.razor_inject_directive,
           $.razor_escape,
           $.razor_if,
           $.razor_switch,
-          $.razor_block,
           $.razor_for,
           $.razor_foreach,
           $.razor_while,
@@ -58,6 +70,24 @@ module.exports = grammar(CSHARP, {
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.element,
+        ),
+      ),
+
+    preproc_if: ($) => prec(-10, $.declaration),
+
+    method_declaration: ($) =>
+      prec(
+        2,
+        seq(
+          repeat($.attribute_list),
+          repeat($.modifier),
+          field("returns", $.type),
+          optional($.explicit_interface_specifier),
+          field("name", $.identifier),
+          field("type_parameters", optional($.type_parameter_list)),
+          field("parameters", $.parameter_list),
+          repeat($.type_parameter_constraints_clause),
+          $._function_body,
         ),
       ),
 
@@ -85,23 +115,22 @@ module.exports = grammar(CSHARP, {
     razor_rendermode: (_) =>
       choice("InteractiveServer", "InteractiveWebAssembly", "InteractiveAuto"),
 
-    _supported_c_sharp_rules: ($) =>
-      prec(-10, repeat1(choice($.statement, $.comment))),
-
     razor_block: ($) =>
-      seq(
-        $._razor_marker,
-        optional($._razor_code_keyword),
-        "{",
-        $._blended_content,
-        "}",
+      prec.left(
+        seq(
+          $._razor_marker,
+          optional($._razor_code_keyword),
+          "{",
+          repeat(choice($.declaration, seq($.statement), $._node)),
+          "}",
+        ),
       ),
 
     razor_explicit_expression: ($) =>
-      seq($._razor_marker, seq("(", prec.right($.expression), ")")),
+      prec.right(seq($._razor_marker, prec.right($.parenthesized_expression))),
 
     razor_implicit_expression: ($) =>
-      seq($._razor_marker, /[^({]{1}/, prec.right($.expression)),
+      seq($._razor_marker, prec.left($.expression)),
 
     razor_await_expression: ($) =>
       seq($._razor_marker, $._razor_await_keyword, prec.right($.expression)),
@@ -132,7 +161,7 @@ module.exports = grammar(CSHARP, {
         "}",
       ),
 
-    razor_condition: ($) => seq("(", $.expression, ")"),
+    razor_condition: ($) => prec(10, seq("(", $.expression, ")")),
 
     razor_switch_case: ($) =>
       prec.left(
@@ -171,7 +200,10 @@ module.exports = grammar(CSHARP, {
 
     _blended_content: ($) =>
       repeat1(
-        choice($._node, $.explicit_line_transition, $._supported_c_sharp_rules),
+        prec(
+          10,
+          choice($._node, $.explicit_line_transition, $.statement, $.comment),
+        ),
       ),
 
     razor_foreach: ($) =>

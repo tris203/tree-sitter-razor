@@ -10,7 +10,7 @@ Anonymous Code Blocks
 
 (compilation_unit
   (razor_block
-    (local_declaration_statement
+    (field_declaration
       (modifier)
       (variable_declaration
         (predefined_type)
@@ -107,7 +107,7 @@ Multiple Code Blocks
 
 (compilation_unit
   (razor_block
-    (local_declaration_statement
+    (field_declaration
       (variable_declaration
         (implicit_type)
         (variable_declarator
@@ -146,7 +146,7 @@ Code Block with HTML
 
 (compilation_unit
   (razor_block
-    (local_declaration_statement
+    (field_declaration
       (variable_declaration
         (implicit_type)
         (variable_declarator
