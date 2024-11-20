@@ -1,0 +1,21 @@
+=======
+Directives
+=======
+@page "/counter"
+@rendermode InteractiveServer
+@inject blazorapp.components.Counter Counter
+---
+
+(compilation_unit
+  (page_directive
+    (string_literal
+      (string_literal_content)))
+  (rendermode_directive
+    (render_mode))
+  (inject_directive
+    (qualified_name
+      (qualified_name
+        (identifier)
+        (identifier))
+      (identifier))
+    (identifier)))

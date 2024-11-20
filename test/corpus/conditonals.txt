@@ -1,0 +1,169 @@
+======
+If
+======
+
+@if (value % 2 == 0)
+{
+    <p>The value was even.</p>
+}
+
+
+----
+
+(compilation_unit
+  (razor_if
+    (razor_condition
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (integer_literal))
+        (integer_literal)))
+    (element
+      (start_tag
+        (tag_name))
+      (html_text)
+      (end_tag
+        (tag_name)))))
+
+====
+Else if
+====
+
+@if (value % 2 == 0)
+{
+    <p>The value was even.</p>
+}
+else if (value >= 1337)
+{
+    <p>The value is large.</p>
+}
+else
+{
+    <p>The value is odd and small.</p>
+}
+
+----
+
+(compilation_unit
+  (razor_if
+    (razor_condition
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (integer_literal))
+        (integer_literal)))
+    (element
+      (start_tag
+        (tag_name))
+      (html_text)
+      (end_tag
+        (tag_name)))
+    (razor_else_if
+      (razor_condition
+        (binary_expression
+          (identifier)
+          (integer_literal)))
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))
+    (razor_else
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))))
+
+====
+Switch
+====
+
+@switch (value)
+{
+    case 1:
+        <p>The value is 1!</p>
+        break;
+    case 1337:
+        <p>Your number is 1337!</p>
+        break;
+    case "dog":
+        <p>Your value is dog!</p>
+        break;
+    default:
+        <p>Your number wasn't 1 or 1337.</p>
+        break;
+}
+----
+
+(compilation_unit
+  (razor_switch
+    (razor_condition
+      (identifier))
+    (razor_switch_case
+      (razor_case_condition)
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))
+    (razor_switch_case
+      (razor_case_condition)
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))
+    (razor_switch_case
+      (razor_case_condition)
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))
+    (razor_switch_default
+      (element
+        (start_tag
+          (tag_name))
+        (html_text)
+        (end_tag
+          (tag_name))))))
+
+======
+Foreach in an if
+======
+
+@if (value % 2 == 0)
+{
+  @foreach (var item in items)
+  {
+    <p>@item</p>
+  }
+}
+
+---
+
+(compilation_unit
+  (razor_if
+    (razor_condition
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (integer_literal))
+        (integer_literal)))
+    (razor_foreach
+      (implicit_type)
+      (identifier)
+      (identifier)
+      (element
+        (start_tag
+          (tag_name))
+        (razor_implicit_expression
+          (identifier))
+        (end_tag
+          (tag_name))))))

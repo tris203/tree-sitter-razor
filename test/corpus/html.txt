@@ -1,0 +1,54 @@
+========
+Simple HTML
+========
+
+<p>Simple HTML</p>
+
+-----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (end_tag
+      (tag_name))))
+
+===========
+HTML with attributes
+===========
+
+<p id="foo" class="bar">HTML with attributes</p>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value))
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (html_text)
+    (end_tag
+      (tag_name))))
+
+===========
+Attribute name with space
+===========
+<p class="foo bar">HTML with attributes</p>
+
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (html_text)
+    (end_tag
+      (tag_name))))

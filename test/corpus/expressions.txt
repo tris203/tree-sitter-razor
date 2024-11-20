@@ -1,0 +1,266 @@
+==================
+Explicit Razor Expression
+==================
+
+@(DateTime.Now())
+
+---
+
+(compilation_unit
+  (razor_explicit_expression
+    (invocation_expression
+      (member_access_expression
+        (identifier)
+        (identifier))
+      (argument_list))))
+
+=========
+Explicit Razor Expression with code
+=========
+@{
+    var joe = new Person("Joe", 33);
+}
+
+<p>Age@(joe.Age)</p>
+-----
+
+(compilation_unit
+  (razor_block
+    (local_declaration_statement
+      (variable_declaration
+        (implicit_type)
+        (variable_declarator
+          (identifier)
+          (object_creation_expression
+            (identifier)
+            (argument_list
+              (argument
+                (string_literal
+                  (string_literal_content)))
+              (argument
+                (integer_literal))))))))
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (razor_explicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))
+    (end_tag
+      (tag_name))))
+
+================
+Razor Implicit Expression
+================
+
+@AThing
+
+---
+
+(compilation_unit
+  (razor_implicit_expression
+    (identifier)))
+
+================
+Razor Implicit Expression in Html Tag
+================
+
+<h1>@AThing</h1>
+
+---
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_implicit_expression
+      (identifier))
+    (end_tag
+      (tag_name))))
+
+=====
+Implict Razor Expression Mid Line
+=====
+@{
+    var quote = "Getting old ain't for wimps! - Anonymous";
+}
+
+<div>Quote of the Day: @quote</div>
+----
+
+(compilation_unit
+  (razor_block
+    (local_declaration_statement
+      (variable_declaration
+        (implicit_type)
+        (variable_declarator
+          (identifier)
+          (string_literal
+            (string_literal_content))))))
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (razor_implicit_expression
+      (identifier))
+    (end_tag
+      (tag_name))))
+
+=======
+Implict Razor Expressions
+=======
+<p>@DateTime.Now</p>
+<p>@DateTime.IsLeapYear(2016)</p>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_implicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))
+    (end_tag
+      (tag_name)))
+  (element
+    (start_tag
+      (tag_name))
+    (razor_implicit_expression
+      (invocation_expression
+        (member_access_expression
+          (identifier)
+          (identifier))
+        (argument_list
+          (argument
+            (integer_literal)))))
+    (end_tag
+      (tag_name))))
+
+=====
+Implict Expression with spaces - after space is text
+=====
+
+<p>Last week: @DateTime.Now - TimeSpan.FromDays(7)</p>
+---
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (html_text)
+    (razor_implicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))
+    (html_text)
+    (end_tag
+      (tag_name))))
+
+=======
+Implict Razor Expressions With Generics - Should render Generic as tag
+=======
+
+
+<p>@GenericMethod<int>()</p>
+---
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_implicit_expression
+      (invocation_expression
+        (generic_name
+          (identifier)
+          (type_argument_list
+            (predefined_type)))
+        (argument_list)))
+    (end_tag
+      (tag_name))))
+
+=======
+Explicit Razor Expressions With Generics
+=======
+
+
+<p>@(GenericMethod<int>())</p>
+---
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_explicit_expression
+      (invocation_expression
+        (generic_name
+          (identifier)
+          (type_argument_list
+            (predefined_type)))
+        (argument_list)))
+    (end_tag
+      (tag_name))))
+
+======
+Await Implicit Razor Expression
+======
+<p>@await DoSomething("hello", "world")</p>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name))
+    (razor_await_expression
+      (invocation_expression
+        (identifier)
+        (argument_list
+          (argument
+            (string_literal
+              (string_literal_content)))
+          (argument
+            (string_literal
+              (string_literal_content))))))
+    (end_tag
+      (tag_name))))
+
+======
+Implicit Expression in attribute value
+======
+
+<div class="@false">False</div>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value
+          (razor_implicit_expression
+            (identifier)))))
+    (html_text)
+    (end_tag
+      (tag_name))))
+
+=====
+Explicit Expression in attribute value
+=====
+<div class="@("false")">False String</div>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value
+          (razor_explicit_expression
+            (string_literal
+              (string_literal_content))))))
+    (html_text)
+    (end_tag
+      (tag_name))))
