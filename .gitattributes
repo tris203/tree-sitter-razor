@@ -29,5 +29,4 @@ go.sum linguist-generated
 bindings/swift/** linguist-generated
 Package.swift linguist-generated
 Package.resolved linguist-generated
-*.c filter=lfs diff=lfs merge=lfs -text
 src/parser.c filter=lfs diff=lfs merge=lfs -text
