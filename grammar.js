@@ -18,8 +18,6 @@ module.exports = grammar(CSHARP, {
     [$.razor_explicit_expression, $._expression_statement_expression],
 
     [$.destructor_declaration, $._simple_name],
-    // [$.declaration_list, $.block],
-    // [$.declaration_list, $.block, $.initializer_expression],
 
     [$.initializer_expression, $.razor_block],
     [$.field_declaration, $.local_declaration_statement],
@@ -27,7 +25,6 @@ module.exports = grammar(CSHARP, {
   ],
 
   rules: {
-    // document: ($) => repeat($._node),
     compilation_unit: ($) =>
       repeat1(
         choice(
@@ -37,21 +34,13 @@ module.exports = grammar(CSHARP, {
           $.razor_rendermode_directive,
           $.razor_inject_directive,
           $.razor_block,
-          // seq(
-          //   "donotmatchthiseveriwanttoburnthisrulebut",
-          //   $._top_level_item,
-          //   "ifyouremovethisforsomereasontreesitterdoesntcompile",
-          // ),
         ),
       ),
 
     _identifier_token: (_) =>
       token(
-        // seq(
-        // optional("@"),
         // @ts-ignore
         /(\p{XID_Start}|_|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})(\p{XID_Continue}|\\u[0-9A-Fa-f]{4}|\\U[0-9A-Fa-f]{8})*/,
-        // ),
       ),
     identifier: ($) => choice($._identifier_token, $._reserved_identifier),
 
