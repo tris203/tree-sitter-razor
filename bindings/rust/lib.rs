@@ -5,6 +5,12 @@
 //!
 //! ```
 //! let code = r#"
+//! @page "/"
+//! <h1>Hello, @person</h1>
+//!
+//! @code{
+//! var person = "world";
+//! }
 //! "#;
 //! let mut parser = tree_sitter::Parser::new();
 //! let language = tree_sitter_razor::LANGUAGE;

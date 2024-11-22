@@ -1,6 +1,6 @@
 /**
  * @file Razor grammar for tree-sitter
- * @author Yes <No@lol.com>
+ * @author Tristan Knight <admin@snappeh.com>
  * @license MIT
  */
 
@@ -55,6 +55,8 @@ module.exports = grammar(CSHARP, {
       ),
     identifier: ($) => choice($._identifier_token, $._reserved_identifier),
 
+    block: ($) => seq("{", repeat(choice($.statement, $._node)), "}"),
+
     _node: ($) =>
       prec.right(
         choice(
@@ -70,6 +72,7 @@ module.exports = grammar(CSHARP, {
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.element,
+          $.self_closing_element,
         ),
       ),
 
@@ -186,12 +189,12 @@ module.exports = grammar(CSHARP, {
         "(",
         field(
           "initializer",
-          optional(choice($.variable_declaration, commaSep1($.expression))),
+          optional(choice($.variable_declaration, $.expression)),
         ),
         ";",
         field("condition", optional($.expression)),
         ";",
-        field("update", optional(commaSep1($.expression))),
+        field("update", optional($.expression)),
         ")",
         "{",
         field("body", $._blended_content),
@@ -258,7 +261,7 @@ module.exports = grammar(CSHARP, {
     tag_name: (_) => /[a-zA-Z0-9-]+/,
     html_attribute_name: (_) => /[a-zA-Z0-9-]+/,
     _razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
-    _html_attribute_value: (_) => /[a-zA-Z0-9-\s]+/,
+    _html_attribute_value: (_) => /[a-zA-Z0-9-\.\s]+/,
     html_attribute_value: ($) =>
       seq(
         '"',
@@ -300,12 +303,22 @@ module.exports = grammar(CSHARP, {
 
     element: ($) =>
       seq($.start_tag, repeat(choice($._node, $.html_text)), $.end_tag),
+
+    self_closing_element: ($) =>
+      seq(
+        "<",
+        $.tag_name,
+        optional(
+          repeat(
+            prec.left(
+              seq(
+                choice($.html_attribute, $.razor_html_attribute),
+                optional(" "),
+              ),
+            ),
+          ),
+        ),
+        "/>",
+      ),
   },
 });
-
-/**
- * @param {RuleOrLiteral} rule
- */
-function commaSep1(rule) {
-  return seq(rule, repeat(seq(",", rule)));
-}

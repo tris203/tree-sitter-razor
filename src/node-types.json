@@ -1377,6 +1377,58 @@
       "required": false,
       "types": [
         {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "razor_await_expression",
+          "named": true
+        },
+        {
+          "type": "razor_comment",
+          "named": true
+        },
+        {
+          "type": "razor_do_while",
+          "named": true
+        },
+        {
+          "type": "razor_escape",
+          "named": true
+        },
+        {
+          "type": "razor_explicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_for",
+          "named": true
+        },
+        {
+          "type": "razor_foreach",
+          "named": true
+        },
+        {
+          "type": "razor_if",
+          "named": true
+        },
+        {
+          "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -1744,6 +1796,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         }
       ]
@@ -2329,6 +2385,10 @@
           "named": true
         },
         {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
           "type": "start_tag",
           "named": true
         }
@@ -2657,6 +2717,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         }
       ]
@@ -5161,6 +5225,10 @@
           "named": true
         },
         {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -5256,6 +5324,10 @@
           "named": true
         },
         {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -5324,6 +5396,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         },
         {
@@ -5399,6 +5475,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         },
         {
@@ -5503,6 +5583,10 @@
             "named": true
           },
           {
+            "type": "self_closing_element",
+            "named": true
+          },
+          {
             "type": "statement",
             "named": true
           }
@@ -5519,13 +5603,9 @@
         ]
       },
       "initializer": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "expression",
             "named": true
@@ -5537,13 +5617,9 @@
         ]
       },
       "update": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "expression",
             "named": true
@@ -5614,6 +5690,10 @@
           },
           {
             "type": "razor_while",
+            "named": true
+          },
+          {
+            "type": "self_closing_element",
             "named": true
           },
           {
@@ -5751,6 +5831,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         },
         {
@@ -5921,6 +6005,10 @@
           "named": true
         },
         {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -5989,6 +6077,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         },
         {
@@ -6090,6 +6182,10 @@
         },
         {
           "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
           "named": true
         },
         {
@@ -6347,6 +6443,29 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "self_closing_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "html_attribute",
+          "named": true
+        },
+        {
+          "type": "razor_html_attribute",
+          "named": true
+        },
+        {
+          "type": "tag_name",
           "named": true
         }
       ]
@@ -7360,6 +7479,10 @@
   },
   {
     "type": "/=",
+    "named": false
+  },
+  {
+    "type": "/>",
     "named": false
   },
   {
