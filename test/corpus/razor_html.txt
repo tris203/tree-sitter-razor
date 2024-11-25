@@ -49,3 +49,20 @@ razor attribute values
     (html_text)
     (end_tag
       (tag_name))))
+
+======
+CSharp in HTML attribute
+======
+   <GridColumn SortKeySelector="item => item.Integration.Id">
+      </GridColumn>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (end_tag
+      (tag_name))))
