@@ -51,7 +51,7 @@ razor attribute values
       (tag_name))))
 
 ======
-CSharp in HTML attribute
+CSharp in HTML attribute - String(Semantic Highlighting does the rest)
 ======
    <GridColumn SortKeySelector="item => item.Integration.Id">
       </GridColumn>
