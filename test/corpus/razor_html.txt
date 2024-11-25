@@ -61,14 +61,8 @@ CSharp in HTML attribute
   (element
     (start_tag
       (tag_name)
-      (razor_html_attribute
-        (razor_attribute_value
-          (lambda_expression
-            (implicit_parameter)
-            (member_access_expression
-              (member_access_expression
-                (identifier)
-                (identifier))
-              (identifier))))))
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
     (end_tag
       (tag_name))))

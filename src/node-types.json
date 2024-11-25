@@ -3184,6 +3184,11 @@
     }
   },
   {
+    "type": "html_attribute_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "html_attribute_value",
     "named": true,
     "fields": {},
@@ -6745,6 +6750,11 @@
     }
   },
   {
+    "type": "tag_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "throw_expression",
     "named": true,
     "fields": {},
@@ -7812,10 +7822,6 @@
     "named": false
   },
   {
-    "type": "html_attribute_name",
-    "named": true
-  },
-  {
     "type": "html_text",
     "named": true
   },
@@ -8066,10 +8072,6 @@
   {
     "type": "switch",
     "named": false
-  },
-  {
-    "type": "tag_name",
-    "named": true
   },
   {
     "type": "this",
