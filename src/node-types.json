@@ -5864,15 +5864,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "qualified_name",
+          "type": "variable_declaration",
           "named": true
         }
       ]

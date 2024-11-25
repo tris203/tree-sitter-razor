@@ -11531,11 +11531,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "qualified_name"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "name": "variable_declaration"
         }
       ]
     },

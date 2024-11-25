@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       node-addon-api:
-        specifier: ^8.1.0
+        specifier: ^8.2.2
         version: 8.2.2
       node-gyp-build:
-        specifier: ^4.8.2
-        version: 4.8.3
+        specifier: ^4.8.4
+        version: 4.8.4
       tree-sitter:
         specifier: ^0.21.1
         version: 0.21.1
@@ -28,7 +28,7 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       tree-sitter-cli:
-        specifier: ^0.24.3
+        specifier: ^0.24.4
         version: 0.24.4
 
 packages:
@@ -71,8 +71,8 @@ packages:
     resolution: {integrity: sha512-9emqXAKhVoNrQ792nLI/wpzPpJ/bj/YXxW0CvAau1+RdGBcCRF1Dmz7719zgVsQNrzHl9Tzn3ImZ4qWFarWL0A==}
     engines: {node: ^18 || ^20 || >= 21}
 
-  node-gyp-build@4.8.3:
-    resolution: {integrity: sha512-EMS95CMJzdoSKoIiXo8pxKoL8DYxwIZXYlLmgPb8KUv794abpnLK6ynsCAWNliOjREKruYKdzbh76HHYUHX7nw==}
+  node-gyp-build@4.8.4:
+    resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
     hasBin: true
 
   npm-run-path@3.1.0:
@@ -182,7 +182,7 @@ snapshots:
 
   node-addon-api@8.2.2: {}
 
-  node-gyp-build@4.8.3: {}
+  node-gyp-build@4.8.4: {}
 
   npm-run-path@3.1.0:
     dependencies:
@@ -240,7 +240,7 @@ snapshots:
   tree-sitter-c-sharp@0.23.1(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 8.2.2
-      node-gyp-build: 4.8.3
+      node-gyp-build: 4.8.4
     optionalDependencies:
       tree-sitter: 0.21.1
 
@@ -249,14 +249,14 @@ snapshots:
   tree-sitter-html@0.23.2(tree-sitter@0.21.1):
     dependencies:
       node-addon-api: 8.2.2
-      node-gyp-build: 4.8.3
+      node-gyp-build: 4.8.4
     optionalDependencies:
       tree-sitter: 0.21.1
 
   tree-sitter@0.21.1:
     dependencies:
       node-addon-api: 8.2.2
-      node-gyp-build: 4.8.3
+      node-gyp-build: 4.8.4
 
   util-deprecate@1.0.2: {}
 

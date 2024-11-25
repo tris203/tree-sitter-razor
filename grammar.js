@@ -101,7 +101,7 @@ module.exports = grammar(CSHARP, {
         ),
       ),
     razor_inject_directive: ($) =>
-      seq($._razor_marker, "inject", $.qualified_name, $.identifier),
+      seq($._razor_marker, "inject", $.variable_declaration),
     razor_rendermode_directive: ($) =>
       seq($._razor_marker, "rendermode", $.razor_rendermode),
     razor_rendermode: (_) =>

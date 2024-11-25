@@ -13,12 +13,14 @@ Directives
   (razor_rendermode_directive
     (razor_rendermode))
   (razor_inject_directive
-    (qualified_name
+    (variable_declaration
       (qualified_name
-        (identifier)
+        (qualified_name
+          (identifier)
+          (identifier))
         (identifier))
-      (identifier))
-    (identifier)))
+      (variable_declarator
+        (identifier)))))
 
 ======
 Using directives
@@ -104,3 +106,29 @@ Using directives
     (qualified_name
       (identifier)
       (identifier))))
+
+======
+Injects
+======
+@inject blazorapp.components.Counter Counter
+@inject ILogger<iCounter> Logger
+---
+
+(compilation_unit
+  (razor_inject_directive
+    (variable_declaration
+      (qualified_name
+        (qualified_name
+          (identifier)
+          (identifier))
+        (identifier))
+      (variable_declarator
+        (identifier))))
+  (razor_inject_directive
+    (variable_declaration
+      (generic_name
+        (identifier)
+        (type_argument_list
+          (identifier)))
+      (variable_declarator
+        (identifier)))))
