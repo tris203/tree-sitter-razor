@@ -12320,20 +12320,28 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "razor_explicit_expression"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "razor_explicit_expression"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "razor_implicit_expression"
+                },
+                {
+                  "type": "PREC_LEFT",
+                  "value": 0,
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_html_attribute_value"
+                  }
+                }
+              ]
             },
             {
-              "type": "SYMBOL",
-              "name": "razor_implicit_expression"
-            },
-            {
-              "type": "PREC_LEFT",
-              "value": 0,
-              "content": {
-                "type": "SYMBOL",
-                "name": "_html_attribute_value"
-              }
+              "type": "BLANK"
             }
           ]
         },

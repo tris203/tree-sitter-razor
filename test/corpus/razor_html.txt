@@ -66,3 +66,20 @@ CSharp in HTML attribute - String(Semantic Highlighting does the rest)
         (html_attribute_value)))
     (end_tag
       (tag_name))))
+
+======
+HTML Attribute of empty string
+======
+   <GridColumn Nothing="">
+      </GridColumn>
+----
+
+(compilation_unit
+  (element
+    (start_tag
+      (tag_name)
+      (html_attribute
+        (html_attribute_name)
+        (html_attribute_value)))
+    (end_tag
+      (tag_name))))

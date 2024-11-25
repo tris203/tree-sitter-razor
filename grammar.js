@@ -254,11 +254,12 @@ module.exports = grammar(CSHARP, {
     html_attribute_value: ($) =>
       seq(
         '"',
+        optional(
         choice(
           $.razor_explicit_expression,
           $.razor_implicit_expression,
           prec.left($._html_attribute_value),
-        ),
+        )),
         '"',
       ),
     html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
