@@ -249,6 +249,7 @@ module.exports = grammar(CSHARP, {
     // HTML Base Definitions
     tag_name: (_) => /[a-zA-Z0-9-]+/,
     html_attribute_name: (_) => /[a-zA-Z0-9-]+/,
+    boolean_html_attribute: (_) => /[a-zA-Z0-9-]+/,
     _razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
     _html_attribute_value: (_) => /[a-zA-Z0-9-\.=>(){}\s]+/,
     html_attribute_value: ($) =>
@@ -280,7 +281,7 @@ module.exports = grammar(CSHARP, {
           repeat(
             prec.left(
               seq(
-                choice($.html_attribute, $.razor_html_attribute),
+                choice($.html_attribute, $.boolean_html_attribute, $.razor_html_attribute),
                 optional(" "),
               ),
             ),
@@ -302,7 +303,7 @@ module.exports = grammar(CSHARP, {
           repeat(
             prec.left(
               seq(
-                choice($.html_attribute, $.razor_html_attribute),
+                choice($.html_attribute, $.boolean_html_attribute, $.razor_html_attribute),
                 optional(" "),
               ),
             ),

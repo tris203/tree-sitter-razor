@@ -12292,6 +12292,10 @@
       "type": "PATTERN",
       "value": "[a-zA-Z0-9-]+"
     },
+    "boolean_html_attribute": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z0-9-]+"
+    },
     "_razor_attribute_name": {
       "type": "SEQ",
       "members": [
@@ -12437,6 +12441,10 @@
                         },
                         {
                           "type": "SYMBOL",
+                          "name": "boolean_html_attribute"
+                        },
+                        {
+                          "type": "SYMBOL",
                           "name": "razor_html_attribute"
                         }
                       ]
@@ -12542,6 +12550,10 @@
                         {
                           "type": "SYMBOL",
                           "name": "html_attribute"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "boolean_html_attribute"
                         },
                         {
                           "type": "SYMBOL",

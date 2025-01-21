@@ -1436,6 +1436,11 @@
     }
   },
   {
+    "type": "boolean_html_attribute",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "boolean_literal",
     "named": true,
     "fields": {}
@@ -6453,6 +6458,10 @@
       "required": true,
       "types": [
         {
+          "type": "boolean_html_attribute",
+          "named": true
+        },
+        {
           "type": "html_attribute",
           "named": true
         },
@@ -6517,6 +6526,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "boolean_html_attribute",
+          "named": true
+        },
         {
           "type": "html_attribute",
           "named": true

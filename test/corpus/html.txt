@@ -81,3 +81,18 @@ self closing image tag
     (html_attribute
       (html_attribute_name)
       (html_attribute_value))))
+
+===
+HTML boolean attribute
+===
+
+<input type="checkbox" checked />
+---
+
+ (compilation_unit
+      (self_closing_element
+        (tag_name)
+        (html_attribute
+          (html_attribute_name)
+          (html_attribute_value))
+        (boolean_html_attribute)))
