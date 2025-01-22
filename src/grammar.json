@@ -12290,11 +12290,11 @@
     },
     "html_attribute_name": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9-]+"
+      "value": "[a-zA-Z0-9-:]+"
     },
     "boolean_html_attribute": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9-]+"
+      "value": "[a-zA-Z0-9-:]+"
     },
     "_razor_attribute_name": {
       "type": "SEQ",
@@ -12311,7 +12311,7 @@
     },
     "_html_attribute_value": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9-\\.=>(){}\\s]+"
+      "value": "[a-zA-Z0-9-:/\\.=>(){}\\s]+"
     },
     "html_attribute_value": {
       "type": "SEQ",

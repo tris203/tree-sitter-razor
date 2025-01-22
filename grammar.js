@@ -248,10 +248,10 @@ module.exports = grammar(CSHARP, {
 
     // HTML Base Definitions
     tag_name: (_) => /[a-zA-Z0-9-]+/,
-    html_attribute_name: (_) => /[a-zA-Z0-9-]+/,
-    boolean_html_attribute: (_) => /[a-zA-Z0-9-]+/,
+    html_attribute_name: (_) => /[a-zA-Z0-9-:]+/,
+    boolean_html_attribute: (_) => /[a-zA-Z0-9-:]+/,
     _razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
-    _html_attribute_value: (_) => /[a-zA-Z0-9-\.=>(){}\s]+/,
+    _html_attribute_value: (_) => /[a-zA-Z0-9-:/\.=>(){}\s]+/,
     html_attribute_value: ($) =>
       seq(
         '"',
