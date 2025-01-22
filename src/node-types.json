@@ -1417,6 +1417,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -1789,6 +1793,10 @@
         },
         {
           "type": "razor_rendermode_directive",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -2382,6 +2390,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -2714,6 +2726,10 @@
         },
         {
           "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -5222,6 +5238,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -5321,6 +5341,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -5393,6 +5417,10 @@
         },
         {
           "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -5472,6 +5500,10 @@
         },
         {
           "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -5577,6 +5609,10 @@
           },
           {
             "type": "razor_implicit_expression",
+            "named": true
+          },
+          {
+            "type": "razor_section",
             "named": true
           },
           {
@@ -5687,6 +5723,10 @@
           },
           {
             "type": "razor_implicit_expression",
+            "named": true
+          },
+          {
+            "type": "razor_section",
             "named": true
           },
           {
@@ -5831,6 +5871,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -5909,6 +5953,89 @@
       "types": [
         {
           "type": "razor_rendermode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "razor_await_expression",
+          "named": true
+        },
+        {
+          "type": "razor_comment",
+          "named": true
+        },
+        {
+          "type": "razor_do_while",
+          "named": true
+        },
+        {
+          "type": "razor_escape",
+          "named": true
+        },
+        {
+          "type": "razor_explicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_for",
+          "named": true
+        },
+        {
+          "type": "razor_foreach",
+          "named": true
+        },
+        {
+          "type": "razor_if",
+          "named": true
+        },
+        {
+          "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
+          "named": true
+        },
+        {
+          "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         }
       ]
@@ -5998,6 +6125,10 @@
           "named": true
         },
         {
+          "type": "razor_section",
+          "named": true
+        },
+        {
           "type": "razor_switch",
           "named": true
         },
@@ -6070,6 +6201,10 @@
         },
         {
           "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -6175,6 +6310,10 @@
         },
         {
           "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
           "named": true
         },
         {
@@ -8043,6 +8182,10 @@
   },
   {
     "type": "sealed",
+    "named": false
+  },
+  {
+    "type": "section",
     "named": false
   },
   {

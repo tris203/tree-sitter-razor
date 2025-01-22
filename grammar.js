@@ -60,6 +60,7 @@ module.exports = grammar(CSHARP, {
           $.razor_await_expression,
           $.razor_implicit_expression,
           $.razor_explicit_expression,
+          $.razor_section,
           $.element,
           $.self_closing_element,
         ),
@@ -240,6 +241,16 @@ module.exports = grammar(CSHARP, {
         ";",
       ),
 
+    razor_section: ($) =>
+      seq(
+        $._razor_marker,
+        "section",
+        $.identifier,
+        "{",
+        $._blended_content,
+        "}",
+      ),
+
     explicit_line_transition: ($) =>
       prec.left(seq("@:", optional($.html_text), repeat1($._node))),
 
@@ -256,11 +267,12 @@ module.exports = grammar(CSHARP, {
       seq(
         '"',
         optional(
-        choice(
-          $.razor_explicit_expression,
-          $.razor_implicit_expression,
-          prec.left($._html_attribute_value),
-        )),
+          choice(
+            $.razor_explicit_expression,
+            $.razor_implicit_expression,
+            prec.left($._html_attribute_value),
+          ),
+        ),
         '"',
       ),
     html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
@@ -281,7 +293,11 @@ module.exports = grammar(CSHARP, {
           repeat(
             prec.left(
               seq(
-                choice($.html_attribute, $.boolean_html_attribute, $.razor_html_attribute),
+                choice(
+                  $.html_attribute,
+                  $.boolean_html_attribute,
+                  $.razor_html_attribute,
+                ),
                 optional(" "),
               ),
             ),
@@ -303,7 +319,11 @@ module.exports = grammar(CSHARP, {
           repeat(
             prec.left(
               seq(
-                choice($.html_attribute, $.boolean_html_attribute, $.razor_html_attribute),
+                choice(
+                  $.html_attribute,
+                  $.boolean_html_attribute,
+                  $.razor_html_attribute,
+                ),
                 optional(" "),
               ),
             ),

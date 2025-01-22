@@ -83,3 +83,25 @@ HTML Attribute of empty string
         (html_attribute_value)))
     (end_tag
       (tag_name))))
+
+===
+razor section
+===
+@section Scripts {
+     <script type="text/javascript" src="/scripts/main.js"></script>
+}
+---
+    (compilation_unit
+      (razor_section
+        (identifier)
+        (element
+          (start_tag
+            (tag_name)
+            (html_attribute
+              (html_attribute_name)
+              (html_attribute_value))
+            (html_attribute
+              (html_attribute_name)
+              (html_attribute_value)))
+          (end_tag
+            (tag_name)))))
