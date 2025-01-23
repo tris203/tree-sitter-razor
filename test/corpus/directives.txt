@@ -155,3 +155,27 @@ Model
     (compilation_unit
       (razor_model_directive
         (identifier)))
+
+===
+implements
+===
+@implements IDisposable
+@implements IUsesLayout<_Layout, LayoutModel>
+@implements Oqtane.Interfaces.ISettingsControl
+---
+
+   (compilation_unit
+      (razor_implements_directive
+        (identifier))
+      (razor_implements_directive
+        (generic_name
+          (identifier)
+          (type_argument_list
+            (identifier)
+            (identifier))))
+      (razor_implements_directive
+        (qualified_name
+          (qualified_name
+            (identifier)
+            (identifier))
+          (identifier))))

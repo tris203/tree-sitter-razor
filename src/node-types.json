@@ -1788,6 +1788,10 @@
           "named": true
         },
         {
+          "type": "razor_implements_directive",
+          "named": true
+        },
+        {
           "type": "razor_implicit_expression",
           "named": true
         },
@@ -5951,6 +5955,34 @@
     }
   },
   {
+    "type": "razor_implements_directive",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alias_qualified_name",
+            "named": true
+          },
+          {
+            "type": "generic_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "qualified_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "razor_implicit_expression",
     "named": true,
     "fields": {},
@@ -8098,6 +8130,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "implements",
     "named": false
   },
   {

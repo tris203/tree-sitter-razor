@@ -33,7 +33,7 @@
 - [ ] Attribute `@attribute [Authorize]` / `@attribute[Route(Constants.CounterRoute)#]`
 - [x] code
 - [x] functions (same as code)
-- [ ] implements `@implements IDisposable`
+- [x] implements `@implements IDisposable`
 - [ ] inherits `@inherits TypeNameOfClassToInheritFrom`
 - [x] inject
 - [ ] layout
