@@ -145,3 +145,13 @@ Namespace
             (identifier)
             (identifier))
           (identifier))))
+
+===
+Model
+===
+@model TypeNameOfModel
+---
+
+    (compilation_unit
+      (razor_model_directive
+        (identifier)))

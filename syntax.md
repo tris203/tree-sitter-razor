@@ -37,7 +37,7 @@
 - [ ] inherits `@inherits TypeNameOfClassToInheritFrom`
 - [x] inject
 - [ ] layout
-- [ ] model
+- [x] model
 - [x] namespace
 - [x] page
 - [ ] preservewhitespace

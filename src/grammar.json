@@ -23,6 +23,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_model_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_rendermode_directive"
           },
           {
@@ -11527,6 +11531,27 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    "razor_model_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "model"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_name"
+          }
         }
       ]
     },

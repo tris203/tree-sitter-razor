@@ -31,6 +31,7 @@ module.exports = grammar(CSHARP, {
           $._node,
           $.razor_page_directive,
           $.razor_using_directive,
+          $.razor_model_directive,
           $.razor_rendermode_directive,
           $.razor_inject_directive,
           $.razor_namespace_directive,
@@ -103,6 +104,8 @@ module.exports = grammar(CSHARP, {
           seq(optional("static"), optional("unsafe"), $._name),
         ),
       ),
+    razor_model_directive: ($) =>
+      seq($._razor_marker, "model", field("name", $._name)),
     razor_inject_directive: ($) =>
       seq($._razor_marker, "inject", $.variable_declaration),
     razor_namespace_directive: ($) =>
