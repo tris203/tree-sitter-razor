@@ -43,6 +43,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_preservewhitespace_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_block"
           }
         ]
@@ -11556,6 +11560,23 @@
             "type": "SYMBOL",
             "name": "_name"
           }
+        }
+      ]
+    },
+    "razor_preservewhitespace_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "preservewhitespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "boolean_literal"
         }
       ]
     },

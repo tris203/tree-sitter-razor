@@ -179,3 +179,15 @@ implements
             (identifier)
             (identifier))
           (identifier))))
+
+===
+preservewhitespace
+===
+@preservewhitespace true
+@preservewhitespace false
+---
+    (compilation_unit
+      (razor_preservewhitespace_directive
+        (boolean_literal))
+      (razor_preservewhitespace_directive
+        (boolean_literal)))

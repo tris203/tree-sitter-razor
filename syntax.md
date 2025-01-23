@@ -40,7 +40,7 @@
 - [x] model
 - [x] namespace
 - [x] page
-- [ ] preservewhitespace
+- [x] preservewhitespace
 - [x] renderMode
 - [x] section
 - [ ] typeparam

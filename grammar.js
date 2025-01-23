@@ -36,6 +36,7 @@ module.exports = grammar(CSHARP, {
           $.razor_inject_directive,
           $.razor_implements_directive,
           $.razor_namespace_directive,
+          $.razor_preservewhitespace_directive,
           $.razor_block,
         ),
       ),
@@ -107,6 +108,8 @@ module.exports = grammar(CSHARP, {
       ),
     razor_model_directive: ($) =>
       seq($._razor_marker, "model", field("name", $._name)),
+    razor_preservewhitespace_directive: ($) =>
+      seq($._razor_marker, "preservewhitespace", $.boolean_literal),
     razor_implements_directive: ($) =>
       seq($._razor_marker, "implements", field("name", $._name)),
     razor_inject_directive: ($) =>
