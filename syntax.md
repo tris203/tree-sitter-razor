@@ -38,7 +38,7 @@
 - [x] inject
 - [ ] layout
 - [ ] model
-- [ ] namespace
+- [x] namespace
 - [x] page
 - [ ] preservewhitespace
 - [x] renderMode

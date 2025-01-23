@@ -1796,6 +1796,10 @@
           "named": true
         },
         {
+          "type": "razor_namespace_directive",
+          "named": true
+        },
+        {
           "type": "razor_page_directive",
           "named": true
         },
@@ -5967,6 +5971,21 @@
       "types": [
         {
           "type": "variable_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_namespace_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "qualified_name",
           "named": true
         }
       ]

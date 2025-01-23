@@ -132,3 +132,16 @@ Injects
           (identifier)))
       (variable_declarator
         (identifier)))))
+
+===
+Namespace
+===
+@namespace Your.Namespace.Here
+---
+    (compilation_unit
+      (razor_namespace_directive
+        (qualified_name
+          (qualified_name
+            (identifier)
+            (identifier))
+          (identifier))))

@@ -31,6 +31,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_namespace_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_block"
           }
         ]
@@ -11540,6 +11544,23 @@
         {
           "type": "SYMBOL",
           "name": "variable_declaration"
+        }
+      ]
+    },
+    "razor_namespace_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "namespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "qualified_name"
         }
       ]
     },
