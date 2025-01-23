@@ -147,8 +147,7 @@ module.exports = grammar(CSHARP, {
         "if",
         $.razor_condition,
         seq("{", $._blended_content, "}"),
-        optional(repeat($.razor_else_if)),
-        optional($.razor_else),
+        repeat(choice($.razor_else_if, $.razor_else)),
       ),
 
     razor_else_if: ($) =>
@@ -162,8 +161,7 @@ module.exports = grammar(CSHARP, {
         "switch",
         $.razor_condition,
         "{",
-        repeat($.razor_switch_case),
-        optional($.razor_switch_default),
+        repeat(choice($.razor_switch_case, $.razor_switch_default)),
         "}",
       ),
 
@@ -185,7 +183,7 @@ module.exports = grammar(CSHARP, {
 
     razor_case_condition: (_) => /[^:]+/,
 
-    razor_for: ($) =>
+    _razor_for_initializer: ($) =>
       seq(
         $._razor_marker,
         "for",
@@ -199,6 +197,11 @@ module.exports = grammar(CSHARP, {
         ";",
         field("update", optional($.expression)),
         ")",
+      ),
+
+    razor_for: ($) =>
+      seq(
+        $._razor_for_initializer,
         "{",
         field("body", $._blended_content),
         "}",
@@ -212,7 +215,7 @@ module.exports = grammar(CSHARP, {
         ),
       ),
 
-    razor_foreach: ($) =>
+    _razor_foreach_initializer: ($) =>
       seq(
         $._razor_marker,
         "foreach",
@@ -227,16 +230,22 @@ module.exports = grammar(CSHARP, {
         "in",
         field("right", $.expression),
         ")",
+      ),
+
+    razor_foreach: ($) =>
+      seq(
+        $._razor_foreach_initializer,
         "{",
         field("body", $._blended_content),
         "}",
       ),
 
+    _razor_while_condition: ($) => seq("while", $.razor_condition),
+
     razor_while: ($) =>
       seq(
         $._razor_marker,
-        "while",
-        $.razor_condition,
+        $._razor_while_condition,
         "{",
         $._blended_content,
         "}",
@@ -249,8 +258,7 @@ module.exports = grammar(CSHARP, {
         "{",
         $._blended_content,
         "}",
-        "while",
-        $.razor_condition,
+        $._razor_while_condition,
         ";",
       ),
 

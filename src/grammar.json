@@ -11819,31 +11819,20 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
                 "type": "SYMBOL",
                 "name": "razor_else_if"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "razor_else"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "razor_else"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+            ]
+          }
         }
       ]
     },
@@ -11915,21 +11904,18 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "razor_switch_case"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "razor_switch_case"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "razor_switch_default"
+              }
+            ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "razor_switch_default"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         },
         {
           "type": "STRING",
@@ -12032,7 +12018,7 @@
       "type": "PATTERN",
       "value": "[^:]+"
     },
-    "razor_for": {
+    "_razor_for_initializer": {
       "type": "SEQ",
       "members": [
         {
@@ -12115,6 +12101,15 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "razor_for": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_for_initializer"
         },
         {
           "type": "STRING",
@@ -12162,7 +12157,7 @@
         }
       }
     },
-    "razor_foreach": {
+    "_razor_foreach_initializer": {
       "type": "SEQ",
       "members": [
         {
@@ -12235,6 +12230,15 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "razor_foreach": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_foreach_initializer"
         },
         {
           "type": "STRING",
@@ -12254,6 +12258,19 @@
         }
       ]
     },
+    "_razor_while_condition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "razor_condition"
+        }
+      ]
+    },
     "razor_while": {
       "type": "SEQ",
       "members": [
@@ -12262,12 +12279,8 @@
           "name": "_razor_marker"
         },
         {
-          "type": "STRING",
-          "value": "while"
-        },
-        {
           "type": "SYMBOL",
-          "name": "razor_condition"
+          "name": "_razor_while_condition"
         },
         {
           "type": "STRING",
@@ -12307,12 +12320,8 @@
           "value": "}"
         },
         {
-          "type": "STRING",
-          "value": "while"
-        },
-        {
           "type": "SYMBOL",
-          "name": "razor_condition"
+          "name": "_razor_while_condition"
         },
         {
           "type": "STRING",
