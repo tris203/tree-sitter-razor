@@ -26,7 +26,7 @@
 
 - [x] Razor
 - [x] CSharp
-- [ ] HTML
+- [x] HTML
 
 # Directives
 

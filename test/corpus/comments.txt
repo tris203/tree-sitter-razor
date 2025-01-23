@@ -81,3 +81,21 @@ Commented Code Block
     (comment))
   (razor_block
     (comment)))
+
+===
+HTML Comment
+===
+<h1>
+<!-- Important heading -->
+IMPORTANT
+</h1>
+---
+
+    (compilation_unit
+      (element
+        (start_tag
+          (tag_name))
+        (html_comment)
+        (html_text)
+        (end_tag
+          (tag_name))))

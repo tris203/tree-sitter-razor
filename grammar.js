@@ -63,6 +63,7 @@ module.exports = grammar(CSHARP, {
           $.razor_section,
           $.element,
           $.self_closing_element,
+          $.html_comment,
         ),
       ),
 
@@ -254,8 +255,11 @@ module.exports = grammar(CSHARP, {
     explicit_line_transition: ($) =>
       prec.left(seq("@:", optional($.html_text), repeat1($._node))),
 
-    razor_comment: ($) => seq("@*", optional($._comment_text), "*@"),
-    _comment_text: (_) => repeat1(/.|\n|\r/),
+    razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
+    _razor_comment_text: (_) => repeat1(/.|\n|\r/),
+
+    html_comment: ($) => seq("<!--", optional($._razor_comment_text), "-->"),
+    _html_comment_text: (_) => repeat1(/.|\n|\r/),
 
     // HTML Base Definitions
     tag_name: (_) => /[a-zA-Z0-9-]+/,
