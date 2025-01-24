@@ -107,6 +107,49 @@ Using directives
       (identifier)
       (identifier))))
 
+===
+Compound Using
+===
+@using (Html.BeginForm())
+{
+  <p>Something</p>
+}
+
+@using (var temporary_culture = new CultureSwapper())
+{
+  <p>Something else</p>
+}
+
+---
+
+    (compilation_unit
+      (razor_compound_using
+        (invocation_expression
+          (member_access_expression
+            (identifier)
+            (identifier))
+          (argument_list))
+        (element
+          (start_tag
+            (tag_name))
+          (html_text)
+          (end_tag
+            (tag_name))))
+      (razor_compound_using
+        (variable_declaration
+          (implicit_type)
+          (variable_declarator
+            (identifier)
+            (object_creation_expression
+              (identifier)
+              (argument_list))))
+        (element
+          (start_tag
+            (tag_name))
+          (html_text)
+          (end_tag
+            (tag_name)))))
+
 ======
 Injects
 ======

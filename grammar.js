@@ -70,6 +70,7 @@ module.exports = grammar(CSHARP, {
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.razor_section,
+          $.razor_compound_using,
           $.element,
           $.self_closing_element,
           $.html_comment,
@@ -153,6 +154,21 @@ module.exports = grammar(CSHARP, {
 
     razor_await_expression: ($) =>
       seq($._razor_marker, $._razor_await_keyword, prec.right($.expression)),
+
+    razor_compound_using: ($) =>
+      seq(
+        $._razor_marker,
+        "using",
+        "(",
+        choice(
+          alias($.using_variable_declaration, $.variable_declaration),
+          $.expression,
+        ),
+        ")",
+        "{",
+        $._blended_content,
+        "}",
+      ),
 
     razor_if: ($) =>
       seq(

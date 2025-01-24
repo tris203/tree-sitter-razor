@@ -18,7 +18,7 @@
 
 - [x] for, foreach, while, do while
 
-- [ ] Compound Using `@using (Html.BeginForm()){}`
+- [x] Compound Using `@using (Html.BeginForm()){}`
 - [x] try, catch, finally
 - [ ] lock `@lock (SomeLock) {}`
 

@@ -11411,6 +11411,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_compound_using"
+          },
+          {
+            "type": "SYMBOL",
             "name": "element"
           },
           {
@@ -11883,6 +11887,57 @@
             "type": "SYMBOL",
             "name": "expression"
           }
+        }
+      ]
+    },
+    "razor_compound_using": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "using"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "using_variable_declaration"
+              },
+              "named": true,
+              "value": "variable_declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_blended_content"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
