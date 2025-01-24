@@ -39,6 +39,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_inherits_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_namespace_directive"
           },
           {
@@ -11590,6 +11594,27 @@
         {
           "type": "STRING",
           "value": "implements"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_name"
+          }
+        }
+      ]
+    },
+    "razor_inherits_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "inherits"
         },
         {
           "type": "FIELD",

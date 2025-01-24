@@ -191,3 +191,26 @@ preservewhitespace
         (boolean_literal))
       (razor_preservewhitespace_directive
         (boolean_literal)))
+
+===
+inherits
+===
+@inherits BasePage
+@inherits StaticRazorPage<IDocument>
+@inherits My.RazorApp.TemplatePage
+---
+
+    (compilation_unit
+      (razor_inherits_directive
+        (identifier))
+      (razor_inherits_directive
+        (generic_name
+          (identifier)
+          (type_argument_list
+            (identifier))))
+      (razor_inherits_directive
+        (qualified_name
+          (qualified_name
+            (identifier)
+            (identifier))
+          (identifier))))

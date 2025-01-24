@@ -34,7 +34,7 @@
 - [x] code
 - [x] functions (same as code)
 - [x] implements `@implements IDisposable`
-- [ ] inherits `@inherits TypeNameOfClassToInheritFrom`
+- [x] inherits `@inherits TypeNameOfClassToInheritFrom`
 - [x] inject
 - [ ] layout
 - [x] model
