@@ -36,6 +36,7 @@ module.exports = grammar(CSHARP, {
           $.razor_inject_directive,
           $.razor_implements_directive,
           $.razor_inherits_directive,
+          $.razor_typeparam_directive,
           $.razor_namespace_directive,
           $.razor_preservewhitespace_directive,
           $.razor_block,
@@ -115,6 +116,8 @@ module.exports = grammar(CSHARP, {
       seq($._razor_marker, "implements", field("name", $._name)),
     razor_inherits_directive: ($) =>
       seq($._razor_marker, "inherits", field("name", $._name)),
+    razor_typeparam_directive: ($) =>
+      seq($._razor_marker, "typeparam", field("name", $._name)),
     razor_inject_directive: ($) =>
       seq($._razor_marker, "inject", $.variable_declaration),
     razor_namespace_directive: ($) =>

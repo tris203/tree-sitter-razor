@@ -43,5 +43,5 @@
 - [x] preservewhitespace
 - [x] renderMode
 - [x] section
-- [ ] typeparam
+- [x] typeparam
 - [x] using

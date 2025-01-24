@@ -1832,6 +1832,10 @@
           "named": true
         },
         {
+          "type": "razor_typeparam_directive",
+          "named": true
+        },
+        {
           "type": "razor_using_directive",
           "named": true
         },
@@ -6422,6 +6426,34 @@
     }
   },
   {
+    "type": "razor_typeparam_directive",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alias_qualified_name",
+            "named": true
+          },
+          {
+            "type": "generic_name",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "qualified_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "razor_using_directive",
     "named": true,
     "fields": {
@@ -8473,6 +8505,10 @@
   },
   {
     "type": "typeof",
+    "named": false
+  },
+  {
+    "type": "typeparam",
     "named": false
   },
   {

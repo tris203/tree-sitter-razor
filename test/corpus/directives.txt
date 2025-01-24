@@ -214,3 +214,13 @@ inherits
             (identifier)
             (identifier))
           (identifier))))
+
+===
+type param
+===
+@typeparam IType
+---
+
+    (compilation_unit
+      (razor_typeparam_directive
+        (identifier)))

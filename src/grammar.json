@@ -43,6 +43,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_typeparam_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_namespace_directive"
           },
           {
@@ -11615,6 +11619,27 @@
         {
           "type": "STRING",
           "value": "inherits"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_name"
+          }
+        }
+      ]
+    },
+    "razor_typeparam_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "typeparam"
         },
         {
           "type": "FIELD",
