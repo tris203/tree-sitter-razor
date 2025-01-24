@@ -17,15 +17,6 @@ A Tree-sitter parser for razor files.
 
 [Razor syntax reference for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-9.0)
 
-## Missing Items
-
-- [ ] try/catch
-- [ ] locks
-- [ ] Attributes
-- [ ] implements
-- [ ] inherits
-- [ ] section
-
 [ci]: https://img.shields.io/github/actions/workflow/status/tris203/tree-sitter-razor/ci.yml?logo=github&label=CI
 [discord]: https://img.shields.io/discord/1063097320771698699?logo=discord&label=discord
 [matrix]: https://img.shields.io/matrix/tree-sitter-chat%3Amatrix.org?logo=matrix&label=matrix
