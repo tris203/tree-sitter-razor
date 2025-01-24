@@ -36,7 +36,7 @@
 - [x] implements `@implements IDisposable`
 - [x] inherits `@inherits TypeNameOfClassToInheritFrom`
 - [x] inject
-- [ ] layout
+- [x] layout
 - [x] model
 - [x] namespace
 - [x] page

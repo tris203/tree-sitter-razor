@@ -224,3 +224,22 @@ type param
     (compilation_unit
       (razor_typeparam_directive
         (identifier)))
+
+===
+layout
+===
+@layout LoginLayout
+@layout ClientChat.Components.Layout.HomeLayout
+---
+
+    (compilation_unit
+      (razor_layout_directive
+        (identifier))
+      (razor_layout_directive
+        (qualified_name
+          (qualified_name
+            (qualified_name
+              (identifier)
+              (identifier))
+            (identifier))
+          (identifier))))
