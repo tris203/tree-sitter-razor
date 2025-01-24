@@ -1752,6 +1752,10 @@
           "named": true
         },
         {
+          "type": "razor_attribute_directive",
+          "named": true
+        },
+        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -5205,6 +5209,21 @@
     }
   },
   {
+    "type": "razor_attribute_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "razor_attribute_value",
     "named": true,
     "fields": {},
@@ -8077,6 +8096,10 @@
   },
   {
     "type": "async",
+    "named": false
+  },
+  {
+    "type": "attribute",
     "named": false
   },
   {

@@ -47,6 +47,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_attribute_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "razor_typeparam_directive"
           },
           {
@@ -11589,6 +11593,23 @@
         {
           "type": "SYMBOL",
           "name": "boolean_literal"
+        }
+      ]
+    },
+    "razor_attribute_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "attribute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "attribute_list"
         }
       ]
     },

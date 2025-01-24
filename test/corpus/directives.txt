@@ -243,3 +243,49 @@ layout
               (identifier))
             (identifier))
           (identifier))))
+
+===
+attribute
+===
+@attribute [RazorCompiledItemMetadata("RouteTemplate", Urls.LoginUrl)]
+@attribute [Authorize]
+@attribute [Excubo.Generators.Blazor.GenerateSetParametersAsync(RequireExactMatch = true)]
+@attribute [Authorize()]
+---
+    (compilation_unit
+      (razor_attribute_directive
+        (attribute_list
+          (attribute
+            (identifier)
+            (attribute_argument_list
+              (attribute_argument
+                (string_literal
+                  (string_literal_content)))
+              (attribute_argument
+                (member_access_expression
+                  (identifier)
+                  (identifier)))))))
+      (razor_attribute_directive
+        (attribute_list
+          (attribute
+            (identifier))))
+      (razor_attribute_directive
+        (attribute_list
+          (attribute
+            (qualified_name
+              (qualified_name
+                (qualified_name
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (identifier))
+            (attribute_argument_list
+              (attribute_argument
+                (assignment_expression
+                  (identifier)
+                  (boolean_literal)))))))
+      (razor_attribute_directive
+        (attribute_list
+          (attribute
+            (identifier)
+            (attribute_argument_list)))))

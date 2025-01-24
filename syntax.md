@@ -30,7 +30,7 @@
 
 # Directives
 
-- [ ] Attribute `@attribute [Authorize]` / `@attribute[Route(Constants.CounterRoute)#]`
+- [x] Attribute `@attribute [Authorize]` / `@attribute[Route(Constants.CounterRoute)#]`
 - [x] code
 - [x] functions (same as code)
 - [x] implements `@implements IDisposable`
