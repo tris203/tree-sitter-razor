@@ -20,7 +20,7 @@
 
 - [x] Compound Using `@using (Html.BeginForm()){}`
 - [x] try, catch, finally
-- [ ] lock `@lock (SomeLock) {}`
+- [x] lock `@lock (SomeLock) {}`
 
 # Comments
 

@@ -71,6 +71,7 @@ module.exports = grammar(CSHARP, {
           $.razor_explicit_expression,
           $.razor_section,
           $.razor_compound_using,
+          $.razor_lock,
           $.element,
           $.self_closing_element,
           $.html_comment,
@@ -154,6 +155,18 @@ module.exports = grammar(CSHARP, {
 
     razor_await_expression: ($) =>
       seq($._razor_marker, $._razor_await_keyword, prec.right($.expression)),
+
+    razor_lock: ($) =>
+      seq(
+        $._razor_marker,
+        "lock",
+        "(",
+        $.expression,
+        ")",
+        "{",
+        $._blended_content,
+        "}",
+      ),
 
     razor_compound_using: ($) =>
       seq(

@@ -332,3 +332,28 @@ attribute
           (attribute
             (identifier)
             (attribute_argument_list)))))
+
+===
+lock
+===
+@lock (_messages) {
+            foreach (Message msg in _messages) {
+              <p>msg.Text</p>
+            }
+}
+---
+
+   (compilation_unit
+      (razor_lock
+        (identifier)
+        (foreach_statement
+          (identifier)
+          (identifier)
+          (identifier)
+          (block
+            (element
+              (start_tag
+                (tag_name))
+              (html_text)
+              (end_tag
+                (tag_name)))))))

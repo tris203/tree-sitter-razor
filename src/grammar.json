@@ -11415,6 +11415,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "razor_lock"
+          },
+          {
+            "type": "SYMBOL",
             "name": "element"
           },
           {
@@ -11887,6 +11891,43 @@
             "type": "SYMBOL",
             "name": "expression"
           }
+        }
+      ]
+    },
+    "razor_lock": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "lock"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_blended_content"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
