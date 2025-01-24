@@ -1429,6 +1429,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -1837,6 +1841,10 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {
@@ -2442,6 +2450,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -2782,6 +2794,10 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {
@@ -5318,6 +5334,105 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
+          "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_catch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "catch_declaration",
+          "named": true
+        },
+        {
+          "type": "catch_filter_clause",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
+          "named": true
+        },
+        {
+          "type": "html_comment",
+          "named": true
+        },
+        {
+          "type": "razor_await_expression",
+          "named": true
+        },
+        {
+          "type": "razor_comment",
+          "named": true
+        },
+        {
+          "type": "razor_do_while",
+          "named": true
+        },
+        {
+          "type": "razor_escape",
+          "named": true
+        },
+        {
+          "type": "razor_explicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_for",
+          "named": true
+        },
+        {
+          "type": "razor_foreach",
+          "named": true
+        },
+        {
+          "type": "razor_if",
+          "named": true
+        },
+        {
+          "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
+          "named": true
+        },
+        {
+          "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -5425,6 +5540,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -5505,6 +5624,10 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {
@@ -5595,6 +5718,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -5634,6 +5761,93 @@
       "types": [
         {
           "type": "parenthesized_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_finally",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
+          "named": true
+        },
+        {
+          "type": "html_comment",
+          "named": true
+        },
+        {
+          "type": "razor_await_expression",
+          "named": true
+        },
+        {
+          "type": "razor_comment",
+          "named": true
+        },
+        {
+          "type": "razor_do_while",
+          "named": true
+        },
+        {
+          "type": "razor_escape",
+          "named": true
+        },
+        {
+          "type": "razor_explicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_for",
+          "named": true
+        },
+        {
+          "type": "razor_foreach",
+          "named": true
+        },
+        {
+          "type": "razor_if",
+          "named": true
+        },
+        {
+          "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
+          "named": true
+        },
+        {
+          "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
+          "named": true
+        },
+        {
+          "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
+          "type": "statement",
           "named": true
         }
       ]
@@ -5705,6 +5919,10 @@
           },
           {
             "type": "razor_switch",
+            "named": true
+          },
+          {
+            "type": "razor_try",
             "named": true
           },
           {
@@ -5823,6 +6041,10 @@
           },
           {
             "type": "razor_switch",
+            "named": true
+          },
+          {
+            "type": "razor_try",
             "named": true
           },
           {
@@ -5972,6 +6194,10 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {
@@ -6269,6 +6495,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -6379,6 +6609,10 @@
           "named": true
         },
         {
+          "type": "razor_try",
+          "named": true
+        },
+        {
           "type": "razor_while",
           "named": true
         },
@@ -6459,6 +6693,105 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
+          "named": true
+        },
+        {
+          "type": "razor_while",
+          "named": true
+        },
+        {
+          "type": "self_closing_element",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "razor_try",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
+          "named": true
+        },
+        {
+          "type": "html_comment",
+          "named": true
+        },
+        {
+          "type": "razor_await_expression",
+          "named": true
+        },
+        {
+          "type": "razor_catch",
+          "named": true
+        },
+        {
+          "type": "razor_comment",
+          "named": true
+        },
+        {
+          "type": "razor_do_while",
+          "named": true
+        },
+        {
+          "type": "razor_escape",
+          "named": true
+        },
+        {
+          "type": "razor_explicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_finally",
+          "named": true
+        },
+        {
+          "type": "razor_for",
+          "named": true
+        },
+        {
+          "type": "razor_foreach",
+          "named": true
+        },
+        {
+          "type": "razor_if",
+          "named": true
+        },
+        {
+          "type": "razor_implicit_expression",
+          "named": true
+        },
+        {
+          "type": "razor_section",
+          "named": true
+        },
+        {
+          "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {
@@ -6600,6 +6933,10 @@
         },
         {
           "type": "razor_switch",
+          "named": true
+        },
+        {
+          "type": "razor_try",
           "named": true
         },
         {

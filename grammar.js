@@ -65,6 +65,7 @@ module.exports = grammar(CSHARP, {
           $.razor_foreach,
           $.razor_while,
           $.razor_do_while,
+          $.razor_try,
           $.razor_await_expression,
           $.razor_implicit_expression,
           $.razor_explicit_expression,
@@ -161,6 +162,29 @@ module.exports = grammar(CSHARP, {
         seq("{", $._blended_content, "}"),
         repeat(choice($.razor_else_if, $.razor_else)),
       ),
+
+    razor_try: ($) =>
+      prec.right(
+        seq(
+          $._razor_marker,
+          "try",
+          "{",
+          $._blended_content,
+          "}",
+          repeat(choice($.razor_catch, $.razor_finally)),
+        ),
+      ),
+
+    razor_catch: ($) =>
+      seq(
+        "catch",
+        repeat(choice($.catch_declaration, $.catch_filter_clause)),
+        "{",
+        $._blended_content,
+        "}",
+      ),
+
+    razor_finally: ($) => seq("finally", "{", $._blended_content, "}"),
 
     razor_else_if: ($) =>
       seq("else if", $.razor_condition, "{", $._blended_content, "}"),
