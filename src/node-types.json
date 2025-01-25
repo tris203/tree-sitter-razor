@@ -4835,6 +4835,10 @@
       "required": false,
       "types": [
         {
+          "type": "declaration",
+          "named": true
+        },
+        {
           "type": "enum_member_declaration",
           "named": true
         },
@@ -4855,19 +4859,11 @@
           "named": true
         },
         {
-          "type": "namespace_declaration",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         },
         {
           "type": "type_declaration",
-          "named": true
-        },
-        {
-          "type": "using_directive",
           "named": true
         }
       ]
@@ -4882,6 +4878,10 @@
       "required": false,
       "types": [
         {
+          "type": "declaration",
+          "named": true
+        },
+        {
           "type": "enum_member_declaration",
           "named": true
         },
@@ -4902,19 +4902,11 @@
           "named": true
         },
         {
-          "type": "namespace_declaration",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         },
         {
           "type": "type_declaration",
-          "named": true
-        },
-        {
-          "type": "using_directive",
           "named": true
         }
       ]
@@ -4940,7 +4932,7 @@
       },
       "condition": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "binary_expression",

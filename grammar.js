@@ -17,6 +17,15 @@ module.exports = grammar(CSHARP, {
   conflicts: ($, o) => [
     [$.razor_explicit_expression, $._expression_statement_expression],
 
+    [$.preproc_if, $.preproc_if_in_top_level],
+    [$.preproc_if, $.preproc_if_in_top_level, $.preproc_if_in_expression],
+    [$.preproc_else, $.preproc_else_in_top_level, $.preproc_else_in_expression],
+    [$.declaration, $.preproc_if_in_top_level],
+    [$.type_declaration, $.declaration],
+    [$.method_declaration, $.local_function_statement],
+    [$.declaration, $.preproc_else_in_top_level],
+    [$.preproc_elif, $.preproc_elif_in_top_level, $.preproc_elif_in_expression],
+
     [$.destructor_declaration, $._simple_name],
 
     [$.initializer_expression, $.razor_block],
@@ -75,24 +84,6 @@ module.exports = grammar(CSHARP, {
           $.element,
           $.self_closing_element,
           $.html_comment,
-        ),
-      ),
-
-    preproc_if: ($) => prec(-10, $.declaration),
-
-    method_declaration: ($) =>
-      prec(
-        2,
-        seq(
-          repeat($.attribute_list),
-          repeat($.modifier),
-          field("returns", $.type),
-          optional($.explicit_interface_specifier),
-          field("name", $.identifier),
-          field("type_parameters", optional($.type_parameter_list)),
-          field("parameters", $.parameter_list),
-          repeat($.type_parameter_constraints_clause),
-          $._function_body,
         ),
       ),
 

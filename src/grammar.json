@@ -2204,90 +2204,86 @@
       ]
     },
     "method_declaration": {
-      "type": "PREC",
-      "value": 2,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "REPEAT",
-            "content": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute_list"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "modifier"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "returns",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
               "type": "SYMBOL",
-              "name": "attribute_list"
+              "name": "explicit_interface_specifier"
+            },
+            {
+              "type": "BLANK"
             }
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "modifier"
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "returns",
-            "content": {
-              "type": "SYMBOL",
-              "name": "type"
-            }
-          },
-          {
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type_parameters",
+          "content": {
             "type": "CHOICE",
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "explicit_interface_specifier"
+                "name": "type_parameter_list"
               },
               {
                 "type": "BLANK"
               }
             ]
-          },
-          {
-            "type": "FIELD",
-            "name": "name",
-            "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "type_parameters",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "type_parameter_list"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "parameters",
-            "content": {
-              "type": "SYMBOL",
-              "name": "parameter_list"
-            }
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "type_parameter_constraints_clause"
-            }
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_function_body"
           }
-        ]
-      }
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "parameter_list"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_parameter_constraints_clause"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_function_body"
+        }
+      ]
     },
     "event_declaration": {
       "type": "SEQ",
@@ -9925,10 +9921,73 @@
     },
     "preproc_if": {
       "type": "PREC",
-      "value": -10,
+      "value": 0,
       "content": {
-        "type": "SYMBOL",
-        "name": "declaration"
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "#[ \t]*if"
+            },
+            "named": false,
+            "value": "#if"
+          },
+          {
+            "type": "FIELD",
+            "name": "condition",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_preproc_expression"
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\n"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "declaration"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "alternative",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "preproc_else"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "preproc_elif"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "#[ \t]*endif"
+            },
+            "named": false,
+            "value": "#endif"
+          }
+        ]
       }
     },
     "preproc_else": {
@@ -13076,6 +13135,41 @@
     [
       "razor_explicit_expression",
       "_expression_statement_expression"
+    ],
+    [
+      "preproc_if",
+      "preproc_if_in_top_level"
+    ],
+    [
+      "preproc_if",
+      "preproc_if_in_top_level",
+      "preproc_if_in_expression"
+    ],
+    [
+      "preproc_else",
+      "preproc_else_in_top_level",
+      "preproc_else_in_expression"
+    ],
+    [
+      "declaration",
+      "preproc_if_in_top_level"
+    ],
+    [
+      "type_declaration",
+      "declaration"
+    ],
+    [
+      "method_declaration",
+      "local_function_statement"
+    ],
+    [
+      "declaration",
+      "preproc_else_in_top_level"
+    ],
+    [
+      "preproc_elif",
+      "preproc_elif_in_top_level",
+      "preproc_elif_in_expression"
     ],
     [
       "destructor_declaration",
