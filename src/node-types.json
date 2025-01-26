@@ -1067,6 +1067,121 @@
     }
   },
   {
+    "type": "at_attribute",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_await",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_block",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_do",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_for",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_foreach",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_if",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_implements",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_inherits",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_inject",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_layout",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_lock",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_model",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_namespace",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_page",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_preservewhitespace",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_rendermode",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_section",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_switch",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_try",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_typeparam",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_using",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_while",
+    "named": false,
+    "fields": {}
+  },
+  {
     "type": "attribute",
     "named": true,
     "fields": {
@@ -5264,6 +5379,11 @@
     }
   },
   {
+    "type": "razor_attribute_name",
+    "named": false,
+    "fields": {}
+  },
+  {
     "type": "razor_attribute_value",
     "named": true,
     "fields": {},
@@ -8682,10 +8802,6 @@
     "named": false
   },
   {
-    "type": "@:",
-    "named": false
-  },
-  {
     "type": "Cdecl",
     "named": false
   },
@@ -8774,7 +8890,103 @@
     "named": false
   },
   {
-    "type": "attribute",
+    "type": "at_at_escape",
+    "named": false
+  },
+  {
+    "type": "at_attribute",
+    "named": false
+  },
+  {
+    "type": "at_await",
+    "named": false
+  },
+  {
+    "type": "at_block",
+    "named": false
+  },
+  {
+    "type": "at_colon_transition",
+    "named": false
+  },
+  {
+    "type": "at_do",
+    "named": false
+  },
+  {
+    "type": "at_for",
+    "named": false
+  },
+  {
+    "type": "at_foreach",
+    "named": false
+  },
+  {
+    "type": "at_if",
+    "named": false
+  },
+  {
+    "type": "at_implements",
+    "named": false
+  },
+  {
+    "type": "at_inherits",
+    "named": false
+  },
+  {
+    "type": "at_inject",
+    "named": false
+  },
+  {
+    "type": "at_layout",
+    "named": false
+  },
+  {
+    "type": "at_lock",
+    "named": false
+  },
+  {
+    "type": "at_model",
+    "named": false
+  },
+  {
+    "type": "at_namespace",
+    "named": false
+  },
+  {
+    "type": "at_page",
+    "named": false
+  },
+  {
+    "type": "at_preservewhitespace",
+    "named": false
+  },
+  {
+    "type": "at_rendermode",
+    "named": false
+  },
+  {
+    "type": "at_section",
+    "named": false
+  },
+  {
+    "type": "at_switch",
+    "named": false
+  },
+  {
+    "type": "at_try",
+    "named": false
+  },
+  {
+    "type": "at_typeparam",
+    "named": false
+  },
+  {
+    "type": "at_using",
+    "named": false
+  },
+  {
+    "type": "at_while",
     "named": false
   },
   {
@@ -8815,10 +9027,6 @@
   },
   {
     "type": "class",
-    "named": false
-  },
-  {
-    "type": "code",
     "named": false
   },
   {
@@ -8918,10 +9126,6 @@
     "named": false
   },
   {
-    "type": "functions",
-    "named": false
-  },
-  {
     "type": "get",
     "named": false
   },
@@ -8946,10 +9150,6 @@
     "named": false
   },
   {
-    "type": "implements",
-    "named": false
-  },
-  {
     "type": "implicit",
     "named": false
   },
@@ -8958,15 +9158,7 @@
     "named": false
   },
   {
-    "type": "inherits",
-    "named": false
-  },
-  {
     "type": "init",
-    "named": false
-  },
-  {
-    "type": "inject",
     "named": false
   },
   {
@@ -9006,10 +9198,6 @@
     "named": false
   },
   {
-    "type": "layout",
-    "named": false
-  },
-  {
     "type": "let",
     "named": false
   },
@@ -9023,10 +9211,6 @@
   },
   {
     "type": "method",
-    "named": false
-  },
-  {
-    "type": "model",
     "named": false
   },
   {
@@ -9078,10 +9262,6 @@
     "named": false
   },
   {
-    "type": "page",
-    "named": false
-  },
-  {
     "type": "param",
     "named": false
   },
@@ -9096,10 +9276,6 @@
   {
     "type": "predefined_type",
     "named": true
-  },
-  {
-    "type": "preservewhitespace",
-    "named": false
   },
   {
     "type": "private",
@@ -9154,10 +9330,6 @@
     "named": false
   },
   {
-    "type": "rendermode",
-    "named": false
-  },
-  {
     "type": "required",
     "named": false
   },
@@ -9171,10 +9343,6 @@
   },
   {
     "type": "sealed",
-    "named": false
-  },
-  {
-    "type": "section",
     "named": false
   },
   {
@@ -9239,10 +9407,6 @@
   },
   {
     "type": "typeof",
-    "named": false
-  },
-  {
-    "type": "typeparam",
     "named": false
   },
   {

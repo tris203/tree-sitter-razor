@@ -11502,8 +11502,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "@{2}"
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "@{2}"
+          },
+          "named": false,
+          "value": "at_at_escape"
         },
         {
           "type": "SYMBOL",
@@ -11511,33 +11516,26 @@
         }
       ]
     },
-    "_razor_code_keyword": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "code"
-        },
-        {
-          "type": "STRING",
-          "value": "functions"
-        }
-      ]
-    },
-    "_razor_await_keyword": {
-      "type": "STRING",
-      "value": "await"
-    },
     "razor_page_directive": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "page"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "page"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_page"
         },
         {
           "type": "SYMBOL",
@@ -11549,12 +11547,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "using"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "using"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_using"
         },
         {
           "type": "CHOICE",
@@ -11633,12 +11641,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "model"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "model"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_model"
         },
         {
           "type": "FIELD",
@@ -11654,12 +11672,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "preservewhitespace"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "preservewhitespace"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_preservewhitespace"
         },
         {
           "type": "SYMBOL",
@@ -11671,12 +11699,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "attribute"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "attribute"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_attribute"
         },
         {
           "type": "SYMBOL",
@@ -11688,12 +11726,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "implements"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "implements"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_implements"
         },
         {
           "type": "FIELD",
@@ -11709,12 +11757,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "layout"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "layout"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_layout"
         },
         {
           "type": "FIELD",
@@ -11730,12 +11788,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "inherits"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "inherits"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_inherits"
         },
         {
           "type": "FIELD",
@@ -11751,12 +11819,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "typeparam"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "typeparam"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_typeparam"
         },
         {
           "type": "FIELD",
@@ -11772,12 +11850,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "inject"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "inject"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_inject"
         },
         {
           "type": "SYMBOL",
@@ -11789,12 +11877,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "namespace"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "namespace"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_namespace"
         },
         {
           "type": "SYMBOL",
@@ -11806,12 +11904,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "rendermode"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "rendermode"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_rendermode"
         },
         {
           "type": "SYMBOL",
@@ -11843,20 +11951,39 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "_razor_marker"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_razor_code_keyword"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_razor_marker"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "code"
+                        },
+                        {
+                          "type": "STRING",
+                          "value": "functions"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            "named": false,
+            "value": "at_block"
           },
           {
             "type": "STRING",
@@ -11936,12 +12063,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_razor_await_keyword"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "await"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_await"
         },
         {
           "type": "PREC_RIGHT",
@@ -11957,12 +12094,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "lock"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "lock"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_lock"
         },
         {
           "type": "STRING",
@@ -11994,12 +12141,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "using"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "using"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_using"
         },
         {
           "type": "STRING",
@@ -12045,12 +12202,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "if"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "if"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_if"
         },
         {
           "type": "SYMBOL",
@@ -12098,12 +12265,22 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "_razor_marker"
-          },
-          {
-            "type": "STRING",
-            "value": "try"
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_razor_marker"
+                },
+                {
+                  "type": "STRING",
+                  "value": "try"
+                }
+              ]
+            },
+            "named": false,
+            "value": "at_try"
           },
           {
             "type": "STRING",
@@ -12244,12 +12421,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "switch"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "switch"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_switch"
         },
         {
           "type": "SYMBOL",
@@ -12380,12 +12567,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "for"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "for"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_for"
         },
         {
           "type": "STRING",
@@ -12519,12 +12716,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "foreach"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "foreach"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_foreach"
         },
         {
           "type": "STRING",
@@ -12616,29 +12823,30 @@
         }
       ]
     },
-    "_razor_while_condition": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "while"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "razor_condition"
-        }
-      ]
-    },
     "razor_while": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "while"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_while"
         },
         {
           "type": "SYMBOL",
-          "name": "_razor_while_condition"
+          "name": "razor_condition"
         },
         {
           "type": "STRING",
@@ -12654,16 +12862,39 @@
         }
       ]
     },
+    "_razor_while_condition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "while"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "razor_condition"
+        }
+      ]
+    },
     "razor_do_while": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "do"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "do"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_do"
         },
         {
           "type": "STRING",
@@ -12691,12 +12922,22 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
-        },
-        {
-          "type": "STRING",
-          "value": "section"
+          "type": "ALIAS",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_razor_marker"
+              },
+              {
+                "type": "STRING",
+                "value": "section"
+              }
+            ]
+          },
+          "named": false,
+          "value": "at_section"
         },
         {
           "type": "SYMBOL",
@@ -12723,8 +12964,13 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "@:"
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "@:"
+            },
+            "named": false,
+            "value": "at_colon_transition"
           },
           {
             "type": "CHOICE",
@@ -12925,8 +13171,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_attribute_name"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_razor_attribute_name"
+          },
+          "named": false,
+          "value": "razor_attribute_name"
         },
         {
           "type": "STRING",

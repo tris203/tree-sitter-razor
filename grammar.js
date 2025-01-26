@@ -89,49 +89,81 @@ module.exports = grammar(CSHARP, {
 
     _razor_marker: (_) => token("@"),
 
-    razor_escape: ($) => seq(/@{2}/, $.html_text),
+    razor_escape: ($) => seq(alias(/@{2}/, "at_at_escape"), $.html_text),
 
-    _razor_code_keyword: (_) => choice("code", "functions"),
-    _razor_await_keyword: (_) => "await",
-
-    razor_page_directive: ($) => seq($._razor_marker, "page", $.string_literal),
+    razor_page_directive: ($) =>
+      seq(alias(seq($._razor_marker, "page"), "at_page"), $.string_literal),
     razor_using_directive: ($) =>
       seq(
-        $._razor_marker,
-        "using",
+        alias(seq($._razor_marker, "using"), "at_using"),
         choice(
           seq(optional("unsafe"), field("name", $.identifier), "=", $.type),
           seq(optional("static"), optional("unsafe"), $._name),
         ),
       ),
     razor_model_directive: ($) =>
-      seq($._razor_marker, "model", field("name", $._name)),
+      seq(
+        alias(seq($._razor_marker, "model"), "at_model"),
+        field("name", $._name),
+      ),
     razor_preservewhitespace_directive: ($) =>
-      seq($._razor_marker, "preservewhitespace", $.boolean_literal),
+      seq(
+        alias(
+          seq($._razor_marker, "preservewhitespace"),
+          "at_preservewhitespace",
+        ),
+        $.boolean_literal,
+      ),
     razor_attribute_directive: ($) =>
-      seq($._razor_marker, "attribute", $.attribute_list),
+      seq(
+        alias(seq($._razor_marker, "attribute"), "at_attribute"),
+        $.attribute_list,
+      ),
     razor_implements_directive: ($) =>
-      seq($._razor_marker, "implements", field("name", $._name)),
+      seq(
+        alias(seq($._razor_marker, "implements"), "at_implements"),
+        field("name", $._name),
+      ),
     razor_layout_directive: ($) =>
-      seq($._razor_marker, "layout", field("name", $._name)),
+      seq(
+        alias(seq($._razor_marker, "layout"), "at_layout"),
+        field("name", $._name),
+      ),
     razor_inherits_directive: ($) =>
-      seq($._razor_marker, "inherits", field("name", $._name)),
+      seq(
+        alias(seq($._razor_marker, "inherits"), "at_inherits"),
+        field("name", $._name),
+      ),
     razor_typeparam_directive: ($) =>
-      seq($._razor_marker, "typeparam", field("name", $._name)),
+      seq(
+        alias(seq($._razor_marker, "typeparam"), "at_typeparam"),
+        field("name", $._name),
+      ),
     razor_inject_directive: ($) =>
-      seq($._razor_marker, "inject", $.variable_declaration),
+      seq(
+        alias(seq($._razor_marker, "inject"), "at_inject"),
+        $.variable_declaration,
+      ),
     razor_namespace_directive: ($) =>
-      seq($._razor_marker, "namespace", $.qualified_name),
+      seq(
+        alias(seq($._razor_marker, "namespace"), "at_namespace"),
+        $.qualified_name,
+      ),
     razor_rendermode_directive: ($) =>
-      seq($._razor_marker, "rendermode", $.razor_rendermode),
+      seq(
+        alias(seq($._razor_marker, "rendermode"), "at_rendermode"),
+        $.razor_rendermode,
+      ),
     razor_rendermode: (_) =>
       choice("InteractiveServer", "InteractiveWebAssembly", "InteractiveAuto"),
 
     razor_block: ($) =>
       prec.left(
         seq(
-          $._razor_marker,
-          optional($._razor_code_keyword),
+          alias(
+            seq($._razor_marker, optional(choice("code", "functions"))),
+            "at_block",
+          ),
           "{",
           repeat(choice($.declaration, seq($.statement), $._node)),
           "}",
@@ -145,12 +177,14 @@ module.exports = grammar(CSHARP, {
       seq($._razor_marker, prec.left($.expression)),
 
     razor_await_expression: ($) =>
-      seq($._razor_marker, $._razor_await_keyword, prec.right($.expression)),
+      seq(
+        alias(seq($._razor_marker, "await"), "at_await"),
+        prec.right($.expression),
+      ),
 
     razor_lock: ($) =>
       seq(
-        $._razor_marker,
-        "lock",
+        alias(seq($._razor_marker, "lock"), "at_lock"),
         "(",
         $.expression,
         ")",
@@ -161,8 +195,7 @@ module.exports = grammar(CSHARP, {
 
     razor_compound_using: ($) =>
       seq(
-        $._razor_marker,
-        "using",
+        alias(seq($._razor_marker, "using"), "at_using"),
         "(",
         choice(
           alias($.using_variable_declaration, $.variable_declaration),
@@ -176,8 +209,7 @@ module.exports = grammar(CSHARP, {
 
     razor_if: ($) =>
       seq(
-        $._razor_marker,
-        "if",
+        alias(seq($._razor_marker, "if"), "at_if"),
         $.razor_condition,
         seq("{", $._blended_content, "}"),
         repeat(choice($.razor_else_if, $.razor_else)),
@@ -186,8 +218,7 @@ module.exports = grammar(CSHARP, {
     razor_try: ($) =>
       prec.right(
         seq(
-          $._razor_marker,
-          "try",
+          alias(seq($._razor_marker, "try"), "at_try"),
           "{",
           $._blended_content,
           "}",
@@ -213,8 +244,7 @@ module.exports = grammar(CSHARP, {
 
     razor_switch: ($) =>
       seq(
-        $._razor_marker,
-        "switch",
+        alias(seq($._razor_marker, "switch"), "at_switch"),
         $.razor_condition,
         "{",
         repeat(choice($.razor_switch_case, $.razor_switch_default)),
@@ -241,8 +271,7 @@ module.exports = grammar(CSHARP, {
 
     _razor_for_initializer: ($) =>
       seq(
-        $._razor_marker,
-        "for",
+        alias(seq($._razor_marker, "for"), "at_for"),
         "(",
         field(
           "initializer",
@@ -273,8 +302,7 @@ module.exports = grammar(CSHARP, {
 
     _razor_foreach_initializer: ($) =>
       seq(
-        $._razor_marker,
-        "foreach",
+        alias(seq($._razor_marker, "foreach"), "at_foreach"),
         "(",
         choice(
           seq(
@@ -296,21 +324,20 @@ module.exports = grammar(CSHARP, {
         "}",
       ),
 
-    _razor_while_condition: ($) => seq("while", $.razor_condition),
-
     razor_while: ($) =>
       seq(
-        $._razor_marker,
-        $._razor_while_condition,
+        alias(seq($._razor_marker, "while"), "at_while"),
+        $.razor_condition,
         "{",
         $._blended_content,
         "}",
       ),
 
+    _razor_while_condition: ($) => seq("while", $.razor_condition),
+
     razor_do_while: ($) =>
       seq(
-        $._razor_marker,
-        "do",
+        alias(seq($._razor_marker, "do"), "at_do"),
         "{",
         $._blended_content,
         "}",
@@ -320,8 +347,7 @@ module.exports = grammar(CSHARP, {
 
     razor_section: ($) =>
       seq(
-        $._razor_marker,
-        "section",
+        alias(seq($._razor_marker, "section"), "at_section"),
         $.identifier,
         "{",
         $._blended_content,
@@ -329,7 +355,13 @@ module.exports = grammar(CSHARP, {
       ),
 
     explicit_line_transition: ($) =>
-      prec.left(seq("@:", optional($.html_text), repeat1($._node))),
+      prec.left(
+        seq(
+          alias("@:", "at_colon_transition"),
+          optional($.html_text),
+          repeat1($._node),
+        ),
+      ),
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
     _razor_comment_text: (_) => repeat1(/.|\n|\r/),
@@ -363,7 +395,11 @@ module.exports = grammar(CSHARP, {
       seq($.html_attribute_name, "=", $.html_attribute_value),
 
     razor_html_attribute: ($) =>
-      seq($._razor_attribute_name, "=", $.razor_attribute_value),
+      seq(
+        alias($._razor_attribute_name, "razor_attribute_name"),
+        "=",
+        $.razor_attribute_value,
+      ),
 
     start_tag: ($) =>
       seq(
