@@ -1087,6 +1087,11 @@
     "fields": {}
   },
   {
+    "type": "at_explicit",
+    "named": false,
+    "fields": {}
+  },
+  {
     "type": "at_for",
     "named": false,
     "fields": {}
@@ -1103,6 +1108,11 @@
   },
   {
     "type": "at_implements",
+    "named": false,
+    "fields": {}
+  },
+  {
+    "type": "at_implicit",
     "named": false,
     "fields": {}
   },

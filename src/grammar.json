@@ -12072,8 +12072,13 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "_razor_marker"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_razor_marker"
+            },
+            "named": false,
+            "value": "at_explicit"
           },
           {
             "type": "PREC_RIGHT",
@@ -12090,8 +12095,13 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_razor_marker"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_razor_marker"
+          },
+          "named": false,
+          "value": "at_implicit"
         },
         {
           "type": "PREC_LEFT",

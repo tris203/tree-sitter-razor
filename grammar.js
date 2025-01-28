@@ -188,10 +188,15 @@ module.exports = grammar(CSHARP, {
       ),
 
     razor_explicit_expression: ($) =>
-      prec.right(seq($._razor_marker, prec.right($.parenthesized_expression))),
+      prec.right(
+        seq(
+          alias($._razor_marker, "at_explicit"),
+          prec.right($.parenthesized_expression),
+        ),
+      ),
 
     razor_implicit_expression: ($) =>
-      seq($._razor_marker, prec.left($.expression)),
+      seq(alias($._razor_marker, "at_implicit"), prec.left($.expression)),
 
     razor_await_expression: ($) =>
       seq(
