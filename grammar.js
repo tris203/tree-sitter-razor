@@ -406,7 +406,8 @@ module.exports = grammar(CSHARP, {
       ),
     html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
 
-    razor_attribute_value: ($) => seq('"', $.expression, '"'),
+    razor_attribute_value: ($) =>
+      seq('"', optional($.modifier), $.expression, '"'),
 
     html_attribute: ($) =>
       seq($.html_attribute_name, "=", $.html_attribute_value),

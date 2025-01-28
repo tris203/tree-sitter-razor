@@ -12,8 +12,8 @@ razor attribute values
       (tag_name)
       (razor_html_attribute
         (razor_attribute_value
+          (modifier)
           (lambda_expression
-            (modifier)
             (parameter_list)
             (block
               (expression_statement
@@ -33,8 +33,8 @@ razor attribute values
       (tag_name)
       (razor_html_attribute
         (razor_attribute_value
+          (modifier)
           (lambda_expression
-            (modifier)
             (parameter_list)
             (block
               (expression_statement
@@ -91,17 +91,18 @@ razor section
      <script type="text/javascript" src="/scripts/main.js"></script>
 }
 ---
-    (compilation_unit
-      (razor_section
-        (identifier)
-        (element
-          (start_tag
-            (tag_name)
-            (html_attribute
-              (html_attribute_name)
-              (html_attribute_value))
-            (html_attribute
-              (html_attribute_name)
-              (html_attribute_value)))
-          (end_tag
-            (tag_name)))))
+
+(compilation_unit
+  (razor_section
+    (identifier)
+    (element
+      (start_tag
+        (tag_name)
+        (html_attribute
+          (html_attribute_name)
+          (html_attribute_value))
+        (html_attribute
+          (html_attribute_name)
+          (html_attribute_value)))
+      (end_tag
+        (tag_name)))))
