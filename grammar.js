@@ -37,6 +37,7 @@ module.exports = grammar(CSHARP, {
     compilation_unit: ($) =>
       repeat1(
         choice(
+          $.shebang_directive, // this is to make sharing highlights easier
           $._node,
           $.razor_page_directive,
           $.razor_using_directive,
@@ -61,7 +62,23 @@ module.exports = grammar(CSHARP, {
       ),
     identifier: ($) => choice($._identifier_token, $._reserved_identifier),
 
-    block: ($) => seq("{", repeat(choice($.statement, $._node)), "}"),
+    _csharp_nodes: ($) =>
+      choice(
+        $.statement,
+        $._node,
+
+        $.preproc_region,
+        $.preproc_endregion,
+        $.preproc_line,
+        $.preproc_pragma,
+        $.preproc_nullable,
+        $.preproc_error,
+        $.preproc_warning,
+        $.preproc_define,
+        $.preproc_undef,
+      ),
+
+    block: ($) => seq("{", repeat($._csharp_nodes), "}"),
 
     _node: ($) =>
       prec.right(

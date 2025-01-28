@@ -1500,6 +1500,42 @@
           "named": true
         },
         {
+          "type": "preproc_define",
+          "named": true
+        },
+        {
+          "type": "preproc_endregion",
+          "named": true
+        },
+        {
+          "type": "preproc_error",
+          "named": true
+        },
+        {
+          "type": "preproc_line",
+          "named": true
+        },
+        {
+          "type": "preproc_nullable",
+          "named": true
+        },
+        {
+          "type": "preproc_pragma",
+          "named": true
+        },
+        {
+          "type": "preproc_region",
+          "named": true
+        },
+        {
+          "type": "preproc_undef",
+          "named": true
+        },
+        {
+          "type": "preproc_warning",
+          "named": true
+        },
+        {
           "type": "razor_await_expression",
           "named": true
         },
@@ -1992,6 +2028,10 @@
         },
         {
           "type": "self_closing_element",
+          "named": true
+        },
+        {
+          "type": "shebang_directive",
           "named": true
         }
       ]
@@ -4893,6 +4933,21 @@
     }
   },
   {
+    "type": "preproc_define",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preproc_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_elif",
     "named": true,
     "fields": {
@@ -5028,6 +5083,37 @@
     }
   },
   {
+    "type": "preproc_endregion",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "preproc_arg",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_error",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preproc_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_if",
     "named": true,
     "fields": {
@@ -5114,6 +5200,99 @@
         },
         {
           "type": "type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_nullable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "preproc_pragma",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_region",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "preproc_arg",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "preproc_undef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preproc_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "preproc_warning",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preproc_arg",
           "named": true
         }
       ]
@@ -8594,6 +8773,10 @@
     "named": false
   },
   {
+    "type": "#define",
+    "named": false
+  },
+  {
     "type": "#elif",
     "named": false
   },
@@ -8606,7 +8789,39 @@
     "named": false
   },
   {
+    "type": "#endregion",
+    "named": false
+  },
+  {
+    "type": "#error",
+    "named": false
+  },
+  {
     "type": "#if",
+    "named": false
+  },
+  {
+    "type": "#line",
+    "named": false
+  },
+  {
+    "type": "#nullable",
+    "named": false
+  },
+  {
+    "type": "#pragma",
+    "named": false
+  },
+  {
+    "type": "#region",
+    "named": false
+  },
+  {
+    "type": "#undef",
+    "named": false
+  },
+  {
+    "type": "#warning",
     "named": false
   },
   {
@@ -8874,6 +9089,10 @@
     "named": false
   },
   {
+    "type": "annotations",
+    "named": false
+  },
+  {
     "type": "as",
     "named": false
   },
@@ -9026,6 +9245,10 @@
     "named": false
   },
   {
+    "type": "checksum",
+    "named": false
+  },
+  {
     "type": "class",
     "named": false
   },
@@ -9054,6 +9277,10 @@
     "named": false
   },
   {
+    "type": "disable",
+    "named": false
+  },
+  {
     "type": "discard",
     "named": true
   },
@@ -9067,6 +9294,10 @@
   },
   {
     "type": "else if",
+    "named": false
+  },
+  {
+    "type": "enable",
     "named": false
   },
   {
@@ -9139,6 +9370,10 @@
   },
   {
     "type": "group",
+    "named": false
+  },
+  {
+    "type": "hidden",
     "named": false
   },
   {
@@ -9278,6 +9513,10 @@
     "named": true
   },
   {
+    "type": "preproc_arg",
+    "named": true
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -9334,6 +9573,10 @@
     "named": false
   },
   {
+    "type": "restore",
+    "named": false
+  },
+  {
     "type": "return",
     "named": false
   },
@@ -9352,6 +9595,10 @@
   {
     "type": "set",
     "named": false
+  },
+  {
+    "type": "shebang_directive",
+    "named": true
   },
   {
     "type": "sizeof",
@@ -9439,6 +9686,14 @@
   },
   {
     "type": "volatile",
+    "named": false
+  },
+  {
+    "type": "warning",
+    "named": false
+  },
+  {
+    "type": "warnings",
     "named": false
   },
   {

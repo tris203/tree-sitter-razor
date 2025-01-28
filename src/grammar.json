@@ -11,6 +11,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "shebang_directive"
+          },
+          {
+            "type": "SYMBOL",
             "name": "_node"
           },
           {
@@ -3175,17 +3179,8 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "statement"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_node"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_csharp_nodes"
           }
         },
         {
@@ -11409,6 +11404,55 @@
           }
         ]
       }
+    },
+    "_csharp_nodes": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_node"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_region"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_endregion"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_line"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_pragma"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_nullable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_error"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_warning"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_define"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_undef"
+        }
+      ]
     },
     "_node": {
       "type": "PREC_RIGHT",
