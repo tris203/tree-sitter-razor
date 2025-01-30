@@ -35,15 +35,10 @@ Explicit delimited transition
               (argument
                 (identifier)))))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))))
+          (identifier))))))
 
 =======
 Explicit Line Transition
@@ -81,9 +76,4 @@ Explicit Line Transition
             (bracketed_argument_list
               (argument
                 (identifier)))))))
-    (explicit_line_transition
-      (html_text)
-      (razor_implicit_expression
-        (member_access_expression
-          (identifier)
-          (identifier))))))
+    (explicit_line_transition)))

@@ -122,33 +122,23 @@ Compound Using
 
 ---
 
-    (compilation_unit
-      (razor_compound_using
-        (invocation_expression
-          (member_access_expression
-            (identifier)
-            (identifier))
-          (argument_list))
-        (element
-          (start_tag
-            (tag_name))
-          (html_text)
-          (end_tag
-            (tag_name))))
-      (razor_compound_using
-        (variable_declaration
-          (implicit_type)
-          (variable_declarator
-            (identifier)
-            (object_creation_expression
-              (identifier)
-              (argument_list))))
-        (element
-          (start_tag
-            (tag_name))
-          (html_text)
-          (end_tag
-            (tag_name)))))
+(compilation_unit
+  (razor_compound_using
+    (invocation_expression
+      (member_access_expression
+        (identifier)
+        (identifier))
+      (argument_list))
+    (element))
+  (razor_compound_using
+    (variable_declaration
+      (implicit_type)
+      (variable_declarator
+        (identifier)
+        (object_creation_expression
+          (identifier)
+          (argument_list))))
+    (element)))
 
 ======
 Injects
@@ -181,13 +171,14 @@ Namespace
 ===
 @namespace Your.Namespace.Here
 ---
-    (compilation_unit
-      (razor_namespace_directive
-        (qualified_name
-          (qualified_name
-            (identifier)
-            (identifier))
-          (identifier))))
+
+(compilation_unit
+  (razor_namespace_directive
+    (qualified_name
+      (qualified_name
+        (identifier)
+        (identifier))
+      (identifier))))
 
 ===
 Model
@@ -195,9 +186,9 @@ Model
 @model TypeNameOfModel
 ---
 
-    (compilation_unit
-      (razor_model_directive
-        (identifier)))
+(compilation_unit
+  (razor_model_directive
+    (identifier)))
 
 ===
 implements
@@ -207,21 +198,21 @@ implements
 @implements Oqtane.Interfaces.ISettingsControl
 ---
 
-   (compilation_unit
-      (razor_implements_directive
+(compilation_unit
+  (razor_implements_directive
+    (identifier))
+  (razor_implements_directive
+    (generic_name
+      (identifier)
+      (type_argument_list
+        (identifier)
+        (identifier))))
+  (razor_implements_directive
+    (qualified_name
+      (qualified_name
+        (identifier)
         (identifier))
-      (razor_implements_directive
-        (generic_name
-          (identifier)
-          (type_argument_list
-            (identifier)
-            (identifier))))
-      (razor_implements_directive
-        (qualified_name
-          (qualified_name
-            (identifier)
-            (identifier))
-          (identifier))))
+      (identifier))))
 
 ===
 preservewhitespace
@@ -229,11 +220,12 @@ preservewhitespace
 @preservewhitespace true
 @preservewhitespace false
 ---
-    (compilation_unit
-      (razor_preservewhitespace_directive
-        (boolean_literal))
-      (razor_preservewhitespace_directive
-        (boolean_literal)))
+
+(compilation_unit
+  (razor_preservewhitespace_directive
+    (boolean_literal))
+  (razor_preservewhitespace_directive
+    (boolean_literal)))
 
 ===
 inherits
@@ -243,20 +235,20 @@ inherits
 @inherits My.RazorApp.TemplatePage
 ---
 
-    (compilation_unit
-      (razor_inherits_directive
+(compilation_unit
+  (razor_inherits_directive
+    (identifier))
+  (razor_inherits_directive
+    (generic_name
+      (identifier)
+      (type_argument_list
+        (identifier))))
+  (razor_inherits_directive
+    (qualified_name
+      (qualified_name
+        (identifier)
         (identifier))
-      (razor_inherits_directive
-        (generic_name
-          (identifier)
-          (type_argument_list
-            (identifier))))
-      (razor_inherits_directive
-        (qualified_name
-          (qualified_name
-            (identifier)
-            (identifier))
-          (identifier))))
+      (identifier))))
 
 ===
 type param
@@ -264,9 +256,9 @@ type param
 @typeparam IType
 ---
 
-    (compilation_unit
-      (razor_typeparam_directive
-        (identifier)))
+(compilation_unit
+  (razor_typeparam_directive
+    (identifier)))
 
 ===
 layout
@@ -275,17 +267,17 @@ layout
 @layout ClientChat.Components.Layout.HomeLayout
 ---
 
-    (compilation_unit
-      (razor_layout_directive
-        (identifier))
-      (razor_layout_directive
+(compilation_unit
+  (razor_layout_directive
+    (identifier))
+  (razor_layout_directive
+    (qualified_name
+      (qualified_name
         (qualified_name
-          (qualified_name
-            (qualified_name
-              (identifier)
-              (identifier))
-            (identifier))
-          (identifier))))
+          (identifier)
+          (identifier))
+        (identifier))
+      (identifier))))
 
 ===
 attribute
@@ -295,43 +287,44 @@ attribute
 @attribute [Excubo.Generators.Blazor.GenerateSetParametersAsync(RequireExactMatch = true)]
 @attribute [Authorize()]
 ---
-    (compilation_unit
-      (razor_attribute_directive
-        (attribute_list
-          (attribute
-            (identifier)
-            (attribute_argument_list
-              (attribute_argument
-                (string_literal
-                  (string_literal_content)))
-              (attribute_argument
-                (member_access_expression
-                  (identifier)
-                  (identifier)))))))
-      (razor_attribute_directive
-        (attribute_list
-          (attribute
-            (identifier))))
-      (razor_attribute_directive
-        (attribute_list
-          (attribute
+
+(compilation_unit
+  (razor_attribute_directive
+    (attribute_list
+      (attribute
+        (identifier)
+        (attribute_argument_list
+          (attribute_argument
+            (string_literal
+              (string_literal_content)))
+          (attribute_argument
+            (member_access_expression
+              (identifier)
+              (identifier)))))))
+  (razor_attribute_directive
+    (attribute_list
+      (attribute
+        (identifier))))
+  (razor_attribute_directive
+    (attribute_list
+      (attribute
+        (qualified_name
+          (qualified_name
             (qualified_name
-              (qualified_name
-                (qualified_name
-                  (identifier)
-                  (identifier))
-                (identifier))
+              (identifier)
               (identifier))
-            (attribute_argument_list
-              (attribute_argument
-                (assignment_expression
-                  (identifier)
-                  (boolean_literal)))))))
-      (razor_attribute_directive
-        (attribute_list
-          (attribute
-            (identifier)
-            (attribute_argument_list)))))
+            (identifier))
+          (identifier))
+        (attribute_argument_list
+          (attribute_argument
+            (assignment_expression
+              (identifier)
+              (boolean_literal)))))))
+  (razor_attribute_directive
+    (attribute_list
+      (attribute
+        (identifier)
+        (attribute_argument_list)))))
 
 ===
 lock
@@ -343,17 +336,12 @@ lock
 }
 ---
 
-   (compilation_unit
-      (razor_lock
-        (identifier)
-        (foreach_statement
-          (identifier)
-          (identifier)
-          (identifier)
-          (block
-            (element
-              (start_tag
-                (tag_name))
-              (html_text)
-              (end_tag
-                (tag_name)))))))
+(compilation_unit
+  (razor_lock
+    (identifier)
+    (foreach_statement
+      (identifier)
+      (identifier)
+      (identifier)
+      (block
+        (element)))))

@@ -7,12 +7,7 @@ Simple HTML
 -----
 
 (compilation_unit
-  (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name))))
+  (element))
 
 ===========
 HTML with attributes
@@ -22,18 +17,7 @@ HTML with attributes
 ----
 
 (compilation_unit
-  (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value))
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value)))
-    (html_text)
-    (end_tag
-      (tag_name))))
+  (element))
 
 ===========
 Attribute name with space
@@ -43,15 +27,7 @@ Attribute name with space
 ----
 
 (compilation_unit
-  (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value)))
-    (html_text)
-    (end_tag
-      (tag_name))))
+  (element))
 
 =========
 Self Closing Tag
@@ -60,14 +36,7 @@ Self Closing Tag
 ----
 
 (compilation_unit
-  (self_closing_element
-    (tag_name)
-    (html_attribute
-      (html_attribute_name)
-      (html_attribute_value))
-    (html_attribute
-      (html_attribute_name)
-      (html_attribute_value))))
+  (element))
 
 ====
 self closing image tag
@@ -76,11 +45,7 @@ self closing image tag
 ----
 
 (compilation_unit
-  (self_closing_element
-    (tag_name)
-    (html_attribute
-      (html_attribute_name)
-      (html_attribute_value))))
+  (element))
 
 ===
 HTML boolean attribute
@@ -89,10 +54,14 @@ HTML boolean attribute
 <input type="checkbox" checked />
 ---
 
- (compilation_unit
-      (self_closing_element
-        (tag_name)
-        (html_attribute
-          (html_attribute_name)
-          (html_attribute_value))
-        (boolean_html_attribute)))
+(compilation_unit
+  (element))
+
+===
+complex html
+===
+<itunes:image>http://www.thisdeveloperslife.com/images/logo_full1400.jpg</itunes:image>
+---
+
+(compilation_unit
+  (element))

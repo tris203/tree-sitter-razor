@@ -8,47 +8,39 @@ razor attribute values
 
 (compilation_unit
   (element
-    (start_tag
-      (tag_name)
-      (razor_html_attribute
-        (razor_attribute_value
-          (modifier)
-          (lambda_expression
-            (parameter_list)
-            (block
-              (expression_statement
-                (assignment_expression
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (modifier)
+        (lambda_expression
+          (parameter_list)
+          (block
+            (expression_statement
+              (assignment_expression
+                (identifier)
+                (integer_literal)))
+            (expression_statement
+              (await_expression
+                (invocation_expression
                   (identifier)
-                  (integer_literal)))
-              (expression_statement
-                (await_expression
-                  (invocation_expression
-                    (identifier)
-                    (argument_list)))))))))
-    (html_text)
-    (end_tag
-      (tag_name)))
+                  (argument_list)))))))))
   (element
-    (start_tag
-      (tag_name)
-      (razor_html_attribute
-        (razor_attribute_value
-          (modifier)
-          (lambda_expression
-            (parameter_list)
-            (block
-              (expression_statement
-                (assignment_expression
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (modifier)
+        (lambda_expression
+          (parameter_list)
+          (block
+            (expression_statement
+              (assignment_expression
+                (identifier)
+                (identifier)))
+            (expression_statement
+              (await_expression
+                (invocation_expression
                   (identifier)
-                  (identifier)))
-              (expression_statement
-                (await_expression
-                  (invocation_expression
-                    (identifier)
-                    (argument_list)))))))))
-    (html_text)
-    (end_tag
-      (tag_name))))
+                  (argument_list))))))))))
 
 ======
 CSharp in HTML attribute - String(Semantic Highlighting does the rest)
@@ -58,14 +50,7 @@ CSharp in HTML attribute - String(Semantic Highlighting does the rest)
 ----
 
 (compilation_unit
-  (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value)))
-    (end_tag
-      (tag_name))))
+  (element))
 
 ======
 HTML Attribute of empty string
@@ -75,14 +60,7 @@ HTML Attribute of empty string
 ----
 
 (compilation_unit
-  (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value)))
-    (end_tag
-      (tag_name))))
+  (element))
 
 ===
 razor section
@@ -95,14 +73,4 @@ razor section
 (compilation_unit
   (razor_section
     (identifier)
-    (element
-      (start_tag
-        (tag_name)
-        (html_attribute
-          (html_attribute_name)
-          (html_attribute_value))
-        (html_attribute
-          (html_attribute_name)
-          (html_attribute_value)))
-      (end_tag
-        (tag_name)))))
+    (element)))

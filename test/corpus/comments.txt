@@ -91,11 +91,6 @@ IMPORTANT
 </h1>
 ---
 
-    (compilation_unit
-      (element
-        (start_tag
-          (tag_name))
-        (html_comment)
-        (html_text)
-        (end_tag
-          (tag_name))))
+(compilation_unit
+  (element
+    (html_comment)))

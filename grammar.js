@@ -35,24 +35,25 @@ module.exports = grammar(CSHARP, {
 
   rules: {
     compilation_unit: ($) =>
-      repeat1(
-        choice(
-          $.shebang_directive, // this is to make sharing highlights easier
-          $._node,
-          $.razor_page_directive,
-          $.razor_using_directive,
-          $.razor_model_directive,
-          $.razor_rendermode_directive,
-          $.razor_inject_directive,
-          $.razor_implements_directive,
-          $.razor_layout_directive,
-          $.razor_inherits_directive,
-          $.razor_attribute_directive,
-          $.razor_typeparam_directive,
-          $.razor_namespace_directive,
-          $.razor_preservewhitespace_directive,
-          $.razor_block,
+      seq(
+        repeat(
+          choice(
+            $.shebang_directive, // this is to make sharing highlights easier
+            $.razor_page_directive,
+            $.razor_using_directive,
+            $.razor_model_directive,
+            $.razor_rendermode_directive,
+            $.razor_inject_directive,
+            $.razor_implements_directive,
+            $.razor_layout_directive,
+            $.razor_inherits_directive,
+            $.razor_attribute_directive,
+            $.razor_typeparam_directive,
+            $.razor_namespace_directive,
+            $.razor_preservewhitespace_directive,
+          ),
         ),
+        repeat(choice($._node, $.razor_block)),
       ),
 
     _identifier_token: (_) =>
@@ -99,14 +100,14 @@ module.exports = grammar(CSHARP, {
           $.razor_compound_using,
           $.razor_lock,
           $.element,
-          $.self_closing_element,
           $.html_comment,
         ),
       ),
 
     _razor_marker: (_) => token("@"),
 
-    razor_escape: ($) => seq(alias(/@{2}/, "at_at_escape"), $.html_text),
+    razor_escape: ($) =>
+      seq(alias(/@{2}/, "at_at_escape"), alias($._html_text, $.element)),
 
     razor_page_directive: ($) =>
       seq(alias(seq($._razor_marker, "page"), "at_page"), $.string_literal),
@@ -377,90 +378,54 @@ module.exports = grammar(CSHARP, {
       ),
 
     explicit_line_transition: ($) =>
-      prec.left(
-        seq(
-          alias("@:", "at_colon_transition"),
-          optional($.html_text),
-          repeat1($._node),
-        ),
-      ),
+      prec.left(seq(alias("@:", "at_colon_transition"), repeat1(/[^\n\r]+/))),
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
     _razor_comment_text: (_) => repeat1(/.|\n|\r/),
+    razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
 
     html_comment: ($) => seq("<!--", optional($._razor_comment_text), "-->"),
     _html_comment_text: (_) => repeat1(/.|\n|\r/),
 
     // HTML Base Definitions
-    tag_name: (_) => /[a-zA-Z0-9-]+/,
-    html_attribute_name: (_) => /[a-zA-Z0-9-:]+/,
-    boolean_html_attribute: (_) => /[a-zA-Z0-9-:]+/,
-    _razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
-    _html_attribute_value: (_) => /[a-zA-Z0-9-:/\.=>(){}\s]+/,
-    html_attribute_value: ($) =>
+    _tag_name: (_) => /[a-zA-Z0-9-:]+/,
+    _end_tag: ($) => seq("</", $._tag_name, ">"),
+    _html_attribute_name: (_) => /[a-zA-Z0-9-:]+/,
+    _boolean_html_attribute: (_) => /[a-zA-Z0-9-:]+/,
+    _html_attribute_value: ($) =>
       seq(
         '"',
         optional(
           choice(
             $.razor_explicit_expression,
             $.razor_implicit_expression,
-            prec.left($._html_attribute_value),
+            prec.left(/[a-zA-Z0-9-:/\.=>(){}\s]+/),
           ),
         ),
         '"',
       ),
-    html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
+    _html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
 
     razor_attribute_value: ($) =>
       seq('"', optional($.modifier), $.expression, '"'),
 
-    html_attribute: ($) =>
-      seq($.html_attribute_name, "=", $.html_attribute_value),
+    _html_attribute: ($) =>
+      seq($._html_attribute_name, "=", $._html_attribute_value),
 
     razor_html_attribute: ($) =>
-      seq(
-        alias($._razor_attribute_name, "razor_attribute_name"),
-        "=",
-        $.razor_attribute_value,
-      ),
-
-    start_tag: ($) =>
-      seq(
-        "<",
-        $.tag_name,
-        optional(
-          repeat(
-            prec.left(
-              seq(
-                choice(
-                  $.html_attribute,
-                  $.boolean_html_attribute,
-                  $.razor_html_attribute,
-                ),
-                optional(" "),
-              ),
-            ),
-          ),
-        ),
-        ">",
-      ),
-
-    end_tag: ($) => seq("</", $.tag_name, ">"),
+      seq($.razor_attribute_name, "=", $.razor_attribute_value),
 
     element: ($) =>
-      seq($.start_tag, repeat(choice($._node, $.html_text)), $.end_tag),
-
-    self_closing_element: ($) =>
       seq(
         "<",
-        $.tag_name,
+        $._tag_name,
         optional(
           repeat(
             prec.left(
               seq(
                 choice(
-                  $.html_attribute,
-                  $.boolean_html_attribute,
+                  $._html_attribute,
+                  $._boolean_html_attribute,
                   $.razor_html_attribute,
                 ),
                 optional(" "),
@@ -468,7 +433,10 @@ module.exports = grammar(CSHARP, {
             ),
           ),
         ),
-        "/>",
+        choice(
+          "/>",
+          seq(">", repeat(choice($._node, $._html_text)), $._end_tag),
+        ),
       ),
   },
 });

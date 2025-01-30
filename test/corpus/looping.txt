@@ -36,25 +36,15 @@ For
               (argument
                 (identifier)))))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))))
+          (identifier))))))
 
 ======
 ForEach
@@ -74,25 +64,15 @@ ForEach
     (identifier)
     (identifier)
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))))
+          (identifier))))))
 
 ======
 While
@@ -136,25 +116,15 @@ While
               (argument
                 (identifier)))))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (expression_statement
       (postfix_unary_expression
         (identifier)))))
@@ -194,25 +164,15 @@ Do while
               (argument
                 (identifier)))))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
         (member_access_expression
           (identifier)
-          (identifier)))
-      (end_tag
-        (tag_name)))
+          (identifier))))
     (expression_statement
       (postfix_unary_expression
         (identifier)))
@@ -259,19 +219,9 @@ For with multiple conditions
         (integer_literal))
       (block
         (element
-          (start_tag
-            (tag_name))
-          (html_text)
           (razor_implicit_expression
-            (identifier))
-          (end_tag
-            (tag_name))))
+            (identifier))))
       (block
         (element
-          (start_tag
-            (tag_name))
-          (html_text)
           (razor_implicit_expression
-            (identifier))
-          (end_tag
-            (tag_name)))))))
+            (identifier)))))))

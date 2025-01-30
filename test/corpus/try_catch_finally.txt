@@ -15,36 +15,26 @@ finally
 }
 ---
 
-    (compilation_unit
-      (razor_try
-        (throw_statement
-          (object_creation_expression
+(compilation_unit
+  (razor_try
+    (throw_statement
+      (object_creation_expression
+        (identifier)
+        (argument_list
+          (argument
+            (string_literal
+              (string_literal_content))))))
+    (razor_catch
+      (catch_declaration
+        (identifier)
+        (identifier))
+      (element
+        (razor_implicit_expression
+          (member_access_expression
             (identifier)
-            (argument_list
-              (argument
-                (string_literal
-                  (string_literal_content))))))
-        (razor_catch
-          (catch_declaration
-            (identifier)
-            (identifier))
-          (element
-            (start_tag
-              (tag_name))
-            (html_text)
-            (razor_implicit_expression
-              (member_access_expression
-                (identifier)
-                (identifier)))
-            (end_tag
-              (tag_name))))
-        (razor_finally
-          (element
-            (start_tag
-              (tag_name))
-            (html_text)
-            (end_tag
-              (tag_name))))))
+            (identifier)))))
+    (razor_finally
+      (element))))
 
 ===
 @try, catch
@@ -59,20 +49,15 @@ catch (Exception)
 }
 ---
 
-    (compilation_unit
-      (razor_try
-        (expression_statement
-          (invocation_expression
-            (member_access_expression
-              (identifier)
-              (identifier))
-            (argument_list)))
-        (razor_catch
-          (catch_declaration
-            (identifier))
-          (element
-            (start_tag
-              (tag_name))
-            (html_text)
-            (end_tag
-              (tag_name))))))
+(compilation_unit
+  (razor_try
+    (expression_statement
+      (invocation_expression
+        (member_access_expression
+          (identifier)
+          (identifier))
+        (argument_list)))
+    (razor_catch
+      (catch_declaration
+        (identifier))
+      (element))))

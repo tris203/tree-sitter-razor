@@ -30,41 +30,16 @@ Counter Page
       (string_literal_content)))
   (razor_rendermode_directive
     (razor_rendermode))
+  (element)
+  (element)
   (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name)))
-  (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name)))
-  (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value)))
-    (html_text)
     (razor_implicit_expression
-      (identifier))
-    (end_tag
-      (tag_name)))
+      (identifier)))
   (element
-    (start_tag
-      (tag_name)
-      (html_attribute
-        (html_attribute_name)
-        (html_attribute_value))
-      (razor_html_attribute
-        (razor_attribute_value
-          (identifier))))
-    (html_text)
-    (end_tag
-      (tag_name)))
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier))))
   (razor_block
     (field_declaration
       (modifier)
@@ -155,94 +130,31 @@ else
   (razor_page_directive
     (string_literal
       (string_literal_content)))
-  (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name)))
-  (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name)))
-  (element
-    (start_tag
-      (tag_name))
-    (html_text)
-    (end_tag
-      (tag_name)))
+  (element)
+  (element)
+  (element)
   (razor_if
     (razor_condition
       (binary_expression
         (identifier)
         (null_literal)))
     (element
-      (start_tag
-        (tag_name))
-      (element
-        (start_tag
-          (tag_name))
-        (html_text)
-        (end_tag
-          (tag_name)))
-      (end_tag
-        (tag_name)))
+      (element))
     (razor_else
       (element
-        (start_tag
-          (tag_name)
-          (html_attribute
-            (html_attribute_name)
-            (html_attribute_value)))
         (element
-          (start_tag
-            (tag_name))
           (element
-            (start_tag
-              (tag_name))
-            (element
-              (start_tag
-                (tag_name))
-              (html_text)
-              (end_tag
-                (tag_name)))
-            (element
-              (start_tag
-                (tag_name))
-              (html_text)
-              (end_tag
-                (tag_name)))
-            (element
-              (start_tag
-                (tag_name))
-              (html_text)
-              (end_tag
-                (tag_name)))
-            (element
-              (start_tag
-                (tag_name))
-              (html_text)
-              (end_tag
-                (tag_name)))
-            (end_tag
-              (tag_name)))
-          (end_tag
-            (tag_name)))
+            (element)
+            (element)
+            (element)
+            (element)))
         (element
-          (start_tag
-            (tag_name))
           (razor_foreach
             (implicit_type)
             (identifier)
             (identifier)
             (element
-              (start_tag
-                (tag_name))
               (element
-                (start_tag
-                  (tag_name))
                 (razor_implicit_expression
                   (invocation_expression
                     (member_access_expression
@@ -250,42 +162,22 @@ else
                         (identifier)
                         (identifier))
                       (identifier))
-                    (argument_list)))
-                (end_tag
-                  (tag_name)))
+                    (argument_list))))
               (element
-                (start_tag
-                  (tag_name))
                 (razor_implicit_expression
                   (member_access_expression
                     (identifier)
-                    (identifier)))
-                (end_tag
-                  (tag_name)))
+                    (identifier))))
               (element
-                (start_tag
-                  (tag_name))
                 (razor_implicit_expression
                   (member_access_expression
                     (identifier)
-                    (identifier)))
-                (end_tag
-                  (tag_name)))
+                    (identifier))))
               (element
-                (start_tag
-                  (tag_name))
                 (razor_implicit_expression
                   (member_access_expression
                     (identifier)
-                    (identifier)))
-                (end_tag
-                  (tag_name)))
-              (end_tag
-                (tag_name))))
-          (end_tag
-            (tag_name)))
-        (end_tag
-          (tag_name)))))
+                    (identifier))))))))))
   (razor_block
     (field_declaration
       (modifier)

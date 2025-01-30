@@ -115,12 +115,8 @@ Multiple Code Blocks
           (string_literal
             (string_literal_content))))))
   (element
-    (start_tag
-      (tag_name))
     (razor_implicit_expression
-      (identifier))
-    (end_tag
-      (tag_name)))
+      (identifier)))
   (razor_block
     (expression_statement
       (assignment_expression
@@ -128,12 +124,8 @@ Multiple Code Blocks
         (string_literal
           (string_literal_content)))))
   (element
-    (start_tag
-      (tag_name))
     (razor_implicit_expression
-      (identifier))
-    (end_tag
-      (tag_name))))
+      (identifier))))
 
 ====
 Code Block with HTML
@@ -153,10 +145,5 @@ Code Block with HTML
           (identifier)
           (boolean_literal))))
     (element
-      (start_tag
-        (tag_name))
-      (html_text)
       (razor_implicit_expression
-        (identifier))
-      (end_tag
-        (tag_name)))))
+        (identifier)))))

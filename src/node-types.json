@@ -1606,20 +1606,11 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "boolean_html_attribute",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "boolean_literal",
@@ -1914,7 +1905,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "element",
@@ -2034,10 +2025,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -2568,22 +2555,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "element",
           "named": true
         },
         {
-          "type": "end_tag",
-          "named": true
-        },
-        {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "html_text",
           "named": true
         },
         {
@@ -2619,6 +2598,10 @@
           "named": true
         },
         {
+          "type": "razor_html_attribute",
+          "named": true
+        },
+        {
           "type": "razor_if",
           "named": true
         },
@@ -2644,14 +2627,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
-          "type": "start_tag",
           "named": true
         }
       ]
@@ -2702,21 +2677,6 @@
     "type": "empty_statement",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "end_tag",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "tag_name",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "enum_declaration",
@@ -2924,89 +2884,7 @@
   {
     "type": "explicit_line_transition",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "element",
-          "named": true
-        },
-        {
-          "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "html_text",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
-          "type": "razor_comment",
-          "named": true
-        },
-        {
-          "type": "razor_compound_using",
-          "named": true
-        },
-        {
-          "type": "razor_do_while",
-          "named": true
-        },
-        {
-          "type": "razor_escape",
-          "named": true
-        },
-        {
-          "type": "razor_explicit_expression",
-          "named": true
-        },
-        {
-          "type": "razor_for",
-          "named": true
-        },
-        {
-          "type": "razor_foreach",
-          "named": true
-        },
-        {
-          "type": "razor_if",
-          "named": true
-        },
-        {
-          "type": "razor_implicit_expression",
-          "named": true
-        },
-        {
-          "type": "razor_lock",
-          "named": true
-        },
-        {
-          "type": "razor_section",
-          "named": true
-        },
-        {
-          "type": "razor_switch",
-          "named": true
-        },
-        {
-          "type": "razor_try",
-          "named": true
-        },
-        {
-          "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "expression_statement",
@@ -3441,49 +3319,6 @@
       "types": [
         {
           "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "html_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "html_attribute_name",
-          "named": true
-        },
-        {
-          "type": "html_attribute_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "html_attribute_name",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "html_attribute_value",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "razor_explicit_expression",
-          "named": true
-        },
-        {
-          "type": "razor_implicit_expression",
           "named": true
         }
       ]
@@ -5569,7 +5404,7 @@
   },
   {
     "type": "razor_attribute_name",
-    "named": false,
+    "named": true,
     "fields": {}
   },
   {
@@ -5687,10 +5522,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -5787,10 +5618,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -5891,10 +5718,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -6012,10 +5835,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -6104,10 +5923,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -6206,10 +6021,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -6225,7 +6036,7 @@
       "required": true,
       "types": [
         {
-          "type": "html_text",
+          "type": "element",
           "named": true
         }
       ]
@@ -6331,10 +6142,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -6423,10 +6230,6 @@
           },
           {
             "type": "razor_while",
-            "named": true
-          },
-          {
-            "type": "self_closing_element",
             "named": true
           },
           {
@@ -6556,10 +6359,6 @@
             "named": true
           },
           {
-            "type": "self_closing_element",
-            "named": true
-          },
-          {
             "type": "statement",
             "named": true
           }
@@ -6610,9 +6409,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "razor_attribute_name",
+          "named": true
+        },
         {
           "type": "razor_attribute_value",
           "named": true
@@ -6714,10 +6517,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -6930,10 +6729,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -7122,10 +6917,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -7244,10 +7035,6 @@
           "named": true
         },
         {
-          "type": "self_closing_element",
-          "named": true
-        },
-        {
           "type": "statement",
           "named": true
         }
@@ -7336,10 +7123,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -7439,10 +7222,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -7592,10 +7371,6 @@
         },
         {
           "type": "razor_while",
-          "named": true
-        },
-        {
-          "type": "self_closing_element",
           "named": true
         },
         {
@@ -7859,33 +7634,6 @@
     }
   },
   {
-    "type": "self_closing_element",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "boolean_html_attribute",
-          "named": true
-        },
-        {
-          "type": "html_attribute",
-          "named": true
-        },
-        {
-          "type": "razor_html_attribute",
-          "named": true
-        },
-        {
-          "type": "tag_name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "sizeof_expression",
     "named": true,
     "fields": {
@@ -7922,33 +7670,6 @@
       "types": [
         {
           "type": "initializer_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "start_tag",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "boolean_html_attribute",
-          "named": true
-        },
-        {
-          "type": "html_attribute",
-          "named": true
-        },
-        {
-          "type": "razor_html_attribute",
-          "named": true
-        },
-        {
-          "type": "tag_name",
           "named": true
         }
       ]
@@ -9391,10 +9112,6 @@
     "named": false
   },
   {
-    "type": "html_text",
-    "named": true
-  },
-  {
     "type": "if",
     "named": false
   },
@@ -9641,10 +9358,6 @@
   {
     "type": "switch",
     "named": false
-  },
-  {
-    "type": "tag_name",
-    "named": true
   },
   {
     "type": "this",
