@@ -1,5 +1,5 @@
 =======
-razor attribute values
+onclick razor attribute values
 =======
 
     <a @onclick="async () => { pageNo = 1; await Search(); }">First</a>
@@ -43,7 +43,29 @@ razor attribute values
                   (argument_list))))))))))
 
 ======
+form razor attribute values
+=====
+<form @onsubmit="SearchAsync" @onsubmit:preventDefault>
+    <input class="rounded-xl flex px-2" type="text" @bind="searchTerm" />
+    <button class="rounded-xl bg-gray-300 my-2 px-4" type="submit">Search</button>
+</form>
+---
+
+   (compilation_unit
+      (element
+        (razor_html_attribute
+          (razor_attribute_name))
+        (razor_html_attribute
+          (razor_attribute_name
+            (razor_attribute_modifier)))
+        (element
+          (razor_html_attribute
+            (razor_attribute_name)))
+        (element)))
+
+=====
 CSharp in HTML attribute - String(Semantic Highlighting does the rest)
+:skip
 ======
    <GridColumn SortKeySelector="item => item.Integration.Id">
       </GridColumn>

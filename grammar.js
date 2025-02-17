@@ -30,6 +30,7 @@ module.exports = grammar(CSHARP, {
 
     [$.initializer_expression, $.razor_block],
     [$.field_declaration, $.local_declaration_statement],
+    [$.element],
     ...o,
   ],
 
@@ -82,32 +83,32 @@ module.exports = grammar(CSHARP, {
     block: ($) => seq("{", repeat($._csharp_nodes), "}"),
 
     _node: ($) =>
-      prec.right(
-        choice(
-          $.razor_comment,
-          $.razor_escape,
-          $.razor_if,
-          $.razor_switch,
-          $.razor_for,
-          $.razor_foreach,
-          $.razor_while,
-          $.razor_do_while,
-          $.razor_try,
-          $.razor_await_expression,
-          $.razor_implicit_expression,
-          $.razor_explicit_expression,
-          $.razor_section,
-          $.razor_compound_using,
-          $.razor_lock,
-          $.element,
-          $.html_comment,
-        ),
+      // prec.right(
+      choice(
+        $.razor_comment,
+        $.razor_escape,
+        $.razor_if,
+        $.razor_switch,
+        $.razor_for,
+        $.razor_foreach,
+        $.razor_while,
+        $.razor_do_while,
+        $.razor_try,
+        $.razor_await_expression,
+        $.razor_implicit_expression,
+        $.razor_explicit_expression,
+        $.razor_section,
+        $.razor_compound_using,
+        $.razor_lock,
+        $.element,
+        $.html_comment,
+        // ),
       ),
 
     _razor_marker: (_) => token("@"),
 
     razor_escape: ($) =>
-      seq(alias(/@{2}/, "at_at_escape"), alias($._html_text, $.element)),
+      seq(alias(/@{2}/, "at_at_escape"), alias($._text, $.element)),
 
     razor_page_directive: ($) =>
       seq(alias(seq($._razor_marker, "page"), "at_page"), $.string_literal),
@@ -176,25 +177,25 @@ module.exports = grammar(CSHARP, {
       choice("InteractiveServer", "InteractiveWebAssembly", "InteractiveAuto"),
 
     razor_block: ($) =>
-      prec.left(
-        seq(
-          alias(
-            seq($._razor_marker, optional(choice("code", "functions"))),
-            "at_block",
-          ),
-          "{",
-          repeat(choice($.declaration, seq($.statement), $._node)),
-          "}",
+      // prec.left(
+      seq(
+        alias(
+          seq($._razor_marker, optional(choice("code", "functions"))),
+          "at_block",
         ),
+        "{",
+        repeat(choice($.declaration, seq($.statement), $._node)),
+        "}",
       ),
+    // ),
 
     razor_explicit_expression: ($) =>
-      prec.right(
-        seq(
-          alias($._razor_marker, "at_explicit"),
-          prec.right($.parenthesized_expression),
-        ),
+      // prec.right(
+      seq(
+        alias($._razor_marker, "at_explicit"),
+        prec.right($.parenthesized_expression),
       ),
+    // ),
 
     razor_implicit_expression: ($) =>
       seq(alias($._razor_marker, "at_implicit"), prec.left($.expression)),
@@ -239,14 +240,14 @@ module.exports = grammar(CSHARP, {
       ),
 
     razor_try: ($) =>
-      prec.right(
-        seq(
-          alias(seq($._razor_marker, "try"), "at_try"),
-          "{",
-          $._blended_content,
-          "}",
-          repeat(choice($.razor_catch, $.razor_finally)),
-        ),
+      // prec.right(
+      seq(
+        alias(seq($._razor_marker, "try"), "at_try"),
+        "{",
+        $._blended_content,
+        "}",
+        repeat(choice($.razor_catch, $.razor_finally)),
+        // ),
       ),
 
     razor_catch: ($) =>
@@ -317,10 +318,7 @@ module.exports = grammar(CSHARP, {
 
     _blended_content: ($) =>
       repeat1(
-        prec(
-          10,
-          choice($._node, $.explicit_line_transition, $.statement, $.comment),
-        ),
+        choice($._node, $.explicit_line_transition, $.statement, $.comment),
       ),
 
     _razor_foreach_initializer: ($) =>
@@ -381,61 +379,57 @@ module.exports = grammar(CSHARP, {
       prec.left(seq(alias("@:", "at_colon_transition"), repeat1(/[^\n\r]+/))),
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
-    _razor_comment_text: (_) => repeat1(/.|\n|\r/),
-    razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
-
     html_comment: ($) => seq("<!--", optional($._razor_comment_text), "-->"),
-    _html_comment_text: (_) => repeat1(/.|\n|\r/),
+    _razor_comment_text: (_) => repeat1(/.|\n|\r/),
 
-    // HTML Base Definitions
-    _tag_name: (_) => /[a-zA-Z0-9-:]+/,
-    _end_tag: ($) => seq("</", $._tag_name, ">"),
-    _html_attribute_name: (_) => /[a-zA-Z0-9-:]+/,
-    _boolean_html_attribute: (_) => /[a-zA-Z0-9-:]+/,
-    _html_attribute_value: ($) =>
+    razor_attribute_name: ($) =>
       seq(
-        '"',
-        optional(
+        $._razor_marker,
+        seq(
           choice(
-            $.razor_explicit_expression,
-            $.razor_implicit_expression,
-            prec.left(/[a-zA-Z0-9-:/\.=>(){}\s]+/),
+            "attributes",
+            "bind",
+            "formname",
+            token(prec(10, /on[a-z]+/)),
+            "key",
+            "ref",
           ),
+          optional($.razor_attribute_modifier),
         ),
-        '"',
       ),
-    _html_text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
+
+    // TODO: "=>" in the string
+    _html_text: (_) => choice(token(/[^@/>]+/), token(/[/]{1}[^>]{1}/)),
+
+    razor_attribute_modifier: (_) =>
+      choice(":culture", ":preventDefault", ":stopPropagation"),
+
+    _text: (_) => /[^<>&@.(\s]([^<>&@]*[^<>&@\s])?/,
 
     razor_attribute_value: ($) =>
-      seq('"', optional($.modifier), $.expression, '"'),
-
-    _html_attribute: ($) =>
-      seq($._html_attribute_name, "=", $._html_attribute_value),
+      // TODO: can this be a lambda direct
+      seq("=", '"', optional($.modifier), $.expression, '"'),
 
     razor_html_attribute: ($) =>
-      seq($.razor_attribute_name, "=", $.razor_attribute_value),
+      // TODO: value is optional / this can just be a attribute_name
+      seq($.razor_attribute_name, $.razor_attribute_value),
+
+    _end_tag: ($) => seq("</", $._html_text, ">"),
 
     element: ($) =>
       seq(
         "<",
-        $._tag_name,
-        optional(
-          repeat(
-            prec.left(
-              seq(
-                choice(
-                  $._html_attribute,
-                  $._boolean_html_attribute,
-                  $.razor_html_attribute,
-                ),
-                optional(" "),
-              ),
-            ),
+        repeat(
+          choice(
+            repeat1(prec(-1, $._html_text)),
+            $.razor_html_attribute,
+            $.razor_explicit_expression,
+            $.razor_implicit_expression,
           ),
         ),
         choice(
-          "/>",
-          seq(">", repeat(choice($._node, $._html_text)), $._end_tag),
+          token("/>"),
+          seq(">", repeat(choice($._node, $._text)), $._end_tag),
         ),
       ),
   },
