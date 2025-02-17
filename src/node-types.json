@@ -5403,9 +5403,24 @@
     }
   },
   {
-    "type": "razor_attribute_name",
+    "type": "razor_attribute_modifier",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "razor_attribute_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "razor_attribute_modifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "razor_attribute_value",
@@ -8668,6 +8683,18 @@
     "named": false
   },
   {
+    "type": ":culture",
+    "named": false
+  },
+  {
+    "type": ":preventDefault",
+    "named": false
+  },
+  {
+    "type": ":stopPropagation",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -8944,11 +8971,19 @@
     "named": false
   },
   {
+    "type": "attributes",
+    "named": false
+  },
+  {
     "type": "await",
     "named": false
   },
   {
     "type": "base",
+    "named": false
+  },
+  {
+    "type": "bind",
     "named": false
   },
   {
@@ -9088,6 +9123,10 @@
     "named": false
   },
   {
+    "type": "formname",
+    "named": false
+  },
+  {
     "type": "from",
     "named": false
   },
@@ -9161,6 +9200,10 @@
   },
   {
     "type": "join",
+    "named": false
+  },
+  {
+    "type": "key",
     "named": false
   },
   {

@@ -74,3 +74,54 @@ razor section
   (razor_section
     (identifier)
     (element)))
+
+======
+form html attribute with value
+======
+<form @onsubmit="SearchAsync" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))))
+
+======
+form html attribute with modifier
+======
+<form @onclick:preventDefault />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier)))))
+
+======
+form html attribute with modifier and value
+======
+<form @bind:culture="Culture" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))))
+
+======
+form html attribute case insensitive
+======
+<form @onClick:preventDefault />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier)))))

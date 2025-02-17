@@ -382,7 +382,24 @@ module.exports = grammar(CSHARP, {
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
     _razor_comment_text: (_) => repeat1(/.|\n|\r/),
-    razor_attribute_name: ($) => seq($._razor_marker, /[a-zA-Z0-9-:]+/),
+    razor_attribute_name: ($) =>
+      seq(
+        $._razor_marker,
+        seq(
+          choice(
+            "attributes",
+            "bind",
+            "formname",
+            token(prec(10, /on[a-z]+/i)),
+            "key",
+            "ref",
+          ),
+          optional($.razor_attribute_modifier),
+        ),
+      ),
+
+    razor_attribute_modifier: (_) =>
+      choice(":culture", ":preventDefault", ":stopPropagation"),
 
     html_comment: ($) => seq("<!--", optional($._razor_comment_text), "-->"),
     _html_comment_text: (_) => repeat1(/.|\n|\r/),
@@ -413,7 +430,7 @@ module.exports = grammar(CSHARP, {
       seq($._html_attribute_name, "=", $._html_attribute_value),
 
     razor_html_attribute: ($) =>
-      seq($.razor_attribute_name, "=", $.razor_attribute_value),
+      seq($.razor_attribute_name, optional(seq("=", $.razor_attribute_value))),
 
     element: ($) =>
       seq(
