@@ -13090,8 +13090,75 @@
           "name": "_razor_marker"
         },
         {
-          "type": "PATTERN",
-          "value": "[a-zA-Z0-9-:]+"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "attributes"
+                },
+                {
+                  "type": "STRING",
+                  "value": "bind"
+                },
+                {
+                  "type": "STRING",
+                  "value": "formname"
+                },
+                {
+                  "type": "TOKEN",
+                  "content": {
+                    "type": "PREC",
+                    "value": 10,
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "on[a-z]+",
+                      "flags": "i"
+                    }
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "value": "key"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ref"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "razor_attribute_modifier"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "razor_attribute_modifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":culture"
+        },
+        {
+          "type": "STRING",
+          "value": ":preventDefault"
+        },
+        {
+          "type": "STRING",
+          "value": ":stopPropagation"
         }
       ]
     },
@@ -13256,12 +13323,25 @@
           "name": "razor_attribute_name"
         },
         {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "razor_attribute_value"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "razor_attribute_value"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
