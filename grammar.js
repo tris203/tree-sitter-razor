@@ -70,7 +70,7 @@ module.exports = grammar(CSHARP, {
             $.razor_preservewhitespace_directive,
           ),
         ),
-        repeat(choice($._node, $.razor_block)),
+        repeat(choice($._node, $._html_text, $.razor_block)),
       ),
 
     _identifier_token: (_) =>
@@ -131,9 +131,16 @@ module.exports = grammar(CSHARP, {
     razor_using_directive: ($) =>
       seq(
         alias(seq($._razor_marker, "using"), "at_using"),
-        choice(
-          seq(optional("unsafe"), field("name", $.identifier), "=", $.type),
-          seq(optional("static"), optional("unsafe"), $._name),
+        prec.right(
+          choice(
+            seq(
+              optional("unsafe"),
+              field("name", $.identifier),
+              token(prec(10, "=")),
+              $.type
+            ),
+            seq(optional("static"), optional("unsafe"), $._name),
+          )
         ),
       ),
     razor_model_directive: ($) =>

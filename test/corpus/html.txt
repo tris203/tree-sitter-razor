@@ -65,3 +65,21 @@ complex html
 
 (compilation_unit
   (element))
+
+===
+HTML with some top-level text
+===
+
+The quick
+
+<p>brown fox</p>
+
+jumps over
+
+<p>the lazy dog.</p>
+
+---
+
+(compilation_unit
+  (element)
+  (element))
