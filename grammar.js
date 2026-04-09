@@ -262,19 +262,38 @@ module.exports = grammar(CSHARP, {
 
     razor_catch: ($) =>
       seq(
-        "catch",
+        token(prec(10, "catch")),
         repeat(choice($.catch_declaration, $.catch_filter_clause)),
         "{",
         $._blended_content,
         "}",
       ),
 
-    razor_finally: ($) => seq("finally", "{", $._blended_content, "}"),
+    razor_finally: ($) =>
+      seq(
+        token(prec(10, "finally")),
+        "{",
+        $._blended_content,
+        "}"
+      ),
 
     razor_else_if: ($) =>
-      seq("else if", $.razor_condition, "{", $._blended_content, "}"),
+      seq(
+        token(prec(10, "else")),
+        "if",
+        $.razor_condition,
+        "{",
+        $._blended_content,
+        "}"
+      ),
 
-    razor_else: ($) => seq("else", "{", $._blended_content, "}"),
+    razor_else: ($) =>
+      seq(
+        token(prec(10, "else")),
+        "{",
+        $._blended_content,
+        "}"
+      ),
 
     razor_switch: ($) =>
       seq(

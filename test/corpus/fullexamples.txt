@@ -605,34 +605,35 @@ Person? secondAuthor)
                 (identifier))
               (boolean_literal)))
           (explicit_line_transition
-            (element)))
-        (razor_explicit_expression
-          (parenthesized_expression
-            (conditional_expression
-              (invocation_expression
-                (member_access_expression
-                  (predefined_type)
-                  (identifier))
-                (argument_list
-                  (argument
+            (element))
+          (razor_else
+            (razor_explicit_expression
+              (parenthesized_expression
+                (conditional_expression
+                  (invocation_expression
                     (member_access_expression
-                      (identifier)
-                      (identifier)))))
-              (member_access_expression
-                (identifier)
-                (identifier))
-              (interpolated_string_expression
-                (interpolation_start)
-                (interpolation
-                  (interpolation_brace)
+                      (predefined_type)
+                      (identifier))
+                    (argument_list
+                      (argument
+                        (member_access_expression
+                          (identifier)
+                          (identifier)))))
                   (member_access_expression
                     (identifier)
                     (identifier))
-                  (interpolation_brace))
-                (string_content)
-                (interpolation
-                  (interpolation_brace)
-                  (member_access_expression
-                    (identifier)
-                    (identifier))
-                  (interpolation_brace))))))))))
+                  (interpolated_string_expression
+                    (interpolation_start)
+                    (interpolation
+                      (interpolation_brace)
+                      (member_access_expression
+                        (identifier)
+                        (identifier))
+                      (interpolation_brace))
+                    (string_content)
+                    (interpolation
+                      (interpolation_brace)
+                      (member_access_expression
+                        (identifier)
+                        (identifier))
+                      (interpolation_brace))))))))))))

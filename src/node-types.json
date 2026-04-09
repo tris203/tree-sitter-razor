@@ -5894,7 +5894,6 @@
   {
     "type": "razor_comment",
     "named": true,
-    "extra": true,
     "fields": {}
   },
   {
@@ -9277,10 +9276,6 @@
   },
   {
     "type": "else",
-    "named": false
-  },
-  {
-    "type": "else if",
     "named": false
   },
   {
