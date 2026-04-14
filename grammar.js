@@ -110,6 +110,7 @@ module.exports = grammar(CSHARP, {
           $.razor_while,
           $.razor_do_while,
           $.razor_try,
+          $.explicit_line_transition,
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.razor_section,
@@ -422,11 +423,11 @@ module.exports = grammar(CSHARP, {
     _html_attribute_value: ($) =>
       seq(
         '"',
-        optional(
+        repeat(
           choice(
             $.razor_explicit_expression,
             $.razor_implicit_expression,
-            prec.left(/[a-zA-Z0-9-:/\.=>(){}\s]+/),
+            /[^"@]+/,
           ),
         ),
         '"',

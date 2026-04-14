@@ -1516,6 +1516,10 @@
           "named": true
         },
         {
+          "type": "explicit_line_transition",
+          "named": true
+        },
+        {
           "type": "html_comment",
           "named": true
         },
@@ -1953,6 +1957,10 @@
       "types": [
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
           "named": true
         },
         {
@@ -2615,6 +2623,10 @@
       "types": [
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
           "named": true
         },
         {
@@ -5701,6 +5713,10 @@
         },
         {
           "type": "element",
+          "named": true
+        },
+        {
+          "type": "explicit_line_transition",
           "named": true
         },
         {

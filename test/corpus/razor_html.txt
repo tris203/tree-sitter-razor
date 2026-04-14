@@ -125,3 +125,19 @@ form html attribute case insensitive
     (razor_html_attribute
       (razor_attribute_name
         (razor_attribute_modifier)))))
+
+======
+Mixed text and Razor expression in HTML attribute
+======
+<div class="x @(true ? "y" : "")">Hello</div>
+---
+
+(compilation_unit
+  (element
+    (razor_explicit_expression
+      (parenthesized_expression
+        (conditional_expression
+          (boolean_literal)
+          (string_literal
+            (string_literal_content))
+          (string_literal))))))
