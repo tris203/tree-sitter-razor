@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-razor
-        VERSION "0.1.0"
+        VERSION "0.1.1"
         DESCRIPTION "Razor grammar for tree-sitter"
         HOMEPAGE_URL "https://github.com/tree-sitter/tree-sitter-razor"
         LANGUAGES C)
