@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-razor"
 description = "Razor grammar for tree-sitter"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Tristan Knight <admin@snappeh.com>"]
 license = "MIT"
 readme = "README.md"
@@ -24,4 +24,4 @@ tree-sitter-language = "0.1"
 cc = "1.1.22"
 
 [dev-dependencies]
-tree-sitter = "0.24.3"
+tree-sitter = "0.26.8"

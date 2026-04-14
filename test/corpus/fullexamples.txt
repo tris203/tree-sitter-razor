@@ -48,7 +48,7 @@ Counter Page
         (variable_declarator
           (identifier)
           (integer_literal))))
-    (local_function_statement
+    (method_declaration
       (modifier)
       (predefined_type)
       (identifier)
@@ -188,7 +188,7 @@ else
             (array_rank_specifier)))
         (variable_declarator
           (identifier))))
-    (local_function_statement
+    (method_declaration
       (modifier)
       (modifier)
       (modifier)

@@ -317,9 +317,8 @@ attribute
           (identifier))
         (attribute_argument_list
           (attribute_argument
-            (assignment_expression
-              (identifier)
-              (boolean_literal)))))))
+            (identifier)
+            (boolean_literal))))))
   (razor_attribute_directive
     (attribute_list
       (attribute

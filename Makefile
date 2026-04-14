@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-razor
 HOMEPAGE_URL := https://github.com/tree-sitter/tree-sitter-razor
-VERSION := 0.1.0
+VERSION := 0.1.1
 
 # repository
 SRC_DIR := src

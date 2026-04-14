@@ -7,7 +7,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-const CSHARP = require("tree-sitter-c-sharp/grammar");
+const CSHARP = require("tree-sitter-c-sharp/grammar").default;
 
 module.exports = grammar(CSHARP, {
   name: "razor",
@@ -17,14 +17,31 @@ module.exports = grammar(CSHARP, {
   conflicts: ($, o) => [
     [$.razor_explicit_expression, $._expression_statement_expression],
 
+    [
+      $.preproc_if,
+      $.preproc_if_in_top_level,
+      $.preproc_if_in_expression,
+      $.preproc_if_in_attribute_list,
+    ],
     [$.preproc_if, $.preproc_if_in_top_level],
     [$.preproc_if, $.preproc_if_in_top_level, $.preproc_if_in_expression],
-    [$.preproc_else, $.preproc_else_in_top_level, $.preproc_else_in_expression],
+    [$.preproc_if, $.preproc_if_in_top_level, $.preproc_if_in_attribute_list],
+    [
+      $.preproc_else,
+      $.preproc_else_in_top_level,
+      $.preproc_else_in_expression,
+      $.preproc_else_in_attribute_list,
+    ],
     [$.declaration, $.preproc_if_in_top_level],
     [$.type_declaration, $.declaration],
-    [$.method_declaration, $.local_function_statement],
+    [$.method_declaration, $._local_function_declaration],
     [$.declaration, $.preproc_else_in_top_level],
-    [$.preproc_elif, $.preproc_elif_in_top_level, $.preproc_elif_in_expression],
+    [
+      $.preproc_elif,
+      $.preproc_elif_in_top_level,
+      $.preproc_elif_in_expression,
+      $.preproc_elif_in_attribute_list,
+    ],
 
     [$.destructor_declaration, $._simple_name],
 

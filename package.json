@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-razor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Razor grammar for tree-sitter",
   "repository": "github:tree-sitter/tree-sitter-razor",
   "license": "MIT",
@@ -28,7 +28,7 @@
   "dependencies": {
     "node-addon-api": "^8.2.2",
     "node-gyp-build": "^4.8.4",
-    "tree-sitter-c-sharp": "^0.23.1"
+    "tree-sitter-c-sharp": "^0.23.5"
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
