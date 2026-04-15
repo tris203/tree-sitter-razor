@@ -75,8 +75,9 @@ Explicit Line Transition
             (identifier)
             (bracketed_argument_list
               (argument
-           (identifier)))))))
-    (explicit_line_transition)))
+                (identifier)))))))
+    (explicit_line_transition
+      (element))))
 
 =======
 Top level explicit line transition
@@ -87,4 +88,5 @@ Top level explicit line transition
 ------
 
 (compilation_unit
-  (explicit_line_transition))
+  (explicit_line_transition
+    (element)))

@@ -2964,7 +2964,17 @@
   {
     "type": "explicit_line_transition",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "element",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "expression_element",

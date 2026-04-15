@@ -604,7 +604,8 @@ Person? secondAuthor)
                 (identifier)
                 (identifier))
               (boolean_literal)))
-          (explicit_line_transition))
+          (explicit_line_transition
+            (element)))
         (razor_explicit_expression
           (parenthesized_expression
             (conditional_expression

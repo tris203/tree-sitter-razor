@@ -389,7 +389,12 @@ module.exports = grammar(CSHARP, {
       ),
 
     explicit_line_transition: ($) =>
-      prec.left(seq(alias("@:", "at_colon_transition"), repeat1(/[^\n\r]+/))),
+      prec.left(
+        seq(
+          alias("@:", "at_colon_transition"),
+          alias(token(prec(1, /[^\n\r]+/)), $.element),
+        ),
+      ),
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
     _razor_comment_text: (_) => repeat1(/.|\n|\r/),
