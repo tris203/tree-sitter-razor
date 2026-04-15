@@ -1,0 +1,128 @@
+@page "/"
+// <- constant.macro
+
+@using System
+// <- constant.macro
+
+@model Demo.App.PageModel
+// <- constant.macro
+
+@rendermode InteractiveServer
+// <- constant.macro
+//           ^ property
+
+@rendermode InteractiveWebAssembly
+// <- constant.macro
+//           ^ property
+
+@rendermode InteractiveAuto
+// <- constant.macro
+//           ^ property
+
+@inject IService Service
+// <- constant.macro
+
+@implements IDisposable
+// <- constant.macro
+
+@layout MainLayout
+// <- constant.macro
+
+@inherits BasePage
+// <- constant.macro
+
+@attribute [Authorize]
+// <- constant.macro
+
+@typeparam TItem
+// <- constant.macro
+
+@namespace Demo.App.Pages
+// <- constant.macro
+
+@preservewhitespace true
+// <- constant.macro
+
+@code {
+// <- constant.macro
+    var value = 1;
+}
+
+@functions {
+// <- constant.macro
+}
+
+@@escaped
+// <- constant.macro
+
+@:inline text
+// <- constant.macro
+
+@* razor comment *@
+// <- comment
+
+<!-- html comment -->
+// <- comment
+
+<div @bind="value" />
+//   ^ function
+
+<div @attributes="attrs" @formname="login" @key="item" @ref="node" @onclick:preventDefault="Handle" @bind:culture="value" />
+//   ^^^^^^^^^^^ function
+//                       ^^^^^^^^^ function
+//                                          ^^^^ function
+//                                                       ^^^^ function
+//                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^ function
+//                                                                                                    ^^^^^^^^^^^^^ function
+
+@value
+// <- variable
+
+@(value + 1)
+// <- variable
+
+@await Task.Delay(1)
+// <- keyword.coroutine
+// ^^^^^ keyword.coroutine
+
+@if (value > 0) {
+// <- keyword.conditional
+}
+
+@switch (value) {
+// <- keyword.conditional
+    case 1:
+        break;
+}
+
+@for (var i = 0; i < 1; i++) {
+// <- keyword.repeat
+}
+
+@foreach (var item in items) {
+// <- keyword.repeat
+}
+
+@while (value > 0) {
+// <- keyword.repeat
+}
+
+@do {
+// <- keyword.repeat
+} while (value > 0);
+
+@try {
+// <- keyword.exception
+} catch {
+//^ keyword.exception
+} finally {
+//^ keyword.exception
+}
+
+@lock (value) {
+// <- keyword
+}
+
+@section Scripts {
+// <- keyword
+}
