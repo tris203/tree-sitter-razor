@@ -110,7 +110,6 @@ module.exports = grammar(CSHARP, {
           $.razor_while,
           $.razor_do_while,
           $.razor_try,
-          $.razor_await_expression,
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.razor_section,
@@ -215,12 +214,6 @@ module.exports = grammar(CSHARP, {
 
     razor_implicit_expression: ($) =>
       seq(alias($._razor_marker, "at_implicit"), prec.left($.expression)),
-
-    razor_await_expression: ($) =>
-      seq(
-        alias(seq($._razor_marker, "await"), "at_await"),
-        prec.right($.expression),
-      ),
 
     razor_lock: ($) =>
       seq(

@@ -6,10 +6,12 @@
       "path": ".",
       "scope": "source.razor",
       "file-types": [
-        ".razor"
+        "razor"
       ],
       "injection-regex": "^razor$",
-      "highlights": "queries/highlights.scm"
+      "highlights": [
+        "queries/highlights.scm"
+      ]
     }
   ],
   "metadata": {

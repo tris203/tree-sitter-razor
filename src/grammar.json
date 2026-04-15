@@ -12146,10 +12146,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "razor_await_expression"
-          },
-          {
-            "type": "SYMBOL",
             "name": "razor_implicit_expression"
           },
           {
@@ -12754,37 +12750,6 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 0,
-          "content": {
-            "type": "SYMBOL",
-            "name": "expression"
-          }
-        }
-      ]
-    },
-    "razor_await_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_razor_marker"
-              },
-              {
-                "type": "STRING",
-                "value": "await"
-              }
-            ]
-          },
-          "named": false,
-          "value": "at_await"
-        },
-        {
-          "type": "PREC_RIGHT",
           "value": 0,
           "content": {
             "type": "SYMBOL",

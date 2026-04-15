@@ -1080,11 +1080,6 @@
     "fields": {}
   },
   {
-    "type": "at_await",
-    "named": false,
-    "fields": {}
-  },
-  {
     "type": "at_block",
     "named": false,
     "fields": {}
@@ -1561,10 +1556,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -1970,10 +1961,6 @@
         },
         {
           "type": "razor_attribute_directive",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -2632,10 +2619,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -5705,21 +5688,6 @@
     }
   },
   {
-    "type": "razor_await_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "razor_block",
     "named": true,
     "fields": {},
@@ -5737,10 +5705,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -5839,10 +5803,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -5937,10 +5897,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -6050,10 +6006,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -6145,10 +6097,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -6233,10 +6181,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -6361,10 +6305,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -6449,10 +6389,6 @@
           },
           {
             "type": "html_comment",
-            "named": true
-          },
-          {
-            "type": "razor_await_expression",
             "named": true
           },
           {
@@ -6575,10 +6511,6 @@
           },
           {
             "type": "html_comment",
-            "named": true
-          },
-          {
-            "type": "razor_await_expression",
             "named": true
           },
           {
@@ -6724,10 +6656,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -6948,10 +6876,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -7136,10 +7060,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -7250,10 +7170,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_case_condition",
           "named": true
         },
@@ -7345,10 +7261,6 @@
           "named": true
         },
         {
-          "type": "razor_await_expression",
-          "named": true
-        },
-        {
           "type": "razor_comment",
           "named": true
         },
@@ -7433,10 +7345,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -7586,10 +7494,6 @@
         },
         {
           "type": "html_comment",
-          "named": true
-        },
-        {
-          "type": "razor_await_expression",
           "named": true
         },
         {
@@ -9166,10 +9070,6 @@
   },
   {
     "type": "at_attribute",
-    "named": false
-  },
-  {
-    "type": "at_await",
     "named": false
   },
   {
