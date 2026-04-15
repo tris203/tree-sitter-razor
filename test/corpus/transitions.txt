@@ -76,4 +76,17 @@ Explicit Line Transition
             (bracketed_argument_list
               (argument
                 (identifier)))))))
-    (explicit_line_transition)))
+    (explicit_line_transition
+      (element))))
+
+=======
+Top level explicit line transition
+=======
+
+@: hello <em>world</em>
+
+------
+
+(compilation_unit
+  (explicit_line_transition
+    (element)))

@@ -352,3 +352,287 @@ else
                   (binary_expression
                     (identifier)
                     (real_literal)))))))))))
+
+======
+Author Figcaption Example
+======
+@{
+    static (string name, string function, string heading) BuildAuthorData(Person firstAuthor,
+Person? secondAuthor)
+    {
+        if (secondAuthor == null)
+        {
+            return (firstAuthor.Name, firstAuthor.Function, "Auteur");
+        }
+
+        string name = $"{firstAuthor.Name} & {secondAuthor.Name}";
+
+        string function = firstAuthor.Function == secondAuthor.Function
+            ? firstAuthor.Function
+            : $"{firstAuthor.Function} & {secondAuthor.Function}";
+
+        return (name, function, "Auteurs");
+    }
+
+    Person firstAuthor = Model.Authors.FirstOrDefault()!;
+    Person? secondAuthor = Model.Authors.ElementAtOrDefault(1);
+    var authorData = BuildAuthorData(firstAuthor, secondAuthor);
+}
+
+<figcaption class="authors @(Model.ArticlePage == true ? "authors--article" : "")">
+    <div class="authors__images">
+        <img class="authors__image" src="@firstAuthor.ImageUrl" alt="@firstAuthor.Name" loading="lazy" />
+
+        @if (secondAuthor != null)
+        {
+            <img class="authors__image" src="@secondAuthor.ImageUrl" alt="@secondAuthor.Name" loading="lazy" />
+        }
+    </div>
+
+    <section class="authors__info">
+        <div class="authors__heading">
+            @(Model.ArticlePage == true ? authorData.heading : authorData.name)
+        </div>
+        <div class="authors__text">
+            @if (Model.ArticlePage == true)
+            {
+                @: @authorData.name <em>@authorData.function</em>
+            }
+            else
+            {
+                @(string.IsNullOrWhiteSpace(firstAuthor.Company)
+                        ? authorData.function
+                        : $"{authorData.function} {firstAuthor.Company}")
+            }
+        </div>
+    </section>
+</figcaption>
+
+---
+
+(compilation_unit
+  (razor_block
+    (method_declaration
+      (modifier)
+      (tuple_type
+        (tuple_element
+          (predefined_type)
+          (identifier))
+        (tuple_element
+          (predefined_type)
+          (identifier))
+        (tuple_element
+          (predefined_type)
+          (identifier)))
+      (identifier)
+      (parameter_list
+        (parameter
+          (identifier)
+          (identifier))
+        (parameter
+          (nullable_type
+            (identifier))
+          (identifier)))
+      (block
+        (if_statement
+          (binary_expression
+            (identifier)
+            (null_literal))
+          (block
+            (return_statement
+              (tuple_expression
+                (argument
+                  (member_access_expression
+                    (identifier)
+                    (identifier)))
+                (argument
+                  (member_access_expression
+                    (identifier)
+                    (identifier)))
+                (argument
+                  (string_literal
+                    (string_literal_content)))))))
+        (local_declaration_statement
+          (variable_declaration
+            (predefined_type)
+            (variable_declarator
+              (identifier)
+              (interpolated_string_expression
+                (interpolation_start)
+                (interpolation
+                  (interpolation_brace)
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (interpolation_brace))
+                (string_content)
+                (interpolation
+                  (interpolation_brace)
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (interpolation_brace))))))
+        (local_declaration_statement
+          (variable_declaration
+            (predefined_type)
+            (variable_declarator
+              (identifier)
+              (conditional_expression
+                (binary_expression
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (member_access_expression
+                    (identifier)
+                    (identifier)))
+                (member_access_expression
+                  (identifier)
+                  (identifier))
+                (interpolated_string_expression
+                  (interpolation_start)
+                  (interpolation
+                    (interpolation_brace)
+                    (member_access_expression
+                      (identifier)
+                      (identifier))
+                    (interpolation_brace))
+                  (string_content)
+                  (interpolation
+                    (interpolation_brace)
+                    (member_access_expression
+                      (identifier)
+                      (identifier))
+                    (interpolation_brace)))))))
+        (return_statement
+          (tuple_expression
+            (argument
+              (identifier))
+            (argument
+              (identifier))
+            (argument
+              (string_literal
+                (string_literal_content)))))))
+    (local_declaration_statement
+      (variable_declaration
+        (identifier)
+        (variable_declarator
+          (identifier)
+          (postfix_unary_expression
+            (invocation_expression
+              (member_access_expression
+                (member_access_expression
+                  (identifier)
+                  (identifier))
+                (identifier))
+              (argument_list))))))
+    (local_declaration_statement
+      (variable_declaration
+        (nullable_type
+          (identifier))
+        (variable_declarator
+          (identifier)
+          (invocation_expression
+            (member_access_expression
+              (member_access_expression
+                (identifier)
+                (identifier))
+              (identifier))
+            (argument_list
+              (argument
+                (integer_literal)))))))
+    (local_declaration_statement
+      (variable_declaration
+        (implicit_type)
+        (variable_declarator
+          (identifier)
+          (invocation_expression
+            (identifier)
+            (argument_list
+              (argument
+                (identifier))
+              (argument
+                (identifier))))))))
+  (element
+    (razor_explicit_expression
+      (parenthesized_expression
+        (conditional_expression
+          (binary_expression
+            (member_access_expression
+              (identifier)
+              (identifier))
+            (boolean_literal))
+          (string_literal
+            (string_literal_content))
+          (string_literal))))
+    (element
+      (element
+        (razor_implicit_expression
+          (identifier))
+        (razor_implicit_expression
+          (identifier)))
+      (razor_if
+        (razor_condition
+          (binary_expression
+            (identifier)
+            (null_literal)))
+        (element
+          (razor_implicit_expression
+            (identifier))
+          (razor_implicit_expression
+            (identifier)))))
+    (element
+      (element
+        (razor_explicit_expression
+          (parenthesized_expression
+            (conditional_expression
+              (binary_expression
+                (member_access_expression
+                  (identifier)
+                  (identifier))
+                (boolean_literal))
+              (member_access_expression
+                (identifier)
+                (identifier))
+              (member_access_expression
+                (identifier)
+                (identifier))))))
+      (element
+        (razor_if
+          (razor_condition
+            (binary_expression
+              (member_access_expression
+                (identifier)
+                (identifier))
+              (boolean_literal)))
+          (explicit_line_transition
+            (element)))
+        (razor_explicit_expression
+          (parenthesized_expression
+            (conditional_expression
+              (invocation_expression
+                (member_access_expression
+                  (predefined_type)
+                  (identifier))
+                (argument_list
+                  (argument
+                    (member_access_expression
+                      (identifier)
+                      (identifier)))))
+              (member_access_expression
+                (identifier)
+                (identifier))
+              (interpolated_string_expression
+                (interpolation_start)
+                (interpolation
+                  (interpolation_brace)
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (interpolation_brace))
+                (string_content)
+                (interpolation
+                  (interpolation_brace)
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (interpolation_brace))))))))))

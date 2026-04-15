@@ -110,6 +110,7 @@ module.exports = grammar(CSHARP, {
           $.razor_while,
           $.razor_do_while,
           $.razor_try,
+          $.explicit_line_transition,
           $.razor_implicit_expression,
           $.razor_explicit_expression,
           $.razor_section,
@@ -388,7 +389,12 @@ module.exports = grammar(CSHARP, {
       ),
 
     explicit_line_transition: ($) =>
-      prec.left(seq(alias("@:", "at_colon_transition"), repeat1(/[^\n\r]+/))),
+      prec.left(
+        seq(
+          alias("@:", "at_colon_transition"),
+          alias(token(prec(1, /[^\n\r]+/)), $.element),
+        ),
+      ),
 
     razor_comment: ($) => seq("@*", optional($._razor_comment_text), "*@"),
     _razor_comment_text: (_) => repeat1(/.|\n|\r/),
@@ -422,11 +428,11 @@ module.exports = grammar(CSHARP, {
     _html_attribute_value: ($) =>
       seq(
         '"',
-        optional(
+        repeat(
           choice(
             $.razor_explicit_expression,
             $.razor_implicit_expression,
-            prec.left(/[a-zA-Z0-9-:/\.=>(){}\s]+/),
+            /[^"@]+/,
           ),
         ),
         '"',
