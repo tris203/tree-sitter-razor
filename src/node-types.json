@@ -9280,10 +9280,6 @@
     "named": false
   },
   {
-    "type": "else if",
-    "named": false
-  },
-  {
     "type": "enable",
     "named": false
   },

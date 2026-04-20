@@ -61,3 +61,34 @@ catch (Exception)
       (catch_declaration
         (identifier))
       (element))))
+
+===
+@try, catch, finally nested in element
+===
+
+<div>
+    @try
+    {
+    <div />
+    }
+    catch (Exception exn)
+    {
+        <div />
+    }
+    finally
+    {
+        <div />
+    }
+</div>
+
+---
+
+(compilation_unit
+ (element
+  (razor_try
+   (element)
+   (razor_catch
+    (catch_declaration (identifier) (identifier))
+    (element))
+   (razor_finally
+    (element)))))

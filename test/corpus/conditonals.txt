@@ -172,3 +172,35 @@ Foreach in an if with a wrapped element
           (element
             (razor_implicit_expression
               (identifier))))))))
+
+======
+@if, else if, else nested in element
+======
+
+<div>
+    @if (condition)
+    {
+        <div />
+    }
+    else if (condition2)
+    {
+        <div />
+    }
+    else
+    {
+        <div />
+    }
+</div>
+
+---
+
+(compilation_unit
+ (element
+  (razor_if
+   (razor_condition (identifier))
+   (element)
+   (razor_else_if
+    (razor_condition (identifier))
+    (element))
+   (razor_else
+    (element)))))
