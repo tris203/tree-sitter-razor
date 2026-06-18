@@ -17,6 +17,7 @@ enum TokenType {
     RAW_STRING_START,
     RAW_STRING_END,
     RAW_STRING_CONTENT,
+    RAW_TEXT,
 };
 
 typedef enum {
@@ -316,6 +317,30 @@ bool tree_sitter_razor_external_scanner_scan(void *payload, TSLexer *lexer, cons
         }
 
         return false;
+    }
+
+    // Scan raw text inside <script> and <style> elements.
+    // Consumes everything until we see "</" followed by the end tag name.
+    if (valid_symbols[RAW_TEXT]) {
+        lexer->result_symbol = RAW_TEXT;
+        bool has_content = false;
+
+        while (lexer->lookahead) {
+            if (lexer->lookahead == '<') {
+                lexer->mark_end(lexer);
+                advance(lexer);
+                if (lexer->lookahead == '/') {
+                    // Looks like a closing tag — stop before it
+                    return has_content;
+                }
+            } else {
+                advance(lexer);
+            }
+            has_content = true;
+        }
+
+        lexer->mark_end(lexer);
+        return has_content;
     }
 
     if (valid_symbols[INTERPOLATION_STRING_CONTENT] && scanner->interpolation_stack.size > 0) {

@@ -12,6 +12,8 @@ const CSHARP = require("tree-sitter-c-sharp/grammar").default;
 module.exports = grammar(CSHARP, {
   name: "razor",
 
+  externals: ($, o) => [...o, $.raw_text],
+
   extras: ($) => [$.razor_comment, $.comment, /\s+/],
 
   conflicts: ($, o) => [
@@ -119,6 +121,8 @@ module.exports = grammar(CSHARP, {
           $.razor_section,
           $.razor_compound_using,
           $.razor_lock,
+          $.script_element,
+          $.style_element,
           $.element,
           $.html_comment,
         ),
@@ -491,6 +495,54 @@ module.exports = grammar(CSHARP, {
 
     razor_html_attribute: ($) =>
       seq($.razor_attribute_name, optional(seq("=", $.razor_attribute_value))),
+
+    script_element: ($) =>
+      seq(
+        "<",
+        alias("script", $._tag_name),
+        optional(
+          repeat(
+            prec.left(
+              seq(
+                choice(
+                  $._html_attribute,
+                  $._boolean_html_attribute,
+                  $.razor_html_attribute,
+                ),
+                optional(" "),
+              ),
+            ),
+          ),
+        ),
+        choice(
+          "/>",
+          seq(">", optional($.raw_text), "</", "script", ">"),
+        ),
+      ),
+
+    style_element: ($) =>
+      seq(
+        "<",
+        alias("style", $._tag_name),
+        optional(
+          repeat(
+            prec.left(
+              seq(
+                choice(
+                  $._html_attribute,
+                  $._boolean_html_attribute,
+                  $.razor_html_attribute,
+                ),
+                optional(" "),
+              ),
+            ),
+          ),
+        ),
+        choice(
+          "/>",
+          seq(">", optional($.raw_text), "</", "style", ">"),
+        ),
+      ),
 
     element: ($) =>
       seq(
