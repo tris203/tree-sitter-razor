@@ -2653,11 +2653,27 @@
           "named": true
         },
         {
+          "type": "element_access_expression",
+          "named": true
+        },
+        {
           "type": "explicit_line_transition",
           "named": true
         },
         {
           "type": "html_comment",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "invocation_expression",
+          "named": true
+        },
+        {
+          "type": "member_access_expression",
           "named": true
         },
         {

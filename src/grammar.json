@@ -14136,6 +14136,45 @@
         }
       ]
     },
+    "_razor_tag_expression": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_razor_marker"
+            },
+            "named": false,
+            "value": "at_implicit"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "member_access_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "invocation_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "element_access_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "element": {
       "type": "SEQ",
       "members": [
@@ -14172,6 +14211,14 @@
                         {
                           "type": "SYMBOL",
                           "name": "razor_html_attribute"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_razor_tag_expression"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "razor_explicit_expression"
                         }
                       ]
                     },
