@@ -492,6 +492,22 @@ module.exports = grammar(CSHARP, {
     razor_html_attribute: ($) =>
       seq($.razor_attribute_name, optional(seq("=", $.razor_attribute_value))),
 
+    // bare @expr in a start tag — member chain only, so a trailing `>` closes
+    // the tag instead of being parsed as a greater-than operator
+    _razor_tag_expression: ($) =>
+      prec(
+        1,
+        seq(
+          alias($._razor_marker, "at_implicit"),
+          choice(
+            $.member_access_expression,
+            $.invocation_expression,
+            $.element_access_expression,
+            $.identifier,
+          ),
+        ),
+      ),
+
     element: ($) =>
       seq(
         "<",
@@ -504,6 +520,8 @@ module.exports = grammar(CSHARP, {
                   $._html_attribute,
                   $._boolean_html_attribute,
                   $.razor_html_attribute,
+                  $._razor_tag_expression,
+                  $.razor_explicit_expression,
                 ),
                 optional(" "),
               ),
