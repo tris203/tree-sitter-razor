@@ -11,7 +11,8 @@ Directives
     (string_literal
       (string_literal_content)))
   (razor_rendermode_directive
-    (razor_rendermode))
+    (razor_rendermode
+      (identifier)))
   (razor_inject_directive
     (variable_declaration
       (qualified_name

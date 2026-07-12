@@ -29,7 +29,8 @@ Counter Page
     (string_literal
       (string_literal_content)))
   (razor_rendermode_directive
-    (razor_rendermode))
+    (razor_rendermode
+      (identifier)))
   (element)
   (element)
   (element
@@ -567,9 +568,13 @@ Person? secondAuthor)
     (element
       (element
         (razor_implicit_expression
-          (identifier))
+          (member_access_expression
+            (identifier)
+            (identifier)))
         (razor_implicit_expression
-          (identifier)))
+          (member_access_expression
+            (identifier)
+            (identifier))))
       (razor_if
         (razor_condition
           (binary_expression
@@ -577,9 +582,13 @@ Person? secondAuthor)
             (null_literal)))
         (element
           (razor_implicit_expression
-            (identifier))
+            (member_access_expression
+              (identifier)
+              (identifier)))
           (razor_implicit_expression
-            (identifier)))))
+            (member_access_expression
+              (identifier)
+              (identifier))))))
     (element
       (element
         (razor_explicit_expression

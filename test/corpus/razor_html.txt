@@ -43,14 +43,16 @@ razor attribute values
                   (argument_list))))))))))
 
 ======
-CSharp in HTML attribute - String(Semantic Highlighting does the rest)
+Bare component lambda stays opaque without component schema
 ======
    <GridColumn SortKeySelector="item => item.Integration.Id">
       </GridColumn>
 ----
 
 (compilation_unit
-  (element))
+  (element
+    (component_attribute
+      (component_attribute_value))))
 
 ======
 HTML Attribute of empty string
@@ -60,7 +62,9 @@ HTML Attribute of empty string
 ----
 
 (compilation_unit
-  (element))
+  (element
+    (component_attribute
+      (component_attribute_value))))
 
 ===
 razor section
@@ -141,3 +145,148 @@ Mixed text and Razor expression in HTML attribute
           (string_literal
             (string_literal_content))
           (string_literal))))))
+
+======
+HTML attribute values mix text and expressions in any position
+======
+<div data-a="@x post" data-b="pre @x" data-c="pre @x post @y" data-d="@action.Class post"></div>
+---
+
+(compilation_unit
+  (element
+    (razor_implicit_expression
+      (identifier))
+    (razor_implicit_expression
+      (identifier))
+    (razor_implicit_expression
+      (identifier))
+    (razor_implicit_expression
+      (identifier))
+    (razor_implicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))))
+
+======
+HTML attribute expression can contain a quoted argument
+======
+<button aria-pressed="@AriaPressed("In Progress")"></button>
+---
+
+(compilation_unit
+  (element
+    (razor_implicit_expression
+      (invocation_expression
+        (identifier)
+        (argument_list
+          (argument
+            (string_literal
+              (string_literal_content))))))))
+
+======
+Parenthesized inline HTML text can surround Razor expressions
+======
+<div>(optional)</div>
+<div>(@x remaining)</div>
+<div>(see @x)</div>
+<div>@(x + 1)</div>
+---
+
+(compilation_unit
+  (element)
+  (element
+    (razor_implicit_expression
+      (identifier)))
+  (element
+    (razor_implicit_expression
+      (identifier)))
+  (element
+    (razor_explicit_expression
+      (parenthesized_expression
+        (binary_expression
+          (identifier)
+          (integer_literal))))))
+
+======
+Component attribute value with bare identifier
+======
+<WorkspaceDetailStack Snapshot="Snapshot" Activity="EffectiveActivity" />
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (identifier)))
+    (component_attribute
+      (component_attribute_value
+        (identifier)))))
+
+======
+Component attribute with empty value
+======
+<GridColumn Nothing=""></GridColumn>
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value))))
+
+======
+Component attribute with multi-word string literal stays opaque
+======
+<Comp Title="Some literal words" />
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value))))
+
+======
+Component static values accept digits and punctuation
+======
+<Comp Label="Observation date 1" Placeholder="e.g. MD, DO, NP" Width="170px" Id="observer-edit-date-1" Hint="Search..." />
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value))
+    (component_attribute
+      (component_attribute_value))
+    (component_attribute
+      (component_attribute_value))
+    (component_attribute
+      (component_attribute_value))
+    (component_attribute
+      (component_attribute_value))))
+
+======
+bind-Value directive attribute value with identifier
+======
+<input @bind-Value="myField" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))))
+
+======
+bind-Value directive attribute value with member access
+======
+<InputText @bind-Value="model.Name" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (member_access_expression
+          (identifier)
+          (identifier))))))

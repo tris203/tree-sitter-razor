@@ -1,0 +1,114 @@
+==============================
+Event preventDefault modifier
+==============================
+
+<form @onsubmit="LookupAsync" @onsubmit:preventDefault></form>
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier)))))
+
+==============================
+Bind format modifier
+==============================
+
+<input @bind="value" @bind:format="yyyy-MM-dd" />
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (razor_attribute_text)))))
+
+==============================
+Event stopPropagation modifier
+==============================
+
+<button @onclick:stopPropagation="true"></button>
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (boolean_literal)))))
+
+==============================
+Bind event modifier
+==============================
+
+<input @bind-Value="value" @bind-Value:event="oninput" />
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))))
+
+==============================
+Bind after modifier
+==============================
+
+<InputText @bind-Value="value" @bind-Value:after="ValueUpdated" />
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name)
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))))
+
+==============================
+Bind get and set modifiers
+==============================
+
+<input @bind:get="value" @bind:set="SetValue" />
+
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))))

@@ -1,0 +1,114 @@
+==============================
+Component value implicit identifier
+==============================
+
+<InputText Value="@currentValue" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_implicit_expression
+          (identifier))))))
+
+==============================
+Component value implicit member access
+==============================
+
+<InputText Value="@model.Name" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_implicit_expression
+          (member_access_expression
+            (identifier)
+            (identifier)))))))
+
+==============================
+Component value implicit invocation
+==============================
+
+<FluentBadge Color="@StatusColor(context.Status)" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_implicit_expression
+          (invocation_expression
+            (identifier)
+            (argument_list
+              (argument
+                (member_access_expression
+                  (identifier)
+                  (identifier))))))))))
+
+==============================
+Component value typeof member access
+==============================
+
+<Router AppAssembly="@typeof(App).Assembly" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_implicit_expression
+          (member_access_expression
+            (typeof_expression
+              (identifier))
+            (identifier)))))))
+
+==============================
+Component value bare identifier
+==============================
+
+<InputText Value="currentValue" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (identifier)))))
+
+==============================
+Mixed HTML text and implicit expression
+==============================
+
+<a class="area-action @action.Class">Open</a>
+
+---
+
+(compilation_unit
+  (element
+    (razor_implicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))))
+
+==============================
+Parenthesized HTML text around implicit member access
+==============================
+
+<span>(@_selectedProvider.ProviderId)</span>
+
+---
+
+(compilation_unit
+  (element
+    (razor_implicit_expression
+      (member_access_expression
+        (identifier)
+        (identifier)))))

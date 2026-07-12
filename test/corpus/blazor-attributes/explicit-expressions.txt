@@ -1,0 +1,234 @@
+==============================
+Component value lambda member access
+==============================
+
+<PropertyColumn Property="@(item => item.Name)" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (lambda_expression
+              (implicit_parameter)
+              (member_access_expression
+                (identifier)
+                (identifier)))))))))
+
+==============================
+Component value parameterless lambda invocation
+==============================
+
+<ValidationMessage For="@(() => model.Name)" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (lambda_expression
+              (parameter_list)
+              (member_access_expression
+                (identifier)
+                (identifier)))))))))
+
+==============================
+Component value lambda assignment and null coalescing
+==============================
+
+<InputText ValueChanged="@(value => model.Name = value ?? string.Empty)" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (lambda_expression
+              (implicit_parameter)
+              (assignment_expression
+                (member_access_expression
+                  (identifier)
+                  (identifier))
+                (binary_expression
+                  (identifier)
+                  (member_access_expression
+                    (predefined_type)
+                    (identifier)))))))))))
+
+==============================
+Component value conditional with quoted branches
+==============================
+
+<InputText Label="@(mode == GroupMode ? "Group" : "Person")" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (conditional_expression
+              (binary_expression
+                (identifier)
+                (identifier))
+              (string_literal
+                (string_literal_content))
+              (string_literal
+                (string_literal_content)))))))))
+
+==============================
+Component value collection expression
+==============================
+
+<InputText ChangeAfterKeyPress="@([KeyPress.For(KeyCode.Enter).WithPreventDefault()])" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (collection_expression
+              (collection_element
+                (expression_element
+                  (invocation_expression
+                    (member_access_expression
+                      (invocation_expression
+                        (member_access_expression
+                          (identifier)
+                          (identifier))
+                        (argument_list
+                          (argument
+                            (member_access_expression
+                              (identifier)
+                              (identifier)))))
+                      (identifier))
+                    (argument_list)))))))))))
+
+==============================
+Component value object creation
+==============================
+
+<FluentIcon Value="@(new Icons.Regular.Size20.Search())" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (object_creation_expression
+              (qualified_name
+                (qualified_name
+                  (qualified_name
+                    (identifier)
+                    (identifier))
+                  (identifier))
+                (identifier))
+              (argument_list))))))))
+
+==============================
+Component value interpolated string
+==============================
+
+<FluentCard Class="@($"area-card {area.SemanticClass}")" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (interpolated_string_expression
+              (interpolation_start)
+              (string_content)
+              (interpolation
+                (interpolation_brace)
+                (member_access_expression
+                  (identifier)
+                  (identifier))
+                (interpolation_brace)))))))))
+
+==============================
+Component value binary expression
+==============================
+
+<FluentButton Disabled="@(state != Ready || mutating)" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (binary_expression
+              (binary_expression
+                (identifier)
+                (identifier))
+              (identifier))))))))
+
+==============================
+Component value null coalescing collection
+==============================
+
+<Result UploadFailures="@(result?.UploadFailures ?? [])" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (binary_expression
+              (conditional_access_expression
+                (identifier)
+                (member_binding_expression
+                  (identifier)))
+              (collection_expression))))))))
+
+==============================
+FluentUI autocomplete async dismiss callback documentation-only
+==============================
+
+<FluentPersona OnDismissClick="@(async () => await ContactList.RemoveSelectedItemAsync(context))" />
+
+---
+
+(compilation_unit
+  (element
+    (component_attribute
+      (component_attribute_value
+        (razor_explicit_expression
+          (parenthesized_expression
+            (lambda_expression
+              (modifier)
+              (parameter_list)
+              (await_expression
+                (invocation_expression
+                  (member_access_expression
+                    (identifier)
+                    (identifier))
+                  (argument_list
+                    (argument
+                      (identifier))))))))))))

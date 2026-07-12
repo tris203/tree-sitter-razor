@@ -17,6 +17,7 @@ enum TokenType {
     RAW_STRING_START,
     RAW_STRING_END,
     RAW_STRING_CONTENT,
+    HTML_ATTRIBUTE_TAIL_TEXT,
 };
 
 typedef enum {
@@ -117,6 +118,14 @@ bool tree_sitter_razor_external_scanner_scan(void *payload, TSLexer *lexer, cons
     // error recovery, gives better trees this way
     if (valid_symbols[OPT_SEMI] && valid_symbols[INTERPOLATION_REGULAR_START]) {
         return false;
+    }
+
+    if (valid_symbols[HTML_ATTRIBUTE_TAIL_TEXT] && iswspace(lexer->lookahead)) {
+        do {
+            advance(lexer);
+        } while (!lexer->eof(lexer) && lexer->lookahead != '"' && lexer->lookahead != '@');
+        lexer->result_symbol = HTML_ATTRIBUTE_TAIL_TEXT;
+        return true;
     }
 
     if (valid_symbols[OPT_SEMI]) {
