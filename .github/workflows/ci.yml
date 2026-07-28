@@ -26,7 +26,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Keep this workflow change visible while validating the parser test action.
   test:
     name: Test parser
     runs-on: ${{matrix.os}}
