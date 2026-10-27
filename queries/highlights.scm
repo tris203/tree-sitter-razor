@@ -63,4 +63,7 @@
 
 (razor_attribute_name) @function
 
+(razor_html_attribute
+  (string_literal) @string)
+
 (taghelper_wildcard) @character.special

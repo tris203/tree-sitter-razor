@@ -448,7 +448,7 @@ module.exports = grammar(CSHARP, {
         seq(
           choice(
             "attributes",
-            "bind",
+            seq("bind", optional($.razor_attribute_suffix)),
             "formname",
             token(prec(10, /on[a-z]+/i)),
             "key",
@@ -458,8 +458,25 @@ module.exports = grammar(CSHARP, {
         ),
       ),
 
+    _razor_bind_string_attribute_name: ($) =>
+      seq(
+        $._razor_marker,
+        "bind",
+        optional($.razor_attribute_suffix),
+        alias(choice(":event", ":format"), $.razor_attribute_modifier),
+      ),
+
+    razor_attribute_suffix: (_) => token(prec(1, /-[A-Za-z_][A-Za-z0-9_]*/)),
+
     razor_attribute_modifier: (_) =>
-      choice(":culture", ":preventDefault", ":stopPropagation"),
+      choice(
+        ":after",
+        ":culture",
+        ":get",
+        ":preventDefault",
+        ":set",
+        ":stopPropagation",
+      ),
 
     html_comment: ($) => seq("<!--", optional($._razor_comment_text), "-->"),
     _html_comment_text: (_) => repeat1(/.|\n|\r/),
@@ -490,7 +507,17 @@ module.exports = grammar(CSHARP, {
       seq($._html_attribute_name, "=", $._html_attribute_value),
 
     razor_html_attribute: ($) =>
-      seq($.razor_attribute_name, optional(seq("=", $.razor_attribute_value))),
+      choice(
+        seq(
+          $.razor_attribute_name,
+          optional(seq("=", $.razor_attribute_value)),
+        ),
+        seq(
+          alias($._razor_bind_string_attribute_name, $.razor_attribute_name),
+          "=",
+          $.string_literal,
+        ),
+      ),
 
     element: ($) =>
       seq(

@@ -13900,8 +13900,25 @@
                   "value": "attributes"
                 },
                 {
-                  "type": "STRING",
-                  "value": "bind"
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "bind"
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "razor_attribute_suffix"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   "type": "STRING",
@@ -13945,16 +13962,82 @@
         }
       ]
     },
+    "_razor_bind_string_attribute_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_razor_marker"
+        },
+        {
+          "type": "STRING",
+          "value": "bind"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "razor_attribute_suffix"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ":event"
+              },
+              {
+                "type": "STRING",
+                "value": ":format"
+              }
+            ]
+          },
+          "named": true,
+          "value": "razor_attribute_modifier"
+        }
+      ]
+    },
+    "razor_attribute_suffix": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "PATTERN",
+          "value": "-[A-Za-z_][A-Za-z0-9_]*"
+        }
+      }
+    },
     "razor_attribute_modifier": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "STRING",
+          "value": ":after"
+        },
         {
           "type": "STRING",
           "value": ":culture"
         },
         {
           "type": "STRING",
+          "value": ":get"
+        },
+        {
+          "type": "STRING",
           "value": ":preventDefault"
+        },
+        {
+          "type": "STRING",
+          "value": ":set"
         },
         {
           "type": "STRING",
@@ -14107,30 +14190,57 @@
       ]
     },
     "razor_html_attribute": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "razor_attribute_name"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "="
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "razor_attribute_value"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "razor_attribute_name"
             },
             {
-              "type": "BLANK"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "razor_attribute_value"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_razor_bind_string_attribute_name"
+              },
+              "named": true,
+              "value": "razor_attribute_name"
+            },
+            {
+              "type": "STRING",
+              "value": "="
+            },
+            {
+              "type": "SYMBOL",
+              "name": "string_literal"
             }
           ]
         }

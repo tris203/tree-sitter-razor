@@ -141,3 +141,64 @@ Mixed text and Razor expression in HTML attribute
           (string_literal
             (string_literal_content))
           (string_literal))))))
+
+======
+bind attribute with suffix
+======
+<InputText @bind-Value="Name" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_suffix))
+      (razor_attribute_value
+        (identifier)))))
+
+======
+bind attribute with suffix and modifier
+======
+<InputText @bind-Value:get="Text" @bind-Value:set="OnTextChanged" @bind-Value:after="Save" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_suffix)
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_suffix)
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_suffix)
+        (razor_attribute_modifier))
+      (razor_attribute_value
+        (identifier)))))
+
+======
+bind event and format modifiers take string values
+======
+<input @bind-Value:event="oninput" @bind:format="yyyy-MM-dd" />
+---
+
+(compilation_unit
+  (element
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_suffix)
+        (razor_attribute_modifier))
+      (string_literal
+        (string_literal_content)))
+    (razor_html_attribute
+      (razor_attribute_name
+        (razor_attribute_modifier))
+      (string_literal
+        (string_literal_content)))))
